@@ -61,15 +61,9 @@ public class BaseTower : MonoBehaviour
         var TorsoLook = target.transform.position - TorsoPivot.position;
         TorsoLook.y = 0;
         var TorsoRotation = Quaternion.LookRotation(TorsoLook);
-        /*var ArmLook = target.transform.position - ArmPivot.position;
-        ArmLook.z = 0;
-        //ArmLook.z = 0;
-        //ArmLook.y = 90;
-        var ArmRotation = Quaternion.LookRotation(ArmLook);*/
         if (Vector3.Distance(transform.position, target.transform.position) < Range)
         {
             TorsoPivot.rotation = Quaternion.Slerp(TorsoPivot.rotation, TorsoRotation, TurnSpeed);
-            //ArmPivot.localRotation = Quaternion.Slerp(ArmPivot.rotation, ArmRotation, TurnSpeed);
             ArmPivot.LookAt(target.transform.position);
             if (ShootingRate < Shooting)
             {
@@ -82,7 +76,7 @@ public class BaseTower : MonoBehaviour
     IEnumerator Sapped()
     {
         Sabotaged = true;
-        yield return new WaitForSeconds(8);
+        yield return new WaitForSeconds(4);
         Sabotaged = false;
     }
     void UpdateTarget()

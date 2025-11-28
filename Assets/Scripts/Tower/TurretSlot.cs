@@ -5,8 +5,10 @@ public class TurretSlot : MonoBehaviour, IPointerEnterHandler, IPointerDownHandl
 {
     private GameObject Turret;
     [Header("OffSet pour bien placer la tourelle")]
+    public Vector3 PlacePosition;
     public Vector3 Offset;
     BuildManager buildManager;
+    public Canvas TurretChoiceCanvas;
 
     public Color HoverColor;
     public Color OriginalColor;
@@ -21,6 +23,10 @@ public class TurretSlot : MonoBehaviour, IPointerEnterHandler, IPointerDownHandl
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        if (Turret != null)
+            return;
+        if (!buildManager.BuildMode)
+            return;
         GetComponent<Renderer>().material.color = HoverColor;
     }
     public void OnPointerDown(PointerEventData eventData)
@@ -29,8 +35,12 @@ public class TurretSlot : MonoBehaviour, IPointerEnterHandler, IPointerDownHandl
         {
             return;
         }
+        if (!buildManager.BuildMode)
+            return;
         GameObject turretToBuild = BuildManager.instance.GetTurretToBuild();
         Turret = (GameObject)Instantiate(turretToBuild, transform.position + Offset, transform.rotation);
+        buildManager.DisableCanvas();
+        buildManager.BuildMode = false;
     }
 
     public void OnPointerExit(PointerEventData eventData)

@@ -49,7 +49,6 @@ public class Enemy_DropShip : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         agent.speed = Speed;
         Collide = GetComponent<BoxCollider>();
-        //StartCoroutine(DeployEnemies());
         agent.SetDestination(DestinationPoints[currentIndex].position);
     }
     bool isDropping = false;

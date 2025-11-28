@@ -1,5 +1,4 @@
 using UnityEngine;
-using static UnityEditor.PlayerSettings;
 using System.Collections;
 
 public class Mortar_Bullet : MonoBehaviour
@@ -18,6 +17,7 @@ public class Mortar_Bullet : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Destroy(gameObject, 5);
         Invoke(nameof(UpdateTarget), 0);
         InvokeRepeating("UpdateTarget", 8f, 8f);
         StartPos = transform.position;

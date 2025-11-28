@@ -1,17 +1,25 @@
+using NUnit.Framework;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class BuildManager : MonoBehaviour
 {
     public static BuildManager instance;
-
+    public List<TurretSlot> turrets;
     private void Awake()
     {
+        TurretChoiceCanvas = GameObject.Find("TurretBuildCanvas");
+        TurretChoiceCanvas.SetActive(false);
         if(instance != null)
         {
             return;
         }
         instance = this;
     }
+
+    public bool BuildMode;
+    public GameObject TurretChoiceCanvas;
+
 
     /// <summary>
     /// Prefab Des Tourelles
@@ -27,11 +35,46 @@ public class BuildManager : MonoBehaviour
     ///
     ///
     ///
-
+    [Header("Tourelle à instancier")]
     public GameObject turretToBuild;
 
     public GameObject GetTurretToBuild()
     {
         return turretToBuild;
+    }
+
+    public void EnableBuildMode()
+    {
+        BuildMode = true;
+        EnableCanvas();
+    }
+    public void DisableBuildMode()
+    {
+        BuildMode = false;
+    }
+
+    /// <summary>
+    /// TEMPORAIRE
+    /// </summary>
+    public void AirSelect()
+    {
+        turretToBuild = TurretMissilePrefab;
+    }
+    public void MachineGun()
+    {
+        turretToBuild = TurretMachineGunPrefab;
+    }
+    public void Mortar()
+    {
+        turretToBuild = TurretMortarPrefab;
+    }
+    public void EnableCanvas()
+    {
+        TurretChoiceCanvas.SetActive(true);
+    }
+
+    public void DisableCanvas()
+    {
+        TurretChoiceCanvas.SetActive(false);
     }
 }
