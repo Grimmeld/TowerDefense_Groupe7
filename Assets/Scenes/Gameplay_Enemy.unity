@@ -1066,7 +1066,7 @@ GameObject:
   - component: {fileID: 679587526}
   - component: {fileID: 679587525}
   - component: {fileID: 679587524}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1810,7 +1810,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 65
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_GenerateLinks: 0
@@ -1821,7 +1821,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 86eb43d3abd48fb409df13bc937cfdcf, type: 2}
+  m_NavMeshData: {fileID: 0}
   m_BuildHeightMesh: 0
 --- !u!64 &1382830753
 MeshCollider:
@@ -2093,7 +2093,7 @@ MonoBehaviour:
   m_Center: {x: 0, y: 2, z: 0}
   m_LayerMask:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 126
   m_UseGeometry: 0
   m_DefaultArea: 0
   m_GenerateLinks: 0
@@ -2104,7 +2104,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 1.9
-  m_NavMeshData: {fileID: 23800000, guid: 994d6407e98ca424b89a0f0bc3347f2b, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 5d8945a0fa53ca5409203ceb4eca813e, type: 2}
   m_BuildHeightMesh: 0
 --- !u!4 &1570624558
 Transform:
@@ -2380,7 +2380,7 @@ GameObject:
   - component: {fileID: 1704972634}
   m_Layer: 0
   m_Name: Sapper
-  m_TagString: Untagged
+  m_TagString: EnemyAir
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2860,7 +2860,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2090152456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3242,7 +3242,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4301821913128253186, guid: fca18090603fd3b4ab36f9a65c8e6f0e, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8538736975386375891, guid: fca18090603fd3b4ab36f9a65c8e6f0e, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3297,6 +3297,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 31434443475736333, guid: 2915369289815df4cae196ea128f6859, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 80412601923063864, guid: 2915369289815df4cae196ea128f6859, type: 3}
       propertyPath: Range
       value: 4
@@ -3341,13 +3345,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 676097551225707487, guid: 2915369289815df4cae196ea128f6859, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 903522462910153207, guid: 2915369289815df4cae196ea128f6859, type: 3}
       propertyPath: m_Name
       value: Tower_Ground_MachineGun
       objectReference: {fileID: 0}
     - target: {fileID: 903522462910153207, guid: 2915369289815df4cae196ea128f6859, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 903522462910153207, guid: 2915369289815df4cae196ea128f6859, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 939554786003090314, guid: 2915369289815df4cae196ea128f6859, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4585355102935048928, guid: 2915369289815df4cae196ea128f6859, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5564674909091714690, guid: 2915369289815df4cae196ea128f6859, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5585352570482784090, guid: 2915369289815df4cae196ea128f6859, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6529807722541301155, guid: 2915369289815df4cae196ea128f6859, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9160113086578610454, guid: 2915369289815df4cae196ea128f6859, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3364,13 +3400,13 @@ SceneRoots:
   - {fileID: 775763635}
   - {fileID: 785818995}
   - {fileID: 1382830756}
+  - {fileID: 1570624558}
   - {fileID: 784435657764410569}
   - {fileID: 750350376}
   - {fileID: 2066502005}
   - {fileID: 798769624}
   - {fileID: 2113460043}
   - {fileID: 5834805568995268696}
-  - {fileID: 1570624558}
   - {fileID: 746363709213883833}
   - {fileID: 1704972633}
   - {fileID: 225261049}
