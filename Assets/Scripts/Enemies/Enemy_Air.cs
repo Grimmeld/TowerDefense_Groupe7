@@ -1,9 +1,8 @@
-using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
+using System.Collections;
 
-public class Enemy_Buggy : MonoBehaviour
+public class Enemy_Air : MonoBehaviour
 {
     [Header("Stats")]
 
@@ -22,17 +21,16 @@ public class Enemy_Buggy : MonoBehaviour
     BulletType bulletType;
     WaveSpawner waveSpawner;
 
-    private Color OriginalColor;
-    public Color HitColor;
-    private Renderer rend;
+    //private Color OriginalColor;
+    //public Color HitColor;
+    //private Renderer rend;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
-        rend = GetComponent<Renderer>();
-        OriginalColor = rend.material.color;
-        GameObject PointDest = GameObject.FindGameObjectWithTag("Destination");
+        //rend = GetComponent<Renderer>();
+        //OriginalColor = rend.material.color;
         waveSpawner = FindAnyObjectByType<WaveSpawner>();
+        GameObject PointDest = GameObject.FindGameObjectWithTag("Destination");
         agent = GetComponent<NavMeshAgent>();
         agent.speed = Speed;
         Collide = GetComponent<BoxCollider>();
@@ -44,7 +42,7 @@ public class Enemy_Buggy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Health <= 0)
+        if (Health <= 0)
         {
             Death();
         }
@@ -63,21 +61,21 @@ public class Enemy_Buggy : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Bullet"))
+        if (other.CompareTag("Bullet"))
         {
             BulletType bulletScript = other.GetComponent<BulletType>();
             TakeDamage(bulletScript.Damage);
-            StartCoroutine(HitFeedback());
+            //StartCoroutine(HitFeedback());
             Destroy(other.gameObject);
         }
 
-        
+
     }
 
-    IEnumerator HitFeedback()
+    /*IEnumerator HitFeedback()
     {
         GetComponent<Renderer>().material.color = HitColor;
         yield return new WaitForSeconds(0.3f);
         GetComponent<Renderer>().material.color = OriginalColor;
-    }
+    }*/
 }
