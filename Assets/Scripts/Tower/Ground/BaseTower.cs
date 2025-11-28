@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -78,7 +79,12 @@ public class BaseTower : MonoBehaviour
         }
     }
 
-
+    IEnumerator Sapped()
+    {
+        Sabotaged = true;
+        yield return new WaitForSeconds(8);
+        Sabotaged = false;
+    }
     void UpdateTarget()
     {
         GameObject[] Ennemies = GameObject.FindGameObjectsWithTag(enemyTag);
