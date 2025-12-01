@@ -41,6 +41,9 @@ public class TurretSlot : MonoBehaviour, IPointerEnterHandler, IPointerDownHandl
         Turret = (GameObject)Instantiate(turretToBuild, transform.position + Offset, transform.rotation);
         buildManager.DisableCanvas();
         buildManager.BuildMode = false;
+
+        // Pay the price of the tower
+        ResourceManager.instance.UseNuclear();
     }
 
     public void OnPointerExit(PointerEventData eventData)

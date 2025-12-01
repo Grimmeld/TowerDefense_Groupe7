@@ -9,6 +9,8 @@ TagManager:
   - Turret
   - Destination
   - Bullet
+  - Slot
+  - Base
   layers:
   - Default
   - TransparentFX

@@ -6,6 +6,9 @@ public class BuildManager : MonoBehaviour
 {
     public static BuildManager instance;
     public List<TurretSlot> turrets;
+
+
+
     private void Awake()
     {
         TurretChoiceCanvas = GameObject.Find("TurretBuildCanvas");
@@ -15,6 +18,12 @@ public class BuildManager : MonoBehaviour
             return;
         }
         instance = this;
+
+        //if (ResourceManager == null)
+        //{
+        //    Debug.Log("Resource manager not set up in the Inspector");
+        //    ResourceManager = GameObject.Find("ResourceManager").GetComponent<ResourceManager>();
+        //}
     }
 
     public bool BuildMode;
@@ -38,6 +47,7 @@ public class BuildManager : MonoBehaviour
     [Header("Tourelle à instancier")]
     public GameObject turretToBuild;
 
+
     public GameObject GetTurretToBuild()
     {
         return turretToBuild;
@@ -45,6 +55,12 @@ public class BuildManager : MonoBehaviour
 
     public void EnableBuildMode()
     {
+        // Check that the player has enough Nuclear resource to add a tower
+        if(!ResourceManager.instance.CheckNuclear())
+        {
+            return;
+        }
+
         BuildMode = true;
         EnableCanvas();
     }
