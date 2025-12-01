@@ -47,10 +47,19 @@ public class Enemy_Air : MonoBehaviour
             Death();
         }
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Bullet"))
+        {
+            BulletType bulletScript = other.GetComponent<BulletType>();
+            TakeDamage(bulletScript.Damage);
+        }
 
+
+    }
     void Death()
     {
-        waveSpawner.EnnemiesAlive--;
+        WaveSpawner.Instance.OnEnemyDied();
         Destroy(gameObject);
     }
 
@@ -59,18 +68,7 @@ public class Enemy_Air : MonoBehaviour
         Health -= damage;
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Bullet"))
-        {
-            BulletType bulletScript = other.GetComponent<BulletType>();
-            TakeDamage(bulletScript.Damage);
-            //StartCoroutine(HitFeedback());
-            Destroy(other.gameObject);
-        }
 
-
-    }
 
     /*IEnumerator HitFeedback()
     {

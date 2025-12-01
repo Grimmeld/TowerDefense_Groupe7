@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections;
 
-public class Mortar_Bullet : MonoBehaviour
+public class FragMortar_Bullet : MonoBehaviour
 {
     [Header("Config de la courbe")]
     public float duration = 1.5f;
@@ -14,6 +14,13 @@ public class Mortar_Bullet : MonoBehaviour
     [SerializeField] public Transform target;
     [Header("Tag de l'ennemi")]
     public string enemyTag = "Enemy";
+    [Header("Shrapnel du projectile")]
+    public GameObject ShrapnelPrefab;
+    public GameObject ShrapnelPrefab2;
+    public GameObject ShrapnelPrefab3;
+    public GameObject ShrapnelPrefab4;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -30,10 +37,6 @@ public class Mortar_Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*if (target == null)
-        {
-            return;
-        }*/
         time += Time.deltaTime;
         float t = Mathf.Clamp01(time / duration);
         Vector3 pos = Vector3.Lerp(StartPos, TargetPos, t);
@@ -42,7 +45,7 @@ public class Mortar_Bullet : MonoBehaviour
 
         if (t >= 1)
         {
-            Destroy(gameObject);
+            Shrapnel();
         }
     }
 
@@ -71,5 +74,16 @@ public class Mortar_Bullet : MonoBehaviour
             target = null;
         }
     }
+    void Shrapnel()
+    {
+
+        Instantiate(ShrapnelPrefab, transform.position, transform.rotation);
+        Instantiate(ShrapnelPrefab2, transform.position, transform.rotation);
+        Instantiate(ShrapnelPrefab3, transform.position, transform.rotation);
+        Instantiate(ShrapnelPrefab4, transform.position, transform.rotation);
+
+        Destroy(gameObject);
+    }
+
 
 }

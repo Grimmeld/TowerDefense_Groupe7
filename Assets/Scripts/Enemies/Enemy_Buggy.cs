@@ -52,7 +52,7 @@ public class Enemy_Buggy : MonoBehaviour
 
     void Death()
     {
-        waveSpawner.EnnemiesAlive--;
+        WaveSpawner.Instance.OnEnemyDied();
         Destroy(gameObject);
     }
 
@@ -68,7 +68,6 @@ public class Enemy_Buggy : MonoBehaviour
             BulletType bulletScript = other.GetComponent<BulletType>();
             TakeDamage(bulletScript.Damage);
             StartCoroutine(HitFeedback());
-            Destroy(other.gameObject);
         }
 
         

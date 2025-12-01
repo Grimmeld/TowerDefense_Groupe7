@@ -1,8 +1,9 @@
 using NUnit.Framework;
-using UnityEngine;
-using UnityEngine.AI;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
+using UnityEngine.AI;
 
 public class Enemy_DropShip : MonoBehaviour
 {
@@ -40,6 +41,8 @@ public class Enemy_DropShip : MonoBehaviour
 
     private float time;
     public float duration = 5f;
+    public string DropTag = "EnemyDrop";
+    [SerializeField] public Transform targetPosition;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -50,15 +53,19 @@ public class Enemy_DropShip : MonoBehaviour
         agent.speed = Speed;
         Collide = GetComponent<BoxCollider>();
         agent.SetDestination(DestinationPoints[currentIndex].position);
+        FindTarget();
     }
     bool isDropping = false;
     bool Dropped = false;
     // Update is called once per frame
     void Update()
     {
+        if (Health <= 0)
+        {
+            Death();
+        }
         if (isDropping) return;
-        Transform targetPoint = DestinationPoints[currentIndex];
-        Vector3 dest = targetPoint.transform.position;
+        Vector3 dest = targetPosition.transform.position;
         agent.SetDestination(dest);
         bool Grounded = Physics.Raycast(transform.position, Vector3.down, lineLength, LayerMask.GetMask("Ground"));
         Debug.DrawLine(transform.position, Vector3.down * 1.5f, Color.red);
@@ -130,6 +137,37 @@ public class Enemy_DropShip : MonoBehaviour
     {
         Transform dest2 = DestinationPoints[currentIndex];
         agent.SetDestination(dest2.transform.position);
+    }
+
+    public void FindTarget()
+    {
+
+        GameObject[] target = GameObject.FindGameObjectsWithTag(DropTag);
+        GameObject destination = target[Random.Range(0, target.Length)];
+        targetPosition = destination.transform;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Bullet"))
+        {
+            BulletType bulletScript = other.GetComponent<BulletType>();
+            TakeDamage(bulletScript.Damage);
+            //StartCoroutine(HitFeedback());
+        }
+
+
+    }
+
+    void Death()
+    {
+        WaveSpawner.Instance.OnEnemyDied();
+        Destroy(gameObject);
+    }
+
+    void TakeDamage(int damage)
+    {
+        Health -= damage;
     }
 
 }

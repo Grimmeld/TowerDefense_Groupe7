@@ -18,4 +18,16 @@ public class MachineGun_Bullet : MonoBehaviour
         BulletTransform.Translate(Speed * Time.deltaTime, 0, 0);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
+        }
+        if (other.CompareTag("EnemyAir"))
+        {
+            Destroy(gameObject);
+        }
+    }
+
 }
