@@ -10,7 +10,7 @@ public class PowerTransmitter : MonoBehaviour, IPointerEnterHandler, IPointerExi
     // Script on transmitter
 
     [Header("Activation")]
-    [SerializeField] private ActivateTower activateTower;
+    [SerializeField] private ActivateZone activateZone;
 
 
     // Feedback on interaction
@@ -19,12 +19,13 @@ public class PowerTransmitter : MonoBehaviour, IPointerEnterHandler, IPointerExi
     [SerializeField] private Color hoverColor, normalColor;
     [SerializeField] private Material activatedColor, disableColor;
 
+
     private void Awake()
     {
         GetComponentInChildren<Renderer>().material.color = normalColor;
-        activateTower = GetComponentInParent<ActivateTower>();
+        activateZone = GetComponentInParent<ActivateZone>();
 
-        if (activateTower.CheckActivation())
+        if (activateZone.CheckActivation())
         {
             antennaMesh.GetComponent<Renderer>().material = activatedColor;
         }
@@ -34,19 +35,22 @@ public class PowerTransmitter : MonoBehaviour, IPointerEnterHandler, IPointerExi
         }
     }
 
+    // HOVER
     public void OnPointerEnter(PointerEventData eventData)
     {
         GetComponentInChildren<Renderer>().material.color = hoverColor;
     }
 
+
+    //CLICK
     public void OnPointerDown(PointerEventData eventData)
     {
-        if (activateTower != null)
+        if (activateZone != null)
         {
-            if (activateTower.CheckActivation())
+            if (activateZone.CheckActivation())
             {
                 // Transmitter is activated -> Disable it
-                activateTower.ChangeActivation();
+                activateZone.ChangeActivation();
 
                 //Feedback
                 antennaMesh.GetComponent<Renderer>().material = disableColor;
@@ -57,10 +61,15 @@ public class PowerTransmitter : MonoBehaviour, IPointerEnterHandler, IPointerExi
                 // Transmitter is not actived -> Try to activate it
                 if (ResourceManager.instance.CheckNuclear())
                 {
-                    activateTower.ChangeActivation();
+                    // We got enough resource
+                    if (activateZone.CheckAdjacentZones())
+                    {
 
-                    //Feedback
-                    antennaMesh.GetComponent<Renderer>().material = activatedColor;
+                        activateZone.ChangeActivation();
+
+                        //Feedback
+                        antennaMesh.GetComponent<Renderer>().material = activatedColor;
+                    }
 
 
                 }
@@ -68,15 +77,17 @@ public class PowerTransmitter : MonoBehaviour, IPointerEnterHandler, IPointerExi
         }
     }
 
+
+    //UNHOVER
     public void OnPointerExit(PointerEventData eventData) 
     {
 
         GetComponentInChildren<Renderer>().material.color = normalColor;
     }
 
-    public void SetActivateTower(ActivateTower activation)
+    public void SetActivateTower(ActivateZone activation)
     {
-        activateTower = activation; 
+        activateZone = activation; 
     }
 
 }

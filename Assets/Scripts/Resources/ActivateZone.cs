@@ -2,8 +2,9 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.VFX;
 
-public class ActivateTower : MonoBehaviour
+public class ActivateZone : MonoBehaviour
 {
     //Script on zones
     // Zones will manage the activation of the tower
@@ -11,6 +12,12 @@ public class ActivateTower : MonoBehaviour
     [SerializeField] private TurretSlot[] _turretSlots; // Slots in zone
     [SerializeField] private PowerTransmitter powerTransmitter;           // Transmitter in zone    
     [SerializeField] private bool isActivated;
+
+    [SerializeField] private List<ActivateZone> activateZones;
+
+    // Feedback on interaction
+    [Header("Feedback")]
+    [SerializeField] private GameObject visualEffect;
 
     private void Awake()
     {
@@ -36,7 +43,10 @@ public class ActivateTower : MonoBehaviour
 
     public void ChangeActivation()
     {
-        if (isActivated == false)
+        isActivated = !isActivated;
+
+
+        if (isActivated)
         {
             ResourceManager.instance.UseNuclear();
         }
@@ -44,21 +54,49 @@ public class ActivateTower : MonoBehaviour
         {
             ResourceManager.instance.StoreNuclear();
         }
-        
-        isActivated = !isActivated;
+
         EnableTowers(isActivated);
+
+        // Feedback
+        visualEffect.SetActive(!isActivated); // Add a visual if the zone is not activated
     }
 
+    public bool CheckAdjacentZones()
+    {
+        foreach (ActivateZone zone in activateZones)
+        {
+           if (zone.gameObject.CompareTag("Base"))
+            {
+                // Zone is adjacent to a Base Zone
+                Debug.Log("Zone is adjacent to the nuclear core ");
 
+                return true;
+            }
+           else
+            {
+                Debug.Log("Zone not adjacent to the nuclear core");
+
+                if(zone.CheckActivation())
+                {
+                    // One of the adjacent zone is activated -> Our zone can be activated
+                    return true;
+                }
+                else { return false; }
+
+                    
+            }
+        }
+        return false;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        // Get all slots that are in the zone
-        //if (other.gameObject.TryGetComponent(out TurretSlot turretSlot))
-        //{
-        //    // Add to list
-        //    _turretSlots.Add(turretSlot);
-        //}
+        //Get all zones adjacent to current zone
+        if (other.gameObject.TryGetComponent(out ActivateZone activate))
+        {
+            // Add to list
+            activateZones.Add(activate);
+        }
 
     }
 
