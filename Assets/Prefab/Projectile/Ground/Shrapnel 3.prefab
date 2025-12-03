@@ -139,5 +139,5 @@ MonoBehaviour:
   duration: 0.5
   height: 0.5
   TargetPos: {x: 0, y: 0, z: 0}
-  Offset: {x: -0.5, y: 0, z: 0}
+  Offset: {x: -1, y: 0, z: 0}
   Explosion: {fileID: 6423563864944547642, guid: 240f3edd76fa06d47984da31c50c7edf, type: 3}

@@ -373,7 +373,7 @@ GameObject:
   - component: {fileID: 5197802237560787610}
   - component: {fileID: 8369231935640243574}
   m_Layer: 0
-  m_Name: EnemyAir (1)
+  m_Name: EnemyAir
   m_TagString: EnemyAir
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -388,7 +388,7 @@ Transform:
   m_GameObject: {fileID: 8270443144933418462}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.55, y: 1.086, z: 5.16}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

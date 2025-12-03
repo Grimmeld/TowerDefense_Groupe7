@@ -278,7 +278,7 @@ Transform:
   m_GameObject: {fileID: 5502398235229544065}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.3779335, y: 1.137, z: -22.15811}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -307,7 +307,6 @@ MonoBehaviour:
   Airtarget: {fileID: 0}
   enemyTag: Enemy
   enemyAirTag: EnemyAir
-  Sabotaged: 0
 --- !u!65 &1545455628323222734
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -328,7 +327,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.5, y: 0.5, z: 0.5}
-  m_Center: {x: 0, y: -0.18, z: 0.1}
+  m_Center: {x: 0, y: 0.35000002, z: 0.04}
 --- !u!114 &541265342275123231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -395,7 +394,7 @@ Transform:
   m_GameObject: {fileID: 6047888583525902330}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.292, z: 0.117}
+  m_LocalPosition: {x: 0, y: 0.265, z: 0.02080001}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -649,7 +648,7 @@ Transform:
   m_GameObject: {fileID: 8005993733081628601}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.417, z: 0.11820006}
+  m_LocalPosition: {x: 0, y: 0.14, z: 0.022}
   m_LocalScale: {x: 0.1, y: 0.3, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []

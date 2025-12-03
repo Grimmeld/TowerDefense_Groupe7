@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 749364405258811720}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: -0.417, z: 0.11820006}
+  m_LocalPosition: {x: 0, y: 0.161, z: 0.008}
   m_LocalScale: {x: 0.1, y: 0.3, z: 0.2}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -526,7 +526,7 @@ Transform:
   m_GameObject: {fileID: 6360326138211833162}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.6747065, y: 1.085, z: -22.66882}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -553,7 +553,6 @@ MonoBehaviour:
   BulletPrefab: {fileID: 1607272181034453529, guid: 572b4cea47f9dbb4897f14330a722c4d, type: 3}
   target: {fileID: 0}
   enemyTag: Enemy
-  Sabotaged: 0
 --- !u!65 &7110562035079915900
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -574,7 +573,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 0.5, y: 0.5, z: 0.5}
-  m_Center: {x: 0, y: -0.18, z: 0.1}
+  m_Center: {x: 0, y: 0.35000002, z: 0.04}
 --- !u!114 &6268079156751564517
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -641,7 +640,7 @@ Transform:
   m_GameObject: {fileID: 6732213192849298848}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.292, z: 0.117}
+  m_LocalPosition: {x: 0, y: 0.286, z: 0.0068000704}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

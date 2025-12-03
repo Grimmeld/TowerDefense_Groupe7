@@ -25,8 +25,8 @@ public class Tower_Air_MissileHellfire : MonoBehaviour
     bool reloading = false;
 
     [Header("Stats")]
-    private float ShootingRate = 1;
-    private float Shooting = 1f;
+    private float ShootingRate = 0.1f;
+    public float Shooting = 0.05f;
     private float RotationSpeed;
     private float Range;
     private float TurnSpeed = 1f;
@@ -83,7 +83,7 @@ public class Tower_Air_MissileHellfire : MonoBehaviour
                 StartCoroutine(ReloadMissiles());
                 return;
             }
-            if (ShootingRate < Shooting)
+            if (Shooting > ShootingRate)
             {
                 Shooting = 0f;
                 MissilesShot--;
