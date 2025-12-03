@@ -48,7 +48,8 @@ public class PowerManager : MonoBehaviour
             z.SetPowered(false);
         }
 
-        if(sourceZone == null)
+
+        if (sourceZone == null)
         {
             Debug.Log("Pas de source central");
         }
@@ -62,13 +63,13 @@ public class PowerManager : MonoBehaviour
             
 
             sourceZone.SetPowered(true);
-            queue.Enqueue(sourceZone);
+        queue.Enqueue(sourceZone);
 
         while (queue.Count > 0)
             {
                 Zone current = queue.Dequeue();
 
-                foreach (Zone adj in current.adjacentZones)
+                foreach (Zone adj in current.AdjacentZones)
                 {
 
                 if (!adj.isPowered && adj.isEnabled)
@@ -83,7 +84,6 @@ public class PowerManager : MonoBehaviour
 
         
     }
-
 
 }
 
