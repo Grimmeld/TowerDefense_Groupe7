@@ -52,8 +52,10 @@ public class PowerTransmitter : MonoBehaviour, IPointerEnterHandler, IPointerExi
                 // Transmitter is activated -> Disable it
                 activateZone.ChangeActivation();
 
+                activateZone.DisableAdjacentZone();
+
                 //Feedback
-                antennaMesh.GetComponent<Renderer>().material = disableColor;
+                //antennaMesh.GetComponent<Renderer>().material = disableColor;
 
             }
             else
@@ -88,6 +90,11 @@ public class PowerTransmitter : MonoBehaviour, IPointerEnterHandler, IPointerExi
     public void SetActivateTower(ActivateZone activation)
     {
         activateZone = activation; 
+    }
+
+    public void ChangeFeedbackAntenna()
+    {
+        antennaMesh.GetComponent<Renderer>().material = disableColor;
     }
 
 }
