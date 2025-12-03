@@ -10,6 +10,7 @@ public class Mortar_Bullet : MonoBehaviour
     private Vector3 StartPos;
     public Vector3 TargetPos;
     private float time;
+    public GameObject ExplosionPrefab;
     [Header("Cible du bullet")]
     [SerializeField] public Transform target;
     [Header("Tag de l'ennemi")]
@@ -42,6 +43,7 @@ public class Mortar_Bullet : MonoBehaviour
 
         if (t >= 1)
         {
+            Instantiate(ExplosionPrefab, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }

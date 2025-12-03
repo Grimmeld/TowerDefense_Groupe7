@@ -19,7 +19,7 @@ public class FragMortar_Bullet : MonoBehaviour
     public GameObject ShrapnelPrefab2;
     public GameObject ShrapnelPrefab3;
     public GameObject ShrapnelPrefab4;
-
+    public GameObject Explosion;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -76,7 +76,7 @@ public class FragMortar_Bullet : MonoBehaviour
     }
     void Shrapnel()
     {
-
+        Instantiate(Explosion, transform.position, transform.rotation);    
         Instantiate(ShrapnelPrefab, transform.position, transform.rotation);
         Instantiate(ShrapnelPrefab2, transform.position, transform.rotation);
         Instantiate(ShrapnelPrefab3, transform.position, transform.rotation);

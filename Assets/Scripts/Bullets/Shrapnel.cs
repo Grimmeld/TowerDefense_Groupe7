@@ -12,6 +12,8 @@ public class Shrapnel : MonoBehaviour
     public Vector3 Offset;
     private float time;
 
+    public GameObject Explosion;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -31,6 +33,7 @@ public class Shrapnel : MonoBehaviour
 
         if (t >= 1f)
         {
+            Instantiate(Explosion, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }

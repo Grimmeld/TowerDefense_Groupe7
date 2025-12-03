@@ -9,14 +9,15 @@ public class Missile_Hellfire_Bullet : MonoBehaviour
     public float speed = 2f;
     public float startTime = 1f;
     public Vector3 Offset;
+    public string EnemyTag;
 
     private bool isTargeting = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        EnemyTag = "EnemyAir";
         target = TargetManager.instance.GetFreeTarget(); //fetch une cible parmis celle qui sont libre
         StartCoroutine(StartLaunching());
-        speed = 1f;
         Destroy(gameObject, 8);
     }
 
@@ -30,7 +31,7 @@ public class Missile_Hellfire_Bullet : MonoBehaviour
             transform.Translate(0, 0, startSpeed * Time.deltaTime);
             return;
         }
-        speed = 1.5f;
+        speed = 3f;
         Vector3 move = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         transform.LookAt(target.position + Offset);
         transform.position = move;
@@ -49,11 +50,11 @@ public class Missile_Hellfire_Bullet : MonoBehaviour
         yield return new WaitForSeconds(startTime);
         isTargeting = true;
     }
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("EnemyAir"))
+        if (other.CompareTag(EnemyTag))
         {
+            TargetManager.instance.ReleaseTarget(target.gameObject);
             Destroy(gameObject);
         }
     }

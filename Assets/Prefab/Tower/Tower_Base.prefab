@@ -258,6 +258,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6732869375730079006}
   - component: {fileID: 5520488837437852573}
+  - component: {fileID: 1545455628323222734}
+  - component: {fileID: 541265342275123231}
+  - component: {fileID: -7506597290583774085}
+  - component: {fileID: -7606321742397220477}
   m_Layer: 0
   m_Name: Tower_Base
   m_TagString: Turret
@@ -274,7 +278,7 @@ Transform:
   m_GameObject: {fileID: 5502398235229544065}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.8048903, y: 1.154, z: -5.673626}
+  m_LocalPosition: {x: -5.3779335, y: 1.137, z: -22.15811}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -298,17 +302,74 @@ MonoBehaviour:
   TorsoPivot: {fileID: 3150855129052109728}
   ArmPivot: {fileID: 1776841074192754171}
   ShootingPoint: {fileID: 8301182635181372394}
-  BulletPrefab: {fileID: 4508185490172828934, guid: 4817075dec705d9459cc7c586011b22a, type: 3}
-  ShootingRate: 2
-  Shooting: 1
-  RotationSpeed: 0
-  Range: 3
-  TurnSpeed: 1
+  BulletPrefab: {fileID: 4508185490172828934, guid: 5aa4db63ee021ac41bc10ff43dfbf101, type: 3}
   target: {fileID: 0}
   Airtarget: {fileID: 0}
   enemyTag: Enemy
   enemyAirTag: EnemyAir
   Sabotaged: 0
+--- !u!65 &1545455628323222734
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5502398235229544065}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5, y: 0.5, z: 0.5}
+  m_Center: {x: 0, y: -0.18, z: 0.1}
+--- !u!114 &541265342275123231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5502398235229544065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 696c2f27d2caa6c4b878323e8ea232bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootingRate: 2
+  Range: 3
+--- !u!114 &-7506597290583774085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5502398235229544065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf7bdada50fe944aaf3b86f5d412c6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackScript: {fileID: 0}
+--- !u!114 &-7606321742397220477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5502398235229544065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 659e029021798b34bb93c7c20c3e7783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sabotaged: 0
+  SapDuration: 8
 --- !u!1 &6047888583525902330
 GameObject:
   m_ObjectHideFlags: 0

@@ -5,6 +5,13 @@ using static UnityEngine.GraphicsBuffer;
 public enum Turret_Type { Air, Ground}
 public class BaseTower : MonoBehaviour
 {
+    TowerStats stats;
+    TowerSabotaged towerSabotaged;
+    private void Awake()
+    {
+        stats = GetComponent<TowerStats>();
+        towerSabotaged = GetComponent<TowerSabotaged>();
+    }
     [Header("Type de la tourelle")]
     public Turret_Type type;
 
@@ -19,16 +26,14 @@ public class BaseTower : MonoBehaviour
 
 
     [Header("Stats")]
-    public float ShootingRate;
-    public float Shooting = 1f;
-    public float RotationSpeed;
-    public float Range;
-    public float TurnSpeed = 1f;
+    private float ShootingRate;
+    private float Shooting = 1f;
+    private float RotationSpeed;
+    private float Range;
+    private float TurnSpeed = 1f;
 
     [SerializeField] public Transform target;
     public string enemyTag = "Enemy";
-
-    public bool Sabotaged;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -40,7 +45,9 @@ public class BaseTower : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Sabotaged)
+        ShootingRate = stats.shootingRate;
+        Range = stats.Range;
+        if (towerSabotaged.Sabotaged)
             return;
         if (type == Turret_Type.Air)
         {
@@ -71,13 +78,6 @@ public class BaseTower : MonoBehaviour
                 Shooting = 0f;
             }
         }
-    }
-
-    IEnumerator Sapped()
-    {
-        Sabotaged = true;
-        yield return new WaitForSeconds(4);
-        Sabotaged = false;
     }
     void UpdateTarget()
     {

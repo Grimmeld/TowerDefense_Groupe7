@@ -506,6 +506,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1907143014865604905}
   - component: {fileID: 5406183028230997821}
+  - component: {fileID: 7110562035079915900}
+  - component: {fileID: 6268079156751564517}
+  - component: {fileID: -2416337866766851242}
+  - component: {fileID: -1445510519264208939}
   m_Layer: 0
   m_Name: Tower_Ground_Mortar
   m_TagString: Turret
@@ -522,7 +526,7 @@ Transform:
   m_GameObject: {fileID: 6360326138211833162}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.57, y: 1.117, z: -6.12}
+  m_LocalPosition: {x: -5.6747065, y: 1.085, z: -22.66882}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -547,14 +551,71 @@ MonoBehaviour:
   ArmPivot: {fileID: 3373839176908237552}
   ShootingPoint: {fileID: 1445219808170711439}
   BulletPrefab: {fileID: 1607272181034453529, guid: 572b4cea47f9dbb4897f14330a722c4d, type: 3}
-  ShootingRate: 2
-  Shooting: 1
-  RotationSpeed: 0.01
-  Range: 6
-  TurnSpeed: 1
   target: {fileID: 0}
   enemyTag: Enemy
   Sabotaged: 0
+--- !u!65 &7110562035079915900
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6360326138211833162}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5, y: 0.5, z: 0.5}
+  m_Center: {x: 0, y: -0.18, z: 0.1}
+--- !u!114 &6268079156751564517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6360326138211833162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 696c2f27d2caa6c4b878323e8ea232bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootingRate: 1
+  Range: 4
+--- !u!114 &-2416337866766851242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6360326138211833162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf7bdada50fe944aaf3b86f5d412c6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackScript: {fileID: 0}
+--- !u!114 &-1445510519264208939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6360326138211833162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 659e029021798b34bb93c7c20c3e7783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Sabotaged: 0
+  SapDuration: 8
 --- !u!1 &6732213192849298848
 GameObject:
   m_ObjectHideFlags: 0

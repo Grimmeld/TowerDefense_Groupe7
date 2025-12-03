@@ -5,12 +5,16 @@ using static UnityEngine.GraphicsBuffer;
 //public enum Turret_Type { Air, Ground }
 public class Tower_Air_MissileHellfire : MonoBehaviour
 {
+    TowerStats stats;
+    private void Awake()
+    {
+        stats = GetComponent<TowerStats>();
+    }
     [Header("Type de la tourelle")]
     public Turret_Type type;
 
     [Header("Pivots")]
     public Transform TorsoPivot;
-    public Transform ArmPivot;
     public Transform ShootingPoint;
 
 
@@ -21,11 +25,12 @@ public class Tower_Air_MissileHellfire : MonoBehaviour
     bool reloading = false;
 
     [Header("Stats")]
-    public float ShootingRate;
-    public float Shooting = 1f;
-    public float RotationSpeed;
-    public float Range;
-    public float TurnSpeed = 1f;
+    private float ShootingRate = 1;
+    private float Shooting = 1f;
+    private float RotationSpeed;
+    private float Range;
+    private float TurnSpeed = 1f;
+    private float ShootingReloadSpeed;
 
     [Header("Trajectoire des projectiles")]
     public float ConeSize;
@@ -48,6 +53,8 @@ public class Tower_Air_MissileHellfire : MonoBehaviour
 
     void Update()
     {
+        Range = stats.Range;
+        ShootingReloadSpeed = stats.shootingRate;
         if (Sabotaged)
             return;
 
@@ -97,7 +104,7 @@ public class Tower_Air_MissileHellfire : MonoBehaviour
     IEnumerator Sapped()
     {
         Sabotaged = true;
-        yield return new WaitForSeconds(4);
+        yield return new WaitForSeconds(ShootingReloadSpeed);
         Sabotaged = false;
     }
 

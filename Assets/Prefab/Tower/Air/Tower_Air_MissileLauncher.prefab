@@ -614,6 +614,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2976197912645151730}
   - component: {fileID: 5227735013918058661}
+  - component: {fileID: 177255491639206411}
+  - component: {fileID: 6850251457851616559}
+  - component: {fileID: -4474902774537795471}
+  - component: {fileID: -2922790416970813781}
   m_Layer: 0
   m_Name: Tower_Air_MissileLauncher
   m_TagString: Turret
@@ -630,7 +634,7 @@ Transform:
   m_GameObject: {fileID: 7494151623411648889}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.1936445, y: 1.17, z: -5.3967743}
+  m_LocalPosition: {x: -5.502133, y: 1.138, z: -23.140343}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -655,14 +659,70 @@ MonoBehaviour:
   ArmPivot: {fileID: 3039944905043932986}
   ShootingPoint: {fileID: 2639414034447860619}
   BulletPrefab: {fileID: 6841360327481434860, guid: 893a4edd4738e8b46b5c941c789d9a6a, type: 3}
-  ShootingRate: 3
-  Shooting: 1
-  RotationSpeed: 0.01
-  Range: 4
-  TurnSpeed: 1
   target: {fileID: 0}
   enemyTag: Enemy
+--- !u!65 &177255491639206411
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7494151623411648889}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5, y: 0.5, z: 0.5}
+  m_Center: {x: 0, y: -0.18, z: 0.1}
+--- !u!114 &6850251457851616559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7494151623411648889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 696c2f27d2caa6c4b878323e8ea232bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootingRate: 2
+  Range: 6
+--- !u!114 &-4474902774537795471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7494151623411648889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbf7bdada50fe944aaf3b86f5d412c6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackScript: {fileID: 0}
+--- !u!114 &-2922790416970813781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7494151623411648889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 659e029021798b34bb93c7c20c3e7783, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   Sabotaged: 0
+  SapDuration: 8
 --- !u!1 &8932891224251653492
 GameObject:
   m_ObjectHideFlags: 0

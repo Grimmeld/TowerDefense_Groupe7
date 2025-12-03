@@ -71,12 +71,4 @@ public class Missile_Bullet : MonoBehaviour
             target = null;
         }
     }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("EnemyAir"))
-        {
-            Destroy(gameObject);
-        }
-    }
 }

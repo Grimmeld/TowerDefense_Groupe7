@@ -4,6 +4,13 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Tower_Base : MonoBehaviour
 {
+    TowerStats towerStats;
+    TowerSabotaged towerSabotaged;
+    private void Awake()
+    {
+        towerStats = GetComponent<TowerStats>();
+        towerSabotaged = GetComponent<TowerSabotaged>();
+    }
     [Header("Type de la tourelle")]
     public Turret_Type type;
 
@@ -17,12 +24,11 @@ public class Tower_Base : MonoBehaviour
     public GameObject BulletPrefab;
 
 
-    [Header("Stats")]
-    public float ShootingRate;
-    public float Shooting = 1f;
-    public float RotationSpeed;
-    public float Range;
-    public float TurnSpeed = 1f;
+    private float ShootingRate;
+    private float Shooting = 1f;
+    private float RotationSpeed;
+    private float Range;
+    private float TurnSpeed = 1f;
 
     [Header("Cible de la tourelle")]
     [SerializeField] public Transform target;
@@ -30,10 +36,11 @@ public class Tower_Base : MonoBehaviour
     public string enemyTag = "Enemy";
     public string enemyAirTag = "EnemyAir";
 
-    public bool Sabotaged;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
         Invoke(nameof(UpdateTarget), 0);
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
 
@@ -42,16 +49,10 @@ public class Tower_Base : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Sabotaged)
+        Range = towerStats.Range;
+        ShootingRate = towerStats.shootingRate;
+        if (towerSabotaged.Sabotaged)
             return;
-        /*if (type == Turret_Type.Air)
-        {
-            enemyTag = "EnemyAir";
-        }
-        if (type == Turret_Type.Ground)
-        {
-            enemyTag = "Enemy";
-        }*/
 
         Shooting += Time.deltaTime;
         if (target == null)
@@ -76,13 +77,6 @@ public class Tower_Base : MonoBehaviour
                 Shooting = 0f;
             }
         }
-    }
-
-    IEnumerator Sapped()
-    {
-        Sabotaged = true;
-        yield return new WaitForSeconds(4);
-        Sabotaged = false;
     }
     void UpdateTarget()
     {

@@ -8,7 +8,7 @@ public class BulletType : MonoBehaviour
     public Bullet_Type bulletType;
 
     [Header("Stats")]
-    public int Damage;
+    public float Damage;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
