@@ -56,11 +56,18 @@ public class Zone : MonoBehaviour
         //Set state slot and towers
         foreach (TurretSlot slot in turretSlots)
         {
-            BaseTower baseTower = slot.GetComponentInChildren<BaseTower>();
-            if (baseTower != null)
+            TowerController towerController = slot.GetComponentInChildren<TowerController>();
+            if (towerController != null)
             {
-                baseTower.enabled = state;
+                towerController.enabled = state;
             }
+            // BEG LEA -- 
+            //BaseTower baseTower = slot.GetComponentInChildren<BaseTower>();
+            //if (baseTower != null)
+            //{
+            //    baseTower.enabled = state;
+            //}
+            // END LEA --
         }
 
         UpdateVisual();

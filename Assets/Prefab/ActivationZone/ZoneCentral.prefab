@@ -8,8 +8,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 455171811456894079, guid: 9526f0ec25d904a4db70b4ea1427b853, type: 3}
+      propertyPath: antennaRend
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1176346629267654400, guid: 9526f0ec25d904a4db70b4ea1427b853, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3b26a89325e0ba64a9057ecd808b493e, type: 2}
     - target: {fileID: 3776535613705641963, guid: 9526f0ec25d904a4db70b4ea1427b853, type: 3}
       propertyPath: isSource
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3776535613705641963, guid: 9526f0ec25d904a4db70b4ea1427b853, type: 3}
+      propertyPath: isEnabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6248247790527718497, guid: 9526f0ec25d904a4db70b4ea1427b853, type: 3}
@@ -57,7 +69,8 @@ PrefabInstance:
       value: ZoneCentral
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3582398960851205228, guid: 9526f0ec25d904a4db70b4ea1427b853, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9526f0ec25d904a4db70b4ea1427b853, type: 3}

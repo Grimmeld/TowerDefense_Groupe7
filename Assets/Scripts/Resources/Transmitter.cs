@@ -21,6 +21,9 @@ public class Transmitter : MonoBehaviour, IPointerEnterHandler, IPointerDownHand
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        if (zone.isSource)
+        { return; } // Don't click if Nuclear core
+
             zone.ManagingActivation();
             manager.RecalculatePower();
     }
