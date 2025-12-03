@@ -1,24 +1,33 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using static UnityEngine.GraphicsBuffer;
 
 public class TurretSlot : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler, IPointerExitHandler
 {
     private GameObject Turret;
     [Header("OffSet pour bien placer la tourelle")]
-    public Vector3 PlacePosition;
-    public Vector3 Offset;
-    BuildManager buildManager;
-    public Canvas TurretChoiceCanvas;
+    //public Vector3 PlacePosition; DEL LEA -- 
+    //public Vector3 Offset;        DEL LEA -- 
+    public BuildManager buildManager;
+    [SerializeField] private Transform spawnPointTurret;
 
+
+
+    [Header("Feedback")]
     public Color HoverColor;
     public Color OriginalColor;
-    private Renderer rend;
+    //private Renderer rend;          
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         OriginalColor = Color.green;
-        rend = GetComponent<Renderer>();
+        // rend = GetComponent<Renderer>(); DEL LEA -- 
         buildManager = FindAnyObjectByType<BuildManager>();
+
+        if (buildManager == null)
+        {
+            Debug.Log("Cannot find the BuildManager");
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -38,9 +47,21 @@ public class TurretSlot : MonoBehaviour, IPointerEnterHandler, IPointerDownHandl
         if (!buildManager.BuildMode)
             return;
         GameObject turretToBuild = BuildManager.instance.GetTurretToBuild();
-        Turret = (GameObject)Instantiate(turretToBuild, transform.position + Offset, transform.rotation);
+
+        // DEL LEA -- 
+        //Turret = (GameObject)Instantiate(turretToBuild, transform.position + Offset, transform.rotation);
+
+        //BEG LEA ++
+        Turret = (GameObject)Instantiate(turretToBuild, transform);
+        if (spawnPointTurret != null)
+            Turret.transform.position = spawnPointTurret.position;
+        // END LEA ++
+
         buildManager.DisableCanvas();
         buildManager.BuildMode = false;
+
+        // Pay the price of the tower
+        ResourceManager.instance.UseNuclear();
     }
 
     public void OnPointerExit(PointerEventData eventData)
