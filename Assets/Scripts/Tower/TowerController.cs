@@ -12,4 +12,18 @@ public class TowerController : MonoBehaviour
     {
         attackScript.enabled = enable;
     }
+
+    //BEG LEA ++
+
+    // Activation of the tower depends on the supply power of the zone
+    private void OnEnable()
+    {
+        EnableScript(true);
+    }
+
+    private void OnDisable()
+    {
+        EnableScript(false);
+    }
+    //END LEA ++ 
 }
