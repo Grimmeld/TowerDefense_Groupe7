@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CanvaRotation : MonoBehaviour
+public class CanvaManagement : MonoBehaviour
 {
     private Camera cameraScene;
     private Canvas canvas;
