@@ -11,6 +11,7 @@ TagManager:
   - Bullet
   - Slot
   - Base
+  - SlotPanel
   layers:
   - Default
   - TransparentFX
