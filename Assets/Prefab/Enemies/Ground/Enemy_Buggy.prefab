@@ -224,6 +224,8 @@ GameObject:
   - component: {fileID: -1954316430353979822}
   - component: {fileID: 3201937165046473063}
   - component: {fileID: 6174514797421352248}
+  - component: {fileID: -2903264751378375401}
+  - component: {fileID: 8341943894491195487}
   m_Layer: 0
   m_Name: Enemy_Buggy
   m_TagString: Enemy
@@ -402,7 +404,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyHealth: 5
   EnemySpeed: 1
-  EnemyWorth: 0
+  EnemyWorth: 10
   EnemyResistance: 0
   EnemyRange: 3
   EnemyFireRate: 1
@@ -421,6 +423,31 @@ MonoBehaviour:
   EnnemyScript: {fileID: 0}
   ShootingPoint: {fileID: 6747603847239097323}
   EnemyProjectile: {fileID: 4508185490172828934, guid: 0fa9f9f53fbac25429da6097a307390c, type: 3}
+--- !u!114 &-2903264751378375401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4301821913128253186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c45605ec4f8ef441a8da1b6bcb2e01b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8341943894491195487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4301821913128253186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5faa71c0b9ca65b49bf74c24d6cd8e3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsDead: 0
 --- !u!1 &7123501529577595950
 GameObject:
   m_ObjectHideFlags: 0

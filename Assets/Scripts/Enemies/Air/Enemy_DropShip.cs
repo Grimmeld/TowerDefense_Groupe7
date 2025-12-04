@@ -48,6 +48,10 @@ public class Enemy_DropShip : MonoBehaviour
     public float duration = 5f;
     public string DropTag = "EnemyDrop";
     [SerializeField] public Transform targetPosition;
+
+    [Header("Death")]
+    private EnemyDeath enemyDeath;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -61,18 +65,29 @@ public class Enemy_DropShip : MonoBehaviour
         Collide = GetComponent<BoxCollider>();
         agent.SetDestination(DestinationPoints[currentIndex].position);
         FindTarget();
+
+        enemyDeath = GetComponent<EnemyDeath>();
+        if (enemyDeath == null)
+        {
+            Debug.Log("No death script found");
+        }
     }
     bool isDropping = false;
     bool Dropped = false;
+
+
     // Update is called once per frame
     void Update()
     {
 
 
-        if (Health <= 0)
-        {
-            Death();
-        }
+        //BEG LEA -- // Best if death is triggered only once, not each frame
+        //if(Health <= 0)
+        //{
+        //    Death();
+        //}
+        // END LEA ++
+
         if (isDropping) return;
         Vector3 dest = targetPosition.transform.position;
         agent.SetDestination(dest);
@@ -171,12 +186,28 @@ public class Enemy_DropShip : MonoBehaviour
     void Death()
     {
         WaveSpawner.Instance.OnEnemyDied();
-        Destroy(gameObject);
+        //Destroy(gameObject);
+
+        // Determine when the enemy will die, if there is an animation or not
+        if (enemyDeath != null)
+        {
+            enemyDeath.TriggerDeath();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void TakeDamage(float damage)
     {
         Health -= damage;
+
+        // Check health when damage is done
+        if (Health <= 0)
+        {
+            Death();
+        }
     }
 
 }

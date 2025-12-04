@@ -21,6 +21,10 @@ public class Enemy_Sapper : MonoBehaviour
     [SerializeField] public Transform targetPosition;
     public string TurretTag = "Turret";
     public Vector3 enemyPos;
+
+    [Header("Death")]
+    private EnemyDeath enemyDeath;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -28,16 +32,25 @@ public class Enemy_Sapper : MonoBehaviour
         Speed = stats.EnemySpeed;
         Worth = stats.EnemyWorth;
         FindTarget();
+
+        enemyDeath = GetComponent<EnemyDeath>();
+        if (enemyDeath == null)
+        {
+            Debug.Log("No death script found");
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        if (Health <= 0)
-        {
-            Death();
-        }
+        //BEG LEA -- // Best if death is triggered only once, not each frame
+        //if(Health <= 0)
+        //{
+        //    Death();
+        //}
+        // END LEA ++
+
         enemyPos = transform.position;
         Vector3 NewPos = new Vector3(enemyPos.x, 4, enemyPos.z);
         if (Vector3.Distance(transform.position, targetPosition.position) < 4f)
@@ -76,12 +89,28 @@ public class Enemy_Sapper : MonoBehaviour
     void Death()
     {
         WaveSpawner.Instance.OnEnemyDied();
-        Destroy(gameObject);
+        //Destroy(gameObject);
+
+        // Determine when the enemy will die, if there is an animation or not
+        if (enemyDeath != null)
+        {
+            enemyDeath.TriggerDeath();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     void TakeDamage(float damage)
     {
         Health -= damage;
+
+        // Check health when damage is done
+        if (Health <= 0)
+        {
+            Death();
+        }
     }
 
 

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5265301333198309895}
   - component: {fileID: 4946450068966398570}
   - component: {fileID: 172357196946971276}
+  - component: {fileID: -6756126739608403337}
   m_Layer: 0
   m_Name: Sapper
   m_TagString: EnemyAir
@@ -136,10 +137,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyHealth: 0
   EnemySpeed: 0
-  EnemyWorth: 0
+  EnemyWorth: 20
   EnemyResistance: 0
   EnemyRange: 0
   EnemyFireRate: 0
+--- !u!114 &-6756126739608403337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 272126984777200635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c45605ec4f8ef441a8da1b6bcb2e01b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3219921242104103086
 GameObject:
   m_ObjectHideFlags: 0

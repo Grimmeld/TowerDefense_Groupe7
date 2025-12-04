@@ -56,7 +56,8 @@ public class BuildManager : MonoBehaviour
     public void EnableBuildMode()
     {
         // Check that the player has enough Nuclear resource to add a tower
-        if(!ResourceManager.instance.CheckNuclear())
+        if( ResourceManager.instance != null &&
+            !ResourceManager.instance.CheckNuclear())
         {
             return;
         }

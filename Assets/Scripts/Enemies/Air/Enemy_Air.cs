@@ -26,6 +26,9 @@ public class Enemy_Air : MonoBehaviour
     BulletType bulletType;
     WaveSpawner waveSpawner;
 
+    [Header("Death")]
+    private EnemyDeath enemyDeath;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -41,15 +44,23 @@ public class Enemy_Air : MonoBehaviour
         Vector3 dest = PointDest.transform.position;
         agent.destination = dest;
         waveSpawner.EnnemiesAlive++;
+
+        enemyDeath = GetComponent<EnemyDeath>();
+        if (enemyDeath == null)
+        {
+            Debug.Log("No death script found");
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Health <= 0)
-        {
-            Death();
-        }
+        //BEG LEA -- // Best if death is triggered only once, not each frame
+        //if(Health <= 0)
+        //{
+        //    Death();
+        //}
+        // END LEA ++
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -64,11 +75,27 @@ public class Enemy_Air : MonoBehaviour
     void Death()
     {
         WaveSpawner.Instance.OnEnemyDied();
-        Destroy(gameObject);
+        //Destroy(gameObject);
+
+        // Determine when the enemy will die, if there is an animation or not
+        if (enemyDeath != null)
+        {
+            enemyDeath.TriggerDeath();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void TakeDamage(float damage)
     {
         Health -= damage;
+
+        // Check health when damage is done
+        if (Health <= 0)
+        {
+            Death();
+        }
     }
 }

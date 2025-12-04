@@ -31,9 +31,14 @@ public class Enemy_DreadNought : MonoBehaviour
     WaveSpawner waveSpawner;
     public Transform EnemySpawnPoint;
 
+    [Header("Feedback")]
     private Color OriginalColor;
     public Color HitColor;
     private Renderer rend;
+
+    [Header("Death")]
+    private EnemyDeath enemyDeath;
+
     void Start()
     {
         Health = stats.EnemyHealth;
@@ -49,6 +54,12 @@ public class Enemy_DreadNought : MonoBehaviour
         Vector3 dest = PointDest.transform.position;
         agent.destination = dest;
         waveSpawner.EnnemiesAlive++;
+
+        enemyDeath = GetComponent<EnemyDeath>();
+        if (enemyDeath == null)
+        {
+            Debug.Log("No death script found");
+        }
     }
 
     // Update is called once per frame
@@ -62,22 +73,42 @@ public class Enemy_DreadNought : MonoBehaviour
             StartCoroutine(SpawnEnemiesBuggy());
             EnemySpawn = 0;
         }
-        if (Health <= 0)
-        {
-            Death();
-        }
+
+        //BEG LEA -- // Best if death is triggered only once, not each frame
+        //if(Health <= 0)
+        //{
+        //    Death();
+        //}
+        // END LEA ++
     }
 
     void Death()
     {
         WaveSpawner.Instance.OnEnemyDied();
-        Destroy(gameObject);
+        //Destroy(gameObject);
+        
+        // Determine when the enemy will die, if there is an animation or not
+        if (enemyDeath != null)
+        {
+            enemyDeath.TriggerDeath();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
     }
 
     void TakeDamage(float damage)
     {
         damage = damage -= EnemyResistance;
         Health -= damage;
+
+        // Check health when damage is done
+        if (Health <= 0)
+        {
+            Death();
+        }
     }
 
     private void OnTriggerEnter(Collider other)

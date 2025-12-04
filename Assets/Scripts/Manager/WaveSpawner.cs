@@ -136,7 +136,11 @@ public class WaveSpawner : MonoBehaviour
     {
         buildMode = true;
         onBuildModeStart.Invoke();
-        NextWaveButton.SetActive(true);
+
+        if (NextWaveButton != null)
+        {
+            NextWaveButton.SetActive(true);
+        }
     }
 
 
