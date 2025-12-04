@@ -19,6 +19,7 @@ public enum CardEffect
 {
     SpeedIncrease,
     ArmorIncrease,
-    DamageIncrease
+    DamageIncrease,
+    HealthRegen
         
 }

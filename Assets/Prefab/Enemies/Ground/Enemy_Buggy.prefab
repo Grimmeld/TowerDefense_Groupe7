@@ -221,8 +221,9 @@ GameObject:
   - component: {fileID: 1994028401022243730}
   - component: {fileID: 3529772653543454627}
   - component: {fileID: 1890495870266119980}
-  - component: {fileID: -1954316430353979822}
   - component: {fileID: 3201937165046473063}
+  - component: {fileID: 2091291408552092883}
+  - component: {fileID: -1954316430353979822}
   - component: {fileID: 6174514797421352248}
   - component: {fileID: -2903264751378375401}
   - component: {fileID: 8341943894491195487}
@@ -359,10 +360,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f22801165e33a31408a43e4511495205, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Speed: 0
+  EnemyResistance: 0
   Destination: {fileID: 0}
   agent: {fileID: 0}
   Collide: {fileID: 0}
   HitColor: {r: 1, g: 1, b: 1, a: 0}
+--- !u!114 &3201937165046473063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4301821913128253186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e81dcb470d87f5f41bb9bf342674723e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  EnemyHealth: 5
+  EnemySpeed: 1
+  EnemyWorth: 10
+  EnemyResistance: 0
+  EnemyRange: 3
+  EnemyFireRate: 1
+--- !u!114 &2091291408552092883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4301821913128253186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d0aa69d1fc1c0d4da4664c767e20928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpeedBuff: 0
+  ArmorBuff: 0
+  DamageBuff: 0
+  HealthRegen: 0
+  HealthRegenIncrease: 0
+  EffectValue: 0
 --- !u!54 &-1954316430353979822
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -390,24 +429,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3201937165046473063
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4301821913128253186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e81dcb470d87f5f41bb9bf342674723e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  EnemyHealth: 5
-  EnemySpeed: 1
-  EnemyWorth: 10
-  EnemyResistance: 0
-  EnemyRange: 3
-  EnemyFireRate: 1
 --- !u!114 &6174514797421352248
 MonoBehaviour:
   m_ObjectHideFlags: 0

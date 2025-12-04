@@ -15,6 +15,6 @@ MonoBehaviour:
   cardImage: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   cardText: +60% Enemy Armor
   effectType: 1
-  effectValue: 500
+  effectValue: 60
   isUnique: 0
   unlockLevel: 2

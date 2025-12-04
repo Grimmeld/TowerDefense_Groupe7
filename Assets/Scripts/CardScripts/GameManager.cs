@@ -14,11 +14,12 @@ int currentLevel = 0;
         Instance = this;
     }
 
-    private void Update()
+    private void Update() //Test des cartes
     {
         var keyboard = Keyboard.current;
         if(keyboard.spaceKey.wasPressedThisFrame)
         {
+
             ChangeState(GameSate.CardSelection);
             currentLevel++;
         }
@@ -29,14 +30,14 @@ int currentLevel = 0;
         return currentLevel;
     }
 
-    public void ChangeState(GameSate newState)
+    public void ChangeState(GameSate newState) //Changer l'état du jeu (combat / selection de carte)
     {
         currentState = newState;
         OnStateChanged?.Invoke(newState);
         HandleStateChange();
     }
 
-    private void HandleStateChange()
+    private void HandleStateChange() // les types d'état de jeu
     {
         switch(currentState)
         {
@@ -44,6 +45,7 @@ int currentLevel = 0;
                 CardManager.Instance.HideCardSelection();
                 break;
             case GameSate.CardSelection:
+                EventManager.Instance.DisableAllModifier();
                 CardManager.Instance.ShowCardSelection();
                 break;
         }

@@ -5,9 +5,11 @@ using System.Collections;
 public class Enemy_DreadNought : MonoBehaviour
 {
     EnemyStats stats;
+    EnemyModifier enemyModifier;
     private void Awake()
     {
         stats = GetComponent<EnemyStats>();
+        enemyModifier = GetComponent<EnemyModifier>();
     }
     [Header("Stats")]
 
@@ -15,6 +17,8 @@ public class Enemy_DreadNought : MonoBehaviour
     private float Speed;
     private float Worth;//Argent qu'il rapporte
     private float EnemyResistance;
+    private float HealthRegen;
+    [Header("DreadNought Drop Ennemi")]
     public int EnemiesToSpawn;
     public float EnemySpawnRate;
     public float EnemySpawn;
@@ -49,7 +53,6 @@ public class Enemy_DreadNought : MonoBehaviour
         GameObject PointDest = GameObject.FindGameObjectWithTag("Destination");
         waveSpawner = FindAnyObjectByType<WaveSpawner>();
         agent = GetComponent<NavMeshAgent>();
-        agent.speed = Speed;
         Collide = GetComponent<BoxCollider>();
         Vector3 dest = PointDest.transform.position;
         agent.destination = dest;
@@ -60,6 +63,8 @@ public class Enemy_DreadNought : MonoBehaviour
         {
             Debug.Log("No death script found");
         }
+        SetStats();
+        agent.speed = Speed;
     }
 
     // Update is called once per frame
@@ -67,7 +72,7 @@ public class Enemy_DreadNought : MonoBehaviour
     {
         EnemyResistance = stats.EnemyResistance;
         EnemySpawn += Time.deltaTime;
-
+        SetStats();
         if (EnemySpawn > EnemySpawnRate)
         {
             StartCoroutine(SpawnEnemiesBuggy());
@@ -140,5 +145,37 @@ public class Enemy_DreadNought : MonoBehaviour
             t++;
         }
         t = 0;
+    }
+
+    void SetStats()
+    {
+        if (EventManager.Instance.SpeedBuff)
+        {
+            Speed = stats.EnemySpeed + ((stats.EnemySpeed / 100) * (enemyModifier.EffectValue));
+            agent.speed = Speed;
+        }
+        else
+        {
+            Speed = stats.EnemySpeed;
+        }
+        if (EventManager.Instance.ArmorBuff)
+        {
+            EnemyResistance = stats.EnemyResistance + ((stats.EnemyHealth / 100) * (enemyModifier.EffectValue));
+        }
+        else
+        {
+            EnemyResistance = stats.EnemyResistance;
+        }
+        if (EventManager.Instance.HealthRegen && Health < stats.EnemyHealth)
+        {
+            HealthRegen = enemyModifier.EffectValue;
+            Health += HealthRegen * Time.deltaTime;
+        }
+        else
+        {
+            HealthRegen = 0;
+        }
+
+
     }
 }

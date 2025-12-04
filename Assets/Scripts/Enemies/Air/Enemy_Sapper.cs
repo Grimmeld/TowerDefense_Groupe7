@@ -9,15 +9,20 @@ using UnityEngine.Rendering;
 public class Enemy_Sapper : MonoBehaviour
 {
     EnemyStats stats;
+    EnemyModifier enemyModifier;
     TowerSabotaged towerSabotaged;
     private void Awake()
     {
         stats = GetComponent<EnemyStats>();
         towerSabotaged = GetComponent<TowerSabotaged>();
+        enemyModifier = GetComponent<EnemyModifier>();
     }
     private float Health;
     private float Speed;
     private float Worth;
+    private float EnemyResistance;
+    private float HealthRegen;
+
     [SerializeField] public Transform targetPosition;
     public string TurretTag = "Turret";
     public Vector3 enemyPos;
@@ -38,6 +43,7 @@ public class Enemy_Sapper : MonoBehaviour
         {
             Debug.Log("No death script found");
         }
+        SetStats();
     }
 
     // Update is called once per frame
@@ -60,7 +66,7 @@ public class Enemy_Sapper : MonoBehaviour
         }
         if (targetPosition == null)
             FindTarget();
-        Vector3 direction = Vector3.MoveTowards(NewPos, targetPosition.position, 1 * Time.deltaTime);
+        Vector3 direction = Vector3.MoveTowards(NewPos, targetPosition.position, Speed * Time.deltaTime);
         transform.position = direction;
     }
     public void FindTarget()
@@ -104,6 +110,7 @@ public class Enemy_Sapper : MonoBehaviour
 
     void TakeDamage(float damage)
     {
+        damage -= EnemyResistance;
         Health -= damage;
 
         // Check health when damage is done
@@ -113,5 +120,32 @@ public class Enemy_Sapper : MonoBehaviour
         }
     }
 
-
+    void SetStats()
+    {
+        if (EventManager.Instance.SpeedBuff)
+        {
+            Speed = stats.EnemySpeed + ((stats.EnemySpeed / 100) * (enemyModifier.EffectValue));
+        }
+        else
+        {
+            Speed = stats.EnemySpeed;
+        }
+        if (EventManager.Instance.ArmorBuff)
+        {
+            EnemyResistance = stats.EnemyResistance + ((stats.EnemyHealth / 100) * (enemyModifier.EffectValue));
+        }
+        else
+        {
+            EnemyResistance = stats.EnemyResistance;
+        }
+        if (EventManager.Instance.HealthRegen && Health < stats.EnemyHealth)
+        {
+            HealthRegen = enemyModifier.EffectValue;
+            Health += HealthRegen * Time.deltaTime;
+        }
+        else
+        {
+            HealthRegen = 0;
+        }
+    }
 }

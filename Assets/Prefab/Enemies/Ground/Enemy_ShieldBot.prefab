@@ -385,6 +385,7 @@ GameObject:
   - component: {fileID: 7992828544557332102}
   - component: {fileID: 3158016282015757733}
   - component: {fileID: 2525121650906330182}
+  - component: {fileID: -4860269002175263438}
   m_Layer: 0
   m_Name: Enemy_ShieldBot
   m_TagString: Enemy
@@ -609,6 +610,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDead: 0
+--- !u!114 &-4860269002175263438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6939361005183291741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d0aa69d1fc1c0d4da4664c767e20928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpeedBuff: 0
+  ArmorBuff: 0
+  DamageBuff: 0
+  HealthRegen: 0
+  HealthRegenIncrease: 0
+  EffectValue: 0
 --- !u!1 &7255160281627971311
 GameObject:
   m_ObjectHideFlags: 0

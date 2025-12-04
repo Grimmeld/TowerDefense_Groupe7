@@ -6,7 +6,7 @@ public class Card : MonoBehaviour, IPointerDownHandler
 {
     [SerializeField] SpriteRenderer cardImageRenderer;
 
-    [SerializeField] TextMeshPro cardTextRenderer;
+    [SerializeField] TextMeshProUGUI cardTextRenderer;
     private CardSO cardInfo;
     public void Setup(CardSO card)
     {

@@ -134,13 +134,14 @@ public class WaveSpawner : MonoBehaviour
 
     void startBuildMode()
     {
-        buildMode = true;
-        onBuildModeStart.Invoke();
 
-        if (NextWaveButton != null)
-        {
-            NextWaveButton.SetActive(true);
-        }
+
+
+        NextWaveButton.SetActive(true);
+        if(buildMode)
+            return;
+
+        buildMode = true;
     }
 
 
@@ -178,5 +179,11 @@ public class WaveSpawner : MonoBehaviour
     {
         yield return new WaitForSeconds (1);
         test = false;
+    }
+
+    public void ChangeState()
+    {
+        
+        GameManager.Instance.ChangeState(GameManager.GameSate.CardSelection);
     }
 }

@@ -2,6 +2,11 @@ using UnityEngine;
 
 public class EnemyStats : MonoBehaviour
 {
+    EnemyModifier enemyModifier;
+    private void Awake()
+    {
+        enemyModifier = GetComponent<EnemyModifier>();
+    }
     [Header("Stats")]
     public float EnemyHealth;
     public float EnemySpeed;

@@ -5,15 +5,19 @@ using System.Collections;
 public class Enemy_Air : MonoBehaviour
 {
     EnemyStats stats;
+    EnemyModifier enemyModifier;
     private void Awake()
     {
         stats = GetComponent<EnemyStats>();
+        enemyModifier = GetComponent<EnemyModifier>();
     }
     [Header("Stats")]
 
     private float Health;
     private float Speed;
     private float Worth;//Argent qu'il rapporte
+    private float EnemyResistance;
+    private float HealthRegen;
 
 
     [Header("Destination")]
@@ -39,7 +43,6 @@ public class Enemy_Air : MonoBehaviour
         waveSpawner = FindAnyObjectByType<WaveSpawner>();
         GameObject PointDest = GameObject.FindGameObjectWithTag("Destination");
         agent = GetComponent<NavMeshAgent>();
-        agent.speed = Speed;
         Collide = GetComponent<BoxCollider>();
         Vector3 dest = PointDest.transform.position;
         agent.destination = dest;
@@ -50,11 +53,14 @@ public class Enemy_Air : MonoBehaviour
         {
             Debug.Log("No death script found");
         }
+        SetStats();
+        agent.speed = Speed;
     }
 
     // Update is called once per frame
     void Update()
     {
+        SetStats();
         //BEG LEA -- // Best if death is triggered only once, not each frame
         //if(Health <= 0)
         //{
@@ -97,5 +103,36 @@ public class Enemy_Air : MonoBehaviour
         {
             Death();
         }
+    }
+    void SetStats()
+    {
+        if (EventManager.Instance.SpeedBuff)
+        {
+            Speed = stats.EnemySpeed + ((stats.EnemySpeed / 100) * (enemyModifier.EffectValue));
+            agent.speed = Speed;
+        }
+        else
+        {
+            Speed = stats.EnemySpeed;
+        }
+        if (EventManager.Instance.ArmorBuff)
+        {
+            EnemyResistance = stats.EnemyResistance + ((stats.EnemyHealth / 100) * (enemyModifier.EffectValue));
+        }
+        else
+        {
+            EnemyResistance = stats.EnemyResistance;
+        }
+        if (EventManager.Instance.HealthRegen && Health < stats.EnemyHealth)
+        {
+            HealthRegen = enemyModifier.EffectValue;
+            Health += HealthRegen * Time.deltaTime;
+        }
+        else
+        {
+            HealthRegen = 0;
+        }
+
+
     }
 }

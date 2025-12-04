@@ -342,6 +342,7 @@ GameObject:
   - component: {fileID: 6399580819160001098}
   - component: {fileID: 392785986703290335}
   - component: {fileID: 5082751207003396728}
+  - component: {fileID: -3463414420190551591}
   m_Layer: 0
   m_Name: DropShip
   m_TagString: EnemyAir
@@ -507,3 +508,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c45605ec4f8ef441a8da1b6bcb2e01b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-3463414420190551591
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2191903332562888967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d0aa69d1fc1c0d4da4664c767e20928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpeedBuff: 0
+  ArmorBuff: 0
+  DamageBuff: 0
+  HealthRegen: 0
+  HealthRegenIncrease: 0
+  EffectValue: 0

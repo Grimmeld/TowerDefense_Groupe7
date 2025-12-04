@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using UnityEditor.Build.Content;
 using UnityEngine.Rendering;
+using UnityEngine.Events;
 
 public class CardManager : MonoBehaviour
 {
@@ -21,6 +22,7 @@ public class CardManager : MonoBehaviour
     List<CardSO> alreadySelectedCards = new List<CardSO>();
 
     public static CardManager Instance;
+    public UnityEvent StartNextWave;
 
     private void Awake()
     {
@@ -74,12 +76,13 @@ public class CardManager : MonoBehaviour
             }
 
         }
+
         cardOne = InstantiateCard(randomizedCards[0], cardPositionOne);
         cardTwo = InstantiateCard(randomizedCards[1], cardPositionTwo);
         cardThree = InstantiateCard(randomizedCards[2], cardPositionThree);
     }
 
-    GameObject InstantiateCard(CardSO cardSO, Transform position)
+    GameObject InstantiateCard(CardSO cardSO, Transform position) //créer les 3 cartes au position définie
     {
         GameObject cardGo = Instantiate(cardPrefab, position.position, Quaternion.identity, position);
         Card card = cardGo.GetComponent<Card>();
@@ -87,23 +90,31 @@ public class CardManager : MonoBehaviour
         return cardGo;
     }
 
-    public void SelectCard(CardSO selectedCard)
+    public void SelectCard(CardSO selectedCard) //Fonction de la selection des cartes qui renvoie la carte slectionné avec son effet
     {
         if(!alreadySelectedCards.Contains(selectedCard))
         {
-            alreadySelectedCards.Add(selectedCard);
+            //alreadySelectedCards.Add(selectedCard);
+
+            ApplyEffect(selectedCard);
         }
 
         GameManager.Instance.ChangeState(GameManager.GameSate.Playing);
+        StartNextWave.Invoke();
     }
 
-    public void ShowCardSelection()
+    public void ShowCardSelection() //Montrer le canvas des cartes
     {
         cardSelectionUI.SetActive(true);
     }
 
-    public void HideCardSelection()
+    public void HideCardSelection()//cacher le canvas des cartes
     {
         cardSelectionUI.SetActive(false);
+    }
+
+    public void ApplyEffect(CardSO selectedCard)//appliquer l'effet sur le EventManager
+    {
+        EventManager.Instance.ShowEffect(selectedCard);
     }
 }
