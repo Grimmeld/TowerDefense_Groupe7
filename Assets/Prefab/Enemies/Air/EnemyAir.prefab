@@ -560,7 +560,6 @@ GameObject:
   - component: {fileID: 8049255037835336984}
   - component: {fileID: 8486265132943374316}
   - component: {fileID: 6436244456038739529}
-  - component: {fileID: 4256566270912724156}
   m_Layer: 5
   m_Name: HealthBarFill
   m_TagString: Untagged
@@ -625,21 +624,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4256566270912724156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7651285976551217621}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3a0313d4f4c068146987e214bbd6818e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Health: 0
-  MaxHealth: 0
-  HealthBarImage: {fileID: 6436244456038739529}
 --- !u!1 &8270443144933418462
 GameObject:
   m_ObjectHideFlags: 0
@@ -656,8 +640,8 @@ GameObject:
   - component: {fileID: 5197802237560787610}
   - component: {fileID: 8369231935640243574}
   - component: {fileID: -8646967905331188973}
-  - component: {fileID: 6396335744003627586}
   - component: {fileID: 8689907521239768797}
+  - component: {fileID: 3743275082689266606}
   m_Layer: 0
   m_Name: EnemyAir
   m_TagString: EnemyAir
@@ -815,24 +799,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c45605ec4f8ef441a8da1b6bcb2e01b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6396335744003627586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8270443144933418462}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d0aa69d1fc1c0d4da4664c767e20928, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpeedBuff: 0
-  ArmorBuff: 0
-  DamageBuff: 0
-  HealthRegen: 0
-  HealthRegenIncrease: 0
-  EffectValue: 0
 --- !u!114 &8689907521239768797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -848,3 +814,21 @@ MonoBehaviour:
   Health: 0
   MaxHealth: 0
   HealthBarImage: {fileID: 6436244456038739529}
+--- !u!114 &3743275082689266606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8270443144933418462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ba214fcc81e5c846971cc786837a94c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpeedBuff: 0
+  ArmorBuff: 0
+  DamageBuff: 0
+  HealthRegen: 0
+  HealthRegenIncrease: 0
+  EffectValue: 0

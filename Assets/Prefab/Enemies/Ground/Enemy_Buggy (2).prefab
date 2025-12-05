@@ -222,12 +222,12 @@ GameObject:
   - component: {fileID: 3529772653543454627}
   - component: {fileID: 1890495870266119980}
   - component: {fileID: 3201937165046473063}
-  - component: {fileID: 2091291408552092883}
   - component: {fileID: -1954316430353979822}
   - component: {fileID: 6174514797421352248}
   - component: {fileID: -2903264751378375401}
   - component: {fileID: 8341943894491195487}
   - component: {fileID: 3767724268471986116}
+  - component: {fileID: 1319785181509089977}
   m_Layer: 0
   m_Name: Enemy_Buggy (2)
   m_TagString: Enemy
@@ -388,24 +388,6 @@ MonoBehaviour:
   EnemyResistance: 0
   EnemyRange: 3
   EnemyFireRate: 1
---- !u!114 &2091291408552092883
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4301821913128253186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d0aa69d1fc1c0d4da4664c767e20928, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  SpeedBuff: 0
-  ArmorBuff: 0
-  DamageBuff: 0
-  HealthRegen: 0
-  HealthRegenIncrease: 0
-  EffectValue: 0
 --- !u!54 &-1954316430353979822
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -488,6 +470,24 @@ MonoBehaviour:
   Health: 0
   MaxHealth: 0
   HealthBarImage: {fileID: 5602536556119122596}
+--- !u!114 &1319785181509089977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4301821913128253186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ba214fcc81e5c846971cc786837a94c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpeedBuff: 0
+  ArmorBuff: 0
+  DamageBuff: 0
+  HealthRegen: 0
+  HealthRegenIncrease: 0
+  EffectValue: 0
 --- !u!1 &7123501529577595950
 GameObject:
   m_ObjectHideFlags: 0
@@ -891,7 +891,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: HealthBar
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 4256566270912724156, guid: b61440d58c75b3f43b58b5d1b4c96435, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4256566270912724156, guid: b61440d58c75b3f43b58b5d1b4c96435, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

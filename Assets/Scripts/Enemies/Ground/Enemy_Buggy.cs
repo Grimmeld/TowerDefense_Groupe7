@@ -93,7 +93,8 @@ public class Enemy_Buggy : MonoBehaviour
     {
         SetStats();
         //regarder si on a atteind un waypoint
-        if (!waypointReached && chosenWaypoint != null && agent != null)
+        if (!waypointReached && chosenWaypoint != null && agent != null
+            && agent.enabled)
         {
             // utilise un component du navmesh qui calcule la distance restante
             bool arrived = false;

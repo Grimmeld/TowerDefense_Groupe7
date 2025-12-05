@@ -16,7 +16,7 @@ public class EnemyHealthBar : MonoBehaviour
     {
         enemy_Buggy = GetComponent<Enemy_Buggy>();
         enemy_Stats = GetComponent<EnemyStats>();
-        Health = enemy_Buggy.Health;
+        //Health = enemy_Buggy.Health;
         MaxHealth = enemy_Stats.EnemyHealth;
         if (HealthBarImage == null)
             HealthBarImage = GetComponentInChildren<Image>();

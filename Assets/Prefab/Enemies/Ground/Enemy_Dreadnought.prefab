@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: 3790576995981648005}
   - component: {fileID: -5331802330958573386}
   - component: {fileID: 2786050477549937778}
-  - component: {fileID: -1277269412511507521}
+  - component: {fileID: 1261506768562975684}
   m_Layer: 0
   m_Name: Enemy_Dreadnought
   m_TagString: Enemy
@@ -190,6 +190,8 @@ MonoBehaviour:
   Collide: {fileID: 0}
   EnemySpawnPoint: {fileID: 4328492306618784519}
   HitColor: {r: 0, g: 0, b: 0, a: 0}
+  WaypointTag: Waypoint
+  ReachDistance: 0.3
 --- !u!114 &-6708215329815179571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -248,7 +250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsDead: 0
---- !u!114 &-1277269412511507521
+--- !u!114 &1261506768562975684
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -257,7 +259,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 545362407022032932}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d0aa69d1fc1c0d4da4664c767e20928, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ba214fcc81e5c846971cc786837a94c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   SpeedBuff: 0
