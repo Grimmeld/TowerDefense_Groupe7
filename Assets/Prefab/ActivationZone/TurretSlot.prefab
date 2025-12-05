@@ -968,6 +968,10 @@ GameObject:
   - component: {fileID: 2082627337064968376}
   - component: {fileID: 1493682813253747542}
   - component: {fileID: 5260792613814441979}
+  - component: {fileID: 3870449789409432563}
+  - component: {fileID: 3699769386505774486}
+  - component: {fileID: 8997038956298001346}
+  - component: {fileID: 2922160844556939354}
   m_Layer: 0
   m_Name: TurretSlot
   m_TagString: Untagged
@@ -1034,6 +1038,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3371a51053837df4895d4b858fddb4b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Turret: {fileID: 0}
   buildManager: {fileID: 0}
   spawnPointTurret: {fileID: 8619809087757149644}
   panelEmpty: {fileID: 838992813438891345}
@@ -1041,6 +1046,54 @@ MonoBehaviour:
   panels: []
   HoverColor: {r: 1, g: 1, b: 1, a: 0}
   OriginalColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &3870449789409432563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6787256663066620096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9a99fc298ec49146a484a09cd4bb8be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3699769386505774486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6787256663066620096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8248ff60c0242b34f8ceab8878a9785e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8997038956298001346
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6787256663066620096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59af0170e8650794e8c37a8defef09e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2922160844556939354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6787256663066620096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa4c66c2442c38a4080f0101f41d1ec6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7615729572246476580
 GameObject:
   m_ObjectHideFlags: 0
