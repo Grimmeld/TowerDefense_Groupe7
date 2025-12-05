@@ -5,17 +5,20 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine.Rendering;
+using UnityEngine.AI;
 
 public class Enemy_Sapper : MonoBehaviour
 {
     EnemyStats stats;
     EnemyModifier enemyModifier;
     TowerSabotaged towerSabotaged;
+    NavMeshAgent NavMeshAgent;
     private void Awake()
     {
         stats = GetComponent<EnemyStats>();
         towerSabotaged = GetComponent<TowerSabotaged>();
         enemyModifier = GetComponent<EnemyModifier>();
+        NavMeshAgent = GetComponent<NavMeshAgent>();
     }
     private float Health;
     private float Speed;
@@ -33,6 +36,7 @@ public class Enemy_Sapper : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        NavMeshAgent.baseOffset = 2f;
         Health = stats.EnemyHealth;
         Speed = stats.EnemySpeed;
         Worth = stats.EnemyWorth;
@@ -45,7 +49,8 @@ public class Enemy_Sapper : MonoBehaviour
         }
         SetStats();
     }
-
+    [Header("Citation")]
+    private string citation = "fait avec l'aide de NOM";
     // Update is called once per frame
     void Update()
     {
@@ -56,13 +61,17 @@ public class Enemy_Sapper : MonoBehaviour
         //    Death();
         //}
         // END LEA ++
-
+        Vector3 dir = targetPosition.position - transform.position;
+        dir.y = 0;
+        transform.rotation = Quaternion.LookRotation(dir);
         enemyPos = transform.position;
         Vector3 NewPos = new Vector3(enemyPos.x, 4, enemyPos.z);
         if (Vector3.Distance(transform.position, targetPosition.position) < 4f)
         {
             NewPos = new Vector3(enemyPos.x, enemyPos.y, enemyPos.z);
+            Vector3 plunge = Vector3.MoveTowards(NewPos, targetPosition.position, Speed * Time.deltaTime);
             transform.LookAt(targetPosition.position);
+            transform.position = plunge;
         }
         if (targetPosition == null)
             FindTarget();

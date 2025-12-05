@@ -12,6 +12,7 @@ TagManager:
   - Slot
   - Base
   - SlotPanel
+  - EnemyBullet
   layers:
   - Default
   - TransparentFX
