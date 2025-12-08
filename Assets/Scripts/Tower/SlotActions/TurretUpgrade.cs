@@ -1,5 +1,4 @@
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 public class TurretUpgrade : MonoBehaviour
 {
@@ -8,6 +7,8 @@ public class TurretUpgrade : MonoBehaviour
     [SerializeField] private GameObject currentTowerIG;
     [SerializeField] private GameObject currentTowerUpgrade;
     [SerializeField] private Transform spawnPoint;
+
+
 
 
     public void Upgrade(GameObject tower)
@@ -61,7 +62,7 @@ public class TurretUpgrade : MonoBehaviour
         GameObject go = Instantiate(tower, turretSlot.transform);
         go.transform.position = turretSlot.spawnPointTurret.position;
         Destroy(currentTowerIG);
-        turretSlot.UpdateTurretSlot(go);
+        turretSlot.UpdateTurretSlot(go); // Update tour dans les paramètres du slot
 
         // Voir la nouvelle dans le menu amelioration
         Destroy(currentTowerUpgrade);
@@ -76,6 +77,42 @@ public class TurretUpgrade : MonoBehaviour
             UpgradeMenu.Instance.CloseUpgradeMenu();
         }
 
+    }
+
+    public void UpdateTowerInMenu(GameObject mode)
+    {
+        Debug.Log("On met à jour la tour dans le menu");
+        Destroy(currentTowerUpgrade);
+        currentTowerUpgrade = Instantiate(mode, spawnPoint);
+    }
+
+    public void CreateNewTower()
+    {
+        // Creer les nouvelles tours avec les upgrade
+        TurretSlot turretSlot = GetComponent<TurretSlot>();
+
+        // Put the new tower in game on the slot
+        GameObject go = Instantiate(currentTowerUpgrade, turretSlot.transform);
+        go.transform.position = turretSlot.spawnPointTurret.position;
+        turretSlot.UpdateTurretSlot(go); // Update tour dans les paramètres du slot
+
+        Debug.Log("On créé une nouvelle tour : " + go.name);
+
+        DeleteTower();
+
+        // Fermer le menu d'amelioration
+        isUpgrading = !isUpgrading;
+        if (UpgradeMenu.Instance != null)
+        {
+            UpgradeMenu.Instance.CloseUpgradeMenu();
+        }
+    }
+
+    public void DeleteTower()
+    {
+        Debug.Log("On delete les anciennes tours");
+        Destroy(currentTowerIG);
+        Destroy(currentTowerUpgrade);
     }
 
 }
