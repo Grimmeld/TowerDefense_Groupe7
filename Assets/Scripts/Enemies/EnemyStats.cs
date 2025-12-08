@@ -15,4 +15,5 @@ public class EnemyStats : MonoBehaviour
     public float EnemyResistance;
     public float EnemyRange;
     public float EnemyFireRate;
+    public float EnemyDamage;
 }

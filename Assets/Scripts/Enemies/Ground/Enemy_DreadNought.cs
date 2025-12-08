@@ -1,24 +1,31 @@
 using System.Collections;
 using System.Linq;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class Enemy_DreadNought : MonoBehaviour
 {
+    EnemyHealthBar healthBar;
     EnemyStats stats;
     EnemyModifier enemyModifier;
+    EnemyAnimation enemyAnimation;
     private void Awake()
     {
         stats = GetComponent<EnemyStats>();
         enemyModifier = GetComponent<EnemyModifier>();
+        healthBar = GetComponent<EnemyHealthBar>();
+        enemyAnimation = GetComponent<EnemyAnimation>();
     }
     [Header("Stats")]
 
-    private float Health;
+    public float Health;
     private float Speed;
     private float Worth;//Argent qu'il rapporte
     private float EnemyResistance;
     private float HealthRegen;
+    [SerializeField] private float MaxHealth;
+
     [Header("DreadNought Drop Ennemi")]
     public int EnemiesToSpawn;
     public float EnemySpawnRate;
@@ -54,6 +61,7 @@ public class Enemy_DreadNought : MonoBehaviour
         Health = stats.EnemyHealth;
         Speed = stats.EnemySpeed;
         Worth = stats.EnemyWorth;
+        MaxHealth = Health;
         rend = GetComponent<Renderer>();
         OriginalColor = rend.material.color;
         if (Destination == null)
@@ -72,6 +80,11 @@ public class Enemy_DreadNought : MonoBehaviour
         if (enemyDeath == null)
         {
             Debug.Log("No death script found");
+        }
+        if (healthBar != null)
+        {
+            healthBar.SetMaxHealth(MaxHealth);
+            healthBar.SetHealth(Health);
         }
         PickOneOfThreeClosestWaypoints();
         SetStats();
@@ -136,6 +149,7 @@ public class Enemy_DreadNought : MonoBehaviour
         }
         else
         {
+            enemyAnimation.PlayDeath();
             Destroy(gameObject);
         }
 
@@ -145,6 +159,7 @@ public class Enemy_DreadNought : MonoBehaviour
     {
         damage = damage -= EnemyResistance;
         Health -= damage;
+        SetHealth(-damage);
 
         // Check health when damage is done
         if (Health <= 0)
@@ -175,13 +190,22 @@ public class Enemy_DreadNought : MonoBehaviour
     IEnumerator SpawnEnemiesBuggy()
     {
         int t = 0;
-        while (t < 4)
+        while (t < EnemiesToSpawn)
         {
             Instantiate(EnemyBuggyPrefab, EnemySpawnPoint.position, EnemySpawnPoint.rotation);
             yield return new WaitForSeconds(0.5f);
             t++;
         }
         t = 0;
+    }
+
+    public void SetHealth(float healthChange)
+    {
+        Health += healthChange;
+        Health = Mathf.Clamp(Health, 0, MaxHealth);
+
+        if (healthBar != null)
+            healthBar.SetHealth(Health);
     }
 
     void SetStats()

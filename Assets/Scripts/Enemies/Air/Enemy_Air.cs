@@ -7,11 +7,13 @@ public class Enemy_Air : MonoBehaviour
     EnemyHealthBar healthBar;
     EnemyStats stats;
     EnemyModifier enemyModifier;
+    EnemyAnimation enemyAnimation;
     private void Awake()
     {
         stats = GetComponent<EnemyStats>();
         enemyModifier = GetComponent<EnemyModifier>();
         healthBar = GetComponent<EnemyHealthBar>();
+        enemyAnimation = GetComponent<EnemyAnimation>();
     }
     [Header("Stats")]
 
@@ -50,7 +52,7 @@ public class Enemy_Air : MonoBehaviour
         Collide = GetComponent<BoxCollider>();
         Vector3 dest = PointDest.transform.position;
         agent.destination = dest;
-        waveSpawner.EnnemiesAlive++;
+        //waveSpawner.EnnemiesAlive++;
 
         enemyDeath = GetComponent<EnemyDeath>();
         if (enemyDeath == null)
@@ -89,7 +91,7 @@ public class Enemy_Air : MonoBehaviour
     }
     void Death()
     {
-        WaveSpawner.Instance.OnEnemyDied();
+        //WaveSpawner.Instance.OnEnemyDied();
         //Destroy(gameObject);
 
         // Determine when the enemy will die, if there is an animation or not
@@ -99,6 +101,7 @@ public class Enemy_Air : MonoBehaviour
         }
         else
         {
+            enemyAnimation.PlayDeath();
             Destroy(gameObject);
         }
     }

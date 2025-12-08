@@ -13,18 +13,21 @@ public class Enemy_Sapper : MonoBehaviour
     EnemyModifier enemyModifier;
     TowerSabotaged towerSabotaged;
     NavMeshAgent NavMeshAgent;
+    EnemyHealthBar healthBar;
     private void Awake()
     {
         stats = GetComponent<EnemyStats>();
         towerSabotaged = GetComponent<TowerSabotaged>();
         enemyModifier = GetComponent<EnemyModifier>();
         NavMeshAgent = GetComponent<NavMeshAgent>();
+        healthBar = GetComponent<EnemyHealthBar>();
     }
-    private float Health;
+    public float Health;
     private float Speed;
     private float Worth;
     private float EnemyResistance;
     private float HealthRegen;
+    [SerializeField] private float MaxHealth;
 
     [SerializeField] public Transform targetPosition;
     public string TurretTag = "Turret";
@@ -33,6 +36,17 @@ public class Enemy_Sapper : MonoBehaviour
     [Header("Death")]
     private EnemyDeath enemyDeath;
 
+    [Header("Plunge settings")]
+    [SerializeField] private float hoverHeight = 4f;
+    [SerializeField] private float plungeHeight = 0.7f;
+    [SerializeField] private float hoverBaseOffset = 2f;
+    [SerializeField] private float plungeBaseOffset = 0.7f;
+    [SerializeField] private float baseOffsetChangeSpeed = 6f;
+    [SerializeField] private float heightChangeSpeed = 6f;
+    [SerializeField] private float plungeStartDistance = 4f;
+    [SerializeField] private float lookSlerpSpeed = 10f;
+    bool isPlunging;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -40,12 +54,19 @@ public class Enemy_Sapper : MonoBehaviour
         Health = stats.EnemyHealth;
         Speed = stats.EnemySpeed;
         Worth = stats.EnemyWorth;
+        MaxHealth = Health;
         FindTarget();
-
+        if (targetPosition != null)
+            FaceTargetImmediate(targetPosition);
         enemyDeath = GetComponent<EnemyDeath>();
         if (enemyDeath == null)
         {
             Debug.Log("No death script found");
+        }
+        if (healthBar != null)
+        {
+            healthBar.SetMaxHealth(MaxHealth);
+            healthBar.SetHealth(Health);
         }
         SetStats();
     }
@@ -54,29 +75,19 @@ public class Enemy_Sapper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        //BEG LEA -- // Best if death is triggered only once, not each frame
-        //if(Health <= 0)
-        //{
-        //    Death();
-        //}
-        // END LEA ++
-        Vector3 dir = targetPosition.position - transform.position;
-        dir.y = 0;
-        transform.rotation = Quaternion.LookRotation(dir);
-        enemyPos = transform.position;
-        Vector3 NewPos = new Vector3(enemyPos.x, 4, enemyPos.z);
-        if (Vector3.Distance(transform.position, targetPosition.position) < 4f)
-        {
-            NewPos = new Vector3(enemyPos.x, enemyPos.y, enemyPos.z);
-            Vector3 plunge = Vector3.MoveTowards(NewPos, targetPosition.position, Speed * Time.deltaTime);
-            transform.LookAt(targetPosition.position);
-            transform.position = plunge;
-        }
         if (targetPosition == null)
             FindTarget();
-        Vector3 direction = Vector3.MoveTowards(NewPos, targetPosition.position, Speed * Time.deltaTime);
-        transform.position = direction;
+        float dist = Vector3.Distance(transform.position, targetPosition.position);
+        isPlunging = dist < plungeStartDistance;
+        if (NavMeshAgent != null)
+        {
+            float targetOffset = isPlunging ? plungeBaseOffset : hoverBaseOffset;
+            NavMeshAgent.baseOffset = Mathf.MoveTowards(NavMeshAgent.baseOffset, targetOffset, baseOffsetChangeSpeed * Time.deltaTime);
+        }
+        float desiredY = isPlunging ? plungeHeight : hoverHeight;
+        Vector3 desiredPos = new Vector3(targetPosition.position.x, desiredY, targetPosition.position.z);
+        transform.position = Vector3.MoveTowards(transform.position, desiredPos, Speed * Time.deltaTime);
+        FaceTargetSmooth(targetPosition);
     }
     public void FindTarget()
     {
@@ -121,12 +132,22 @@ public class Enemy_Sapper : MonoBehaviour
     {
         damage -= EnemyResistance;
         Health -= damage;
+        SetHealth(-damage);
 
         // Check health when damage is done
         if (Health <= 0)
         {
             Death();
         }
+    }
+
+    public void SetHealth(float healthChange)
+    {
+        Health += healthChange;
+        Health = Mathf.Clamp(Health, 0, MaxHealth);
+
+        if (healthBar != null)
+            healthBar.SetHealth(Health);
     }
 
     void SetStats()
@@ -156,5 +177,24 @@ public class Enemy_Sapper : MonoBehaviour
         {
             HealthRegen = 0;
         }
+    }
+
+    private void FaceTargetImmediate(Transform target)
+    {
+        if (target == null) return;
+        Vector3 dir = target.position - transform.position;
+        dir.y = 0f;
+        if (dir.sqrMagnitude <= 0.0001f) return;
+        transform.rotation = Quaternion.LookRotation(dir);
+    }
+
+    private void FaceTargetSmooth(Transform target)
+    {
+        if (target == null) return;
+        Vector3 dir = target.position - transform.position;
+        dir.y = 0f;
+        if (dir.sqrMagnitude <= 0.0001f) return;
+        Quaternion targetRot = Quaternion.LookRotation(dir);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, lookSlerpSpeed * Time.deltaTime);
     }
 }

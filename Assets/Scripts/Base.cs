@@ -40,8 +40,8 @@ public class Base : MonoBehaviour
     {
         if (other.CompareTag("EnemyBullet"))
         {
-            // keep current hardcoded damage or read it from the projectile if available
-            SetHealth(-20f);
+            Enemy_Projectile projectile = other.GetComponent<Enemy_Projectile>();
+            SetHealth(-projectile.Damage);
         }
     }
 }

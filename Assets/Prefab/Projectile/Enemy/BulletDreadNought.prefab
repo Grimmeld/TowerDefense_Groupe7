@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 4955678002656133264}
   - component: {fileID: -1233325333535397584}
   - component: {fileID: -9026599688156558746}
+  - component: {fileID: -5088463084724333821}
   m_Layer: 0
-  m_Name: BulletEnemy
+  m_Name: BulletDreadNought
   m_TagString: EnemyBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,7 +52,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4508185490172828934}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -123,6 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 3
+  Damage: 6
   BulletTransform: {fileID: 6235066777519443148}
 --- !u!54 &-9026599688156558746
 Rigidbody:
@@ -151,3 +153,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &-5088463084724333821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4508185490172828934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4f9f21ecf876d44195e774dd8b9fbd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalDamage: 6
+  DamageBuff: 0
+  EffectValue: 0
