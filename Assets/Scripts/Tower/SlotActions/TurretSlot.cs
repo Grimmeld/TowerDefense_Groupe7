@@ -11,7 +11,7 @@ public class TurretSlot : MonoBehaviour, IPointerEnterHandler, IPointerDownHandl
     //public Vector3 PlacePosition; DEL LEA -- 
     //public Vector3 Offset;        DEL LEA -- 
     public BuildManager buildManager;
-    [SerializeField] private Transform spawnPointTurret;
+    public Transform spawnPointTurret;
 
     [Header("Action towwer")]
     private TurretPlace turretPlace;
@@ -34,12 +34,12 @@ public class TurretSlot : MonoBehaviour, IPointerEnterHandler, IPointerDownHandl
     {
         OriginalColor = Color.green;
         rend = GetComponentInChildren<Renderer>(); 
-        buildManager = FindAnyObjectByType<BuildManager>(); // Not needed
+        //buildManager = FindAnyObjectByType<BuildManager>(); // Not needed
 
-        if (buildManager == null)
-        {
-            Debug.Log("Cannot find the BuildManager");
-        }
+        //if (buildManager == null)
+        //{
+        //    Debug.Log("Cannot find the BuildManager");
+        //}
 
         turretPlace = GetComponent<TurretPlace>();
         turretUpgrade = GetComponent<TurretUpgrade>();
@@ -141,6 +141,11 @@ public class TurretSlot : MonoBehaviour, IPointerEnterHandler, IPointerDownHandl
             SlotPanelManager.instance.ClosePanel();
         }
 
+    }
+
+    public void UpdateTurretSlot(GameObject turret)
+    {
+        Turret = turret;
     }
 
     // --- ACTION TOWERS
