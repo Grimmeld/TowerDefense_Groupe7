@@ -54,7 +54,6 @@ public class TurretUpgrade : MonoBehaviour
 
     public void GetNewTower(GameObject tower)
     {
-        Debug.Log("get new tower");
         // Creer les nouvelles tours avec les upgrade
         TurretSlot turretSlot = GetComponent<TurretSlot>();
         
