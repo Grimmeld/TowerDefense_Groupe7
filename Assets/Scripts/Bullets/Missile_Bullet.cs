@@ -34,7 +34,11 @@ public class Missile_Bullet : MonoBehaviour
             return;
         }
         if (target == null)
+        {
+            Destroy(gameObject);
             return;
+        }
+
         speed = 1.5f;
         Vector3 move = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         transform.LookAt(target.position + Offset);

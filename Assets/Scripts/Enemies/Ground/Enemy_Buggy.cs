@@ -130,7 +130,8 @@ public class Enemy_Buggy : MonoBehaviour
     void Death()
     {
         WaveSpawner.Instance.OnEnemyDied();
-        //Destroy(gameObject);
+        Debug.Log("Enemy Buggy Death");
+        Destroy(gameObject);
 
         if (enemyDeath != null)
         {
@@ -142,7 +143,7 @@ public class Enemy_Buggy : MonoBehaviour
         }
     }
 
-    void TakeDamage(float damage)
+    public void TakeDamage(float damage)
     {
         damage -= EnemyResistance;
         Health -= damage;

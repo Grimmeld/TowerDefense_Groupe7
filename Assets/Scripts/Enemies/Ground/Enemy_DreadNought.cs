@@ -155,7 +155,7 @@ public class Enemy_DreadNought : MonoBehaviour
 
     }
 
-    void TakeDamage(float damage)
+    public void TakeDamage(float damage)
     {
         damage = damage -= EnemyResistance;
         Health -= damage;

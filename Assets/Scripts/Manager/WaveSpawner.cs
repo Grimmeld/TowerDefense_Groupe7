@@ -107,7 +107,7 @@ public class WaveSpawner : MonoBehaviour
         Wave wave = waves[currentWave];
         if (currentSubWave >= wave.Subwaves.Count)
         {
-            startBuildMode();
+            //startBuildMode();
             return;
         }
         StartCoroutine(SpawnSubWave(wave.Subwaves[currentSubWave]));
@@ -134,13 +134,10 @@ public class WaveSpawner : MonoBehaviour
 
     void startBuildMode()
     {
-
-
         if(NextWaveButton != null) 
         NextWaveButton.SetActive(true);
         if(buildMode)
             return;
-
         buildMode = true;
     }
 
@@ -148,12 +145,15 @@ public class WaveSpawner : MonoBehaviour
     public void OnEnemyDied()
     {
         EnnemiesAlive--;
+
         if(EnnemiesAlive >0)
+        {
             return;
+        }
 
         bool lastSubWave = currentSubWave +1 >= waves[currentWave].Subwaves.Count;
 
-        if(lastSubWave )
+        if(lastSubWave && EnnemiesAlive <= 0)
         {
             startBuildMode();
             test = true;

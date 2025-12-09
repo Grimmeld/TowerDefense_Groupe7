@@ -3,14 +3,17 @@ using UnityEngine;
 public class TowerController : MonoBehaviour
 {
     public MonoBehaviour attackScript;
+    public Tower_Animation tower_Animation;
 
     private void Awake()
     {
         attackScript = GetComponent<MonoBehaviour>();
+        tower_Animation = GetComponent<Tower_Animation>();
     }
     public void EnableScript(bool enable)
     {
         attackScript.enabled = enable;
+        tower_Animation.enabled = enable;
     }
 
     //BEG LEA ++
@@ -24,6 +27,7 @@ public class TowerController : MonoBehaviour
     private void OnDisable()
     {
         EnableScript(false);
+        tower_Animation.animator.SetTrigger("Disable");
     }
     //END LEA ++ 
 }
