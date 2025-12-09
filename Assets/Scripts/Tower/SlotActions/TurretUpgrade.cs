@@ -53,37 +53,47 @@ public class TurretUpgrade : MonoBehaviour
         isUpgrading = enable;
     }
 
-    public void GetNewTower(GameObject tower)
-    {
-        // Creer les nouvelles tours avec les upgrade
-        TurretSlot turretSlot = GetComponent<TurretSlot>();
+    //public void GetNewTower(GameObject tower)
+    //{
+    //    // Creer les nouvelles tours avec les upgrade
+    //    TurretSlot turretSlot = GetComponent<TurretSlot>();
         
-        // Put the new tower in game on the slot
-        GameObject go = Instantiate(tower, turretSlot.transform);
-        go.transform.position = turretSlot.spawnPointTurret.position;
-        Destroy(currentTowerIG);
-        turretSlot.UpdateTurretSlot(go); // Update tour dans les paramètres du slot
+    //    // Put the new tower in game on the slot
+    //    GameObject go = Instantiate(tower, turretSlot.transform);
+    //    go.transform.position = turretSlot.spawnPointTurret.position;
+    //    Destroy(currentTowerIG);
+    //    turretSlot.UpdateTurretSlot(go); // Update tour dans les paramètres du slot
 
-        // Voir la nouvelle dans le menu amelioration
+    //    // Voir la nouvelle dans le menu amelioration
+    //    Destroy(currentTowerUpgrade);
+    //    currentTowerUpgrade = Instantiate(tower, spawnPoint);
+
+    //    // When closing menu, detruire la tour dans le menu
+
+    //    // Fermer le menu d'amelioration
+    //    isUpgrading = !isUpgrading;
+    //    if (UpgradeMenu.Instance != null)
+    //    {
+    //        UpgradeMenu.Instance.CloseUpgradeMenu();
+    //    }
+
+    //}
+
+    public GameObject GetTowerInGame()
+        { return currentTowerIG; }
+
+
+    public void UpdateTowerInMenu(GameObject gameObject)
+    {
         Destroy(currentTowerUpgrade);
-        currentTowerUpgrade = Instantiate(tower, spawnPoint);
-
-        // When closing menu, detruire la tour dans le menu
-
-        // Fermer le menu d'amelioration
-        isUpgrading = !isUpgrading;
-        if (UpgradeMenu.Instance != null)
-        {
-            UpgradeMenu.Instance.CloseUpgradeMenu();
-        }
-
+        currentTowerUpgrade = Instantiate(gameObject, spawnPoint);
+        currentTowerUpgrade.transform.position = spawnPoint.position;
     }
 
-    public void UpdateTowerInMenu(GameObject mode)
+    public void UpdateComponent(Module component)
     {
-        Debug.Log("On met à jour la tour dans le menu");
-        Destroy(currentTowerUpgrade);
-        currentTowerUpgrade = Instantiate(mode, spawnPoint);
+        Upgrade upgrade = currentTowerUpgrade.gameObject.AddComponent<Upgrade>();
+        upgrade.SetStat(component);
     }
 
     public void CreateNewTower()
@@ -95,8 +105,6 @@ public class TurretUpgrade : MonoBehaviour
         GameObject go = Instantiate(currentTowerUpgrade, turretSlot.transform);
         go.transform.position = turretSlot.spawnPointTurret.position;
         turretSlot.UpdateTurretSlot(go); // Update tour dans les paramètres du slot
-
-        Debug.Log("On créé une nouvelle tour : " + go.name);
 
         DeleteTower();
 
@@ -110,9 +118,20 @@ public class TurretUpgrade : MonoBehaviour
 
     public void DeleteTower()
     {
-        Debug.Log("On delete les anciennes tours");
         Destroy(currentTowerIG);
         Destroy(currentTowerUpgrade);
+    }
+
+    public void GetTowerFromGame()
+    {
+        // Change current tower on menu
+        UpdateTowerInMenu(currentTowerIG);
+    }
+
+    public void ResetModule()
+    {
+        Debug.Log("Reset module in menu");
+        // 
     }
 
 }
