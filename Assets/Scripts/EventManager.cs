@@ -13,6 +13,7 @@ public class EventManager : MonoBehaviour
     public bool DamageBuff;
     public bool HealthRegen;
     public float effectValue;
+    public int GoldBonus;
 
     public void ShowEffect(CardSO selectedCard)
     {
@@ -21,21 +22,25 @@ public class EventManager : MonoBehaviour
         {
             SpeedBuff = true;
             effectValue = selectedCard.effectValue;
+            GoldBonus = selectedCard.GoldBonus;
         }
         if (selectedCard.effectType == CardEffect.DamageIncrease)
         {
             DamageBuff = true;
             effectValue = selectedCard.effectValue;
+            GoldBonus = selectedCard.GoldBonus;
         }
         if (selectedCard.effectType == CardEffect.ArmorIncrease)
         {
             ArmorBuff = true;
             effectValue = selectedCard.effectValue;
+            GoldBonus = selectedCard.GoldBonus;
         }
         if (selectedCard.effectType == CardEffect.HealthRegen)
         {
             HealthRegen = true;
             effectValue = selectedCard.effectValue;
+            GoldBonus = selectedCard.GoldBonus;
         }
     }
 
@@ -46,11 +51,16 @@ public class EventManager : MonoBehaviour
         DamageBuff = false;
         HealthRegen = false;
         effectValue = 0;
+        GoldBonus = 0;
     }
 
     public float GetEffectValue()
     {
         return effectValue;
+    }
+    public int GetGoldBonus()
+    {
+        return GoldBonus;
     }
     private void Update()
     {

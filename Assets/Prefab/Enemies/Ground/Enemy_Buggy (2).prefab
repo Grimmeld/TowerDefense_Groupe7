@@ -388,6 +388,7 @@ MonoBehaviour:
   EnemyResistance: 0
   EnemyRange: 3
   EnemyFireRate: 1
+  EnemyDamage: 0
 --- !u!54 &-1954316430353979822
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -449,11 +450,13 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4301821913128253186}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5faa71c0b9ca65b49bf74c24d6cd8e3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  State: 0
+  animator: {fileID: 0}
   IsDead: 0
 --- !u!114 &3767724268471986116
 MonoBehaviour:

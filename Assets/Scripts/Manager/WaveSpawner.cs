@@ -10,9 +10,11 @@ using UnityEngine.UI;
 public class WaveSpawner : MonoBehaviour
 {
     public static WaveSpawner Instance;
+    EventManager eventManager;
     public void Awake()
     {
         Instance = this;
+        eventManager = GetComponent<EventManager>();
     }
     [System.Serializable]
     public class Wave
@@ -135,8 +137,10 @@ public class WaveSpawner : MonoBehaviour
     void startBuildMode()
     {
         if(NextWaveButton != null) 
+            
         NextWaveButton.SetActive(true);
-        if(buildMode)
+        ResourceManager.instance.AddGold(EventManager.Instance.GoldBonus);
+        if (buildMode)
             return;
         buildMode = true;
     }

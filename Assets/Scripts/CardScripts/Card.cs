@@ -7,12 +7,14 @@ public class Card : MonoBehaviour, IPointerDownHandler
     [SerializeField] SpriteRenderer cardImageRenderer;
 
     [SerializeField] TextMeshProUGUI cardTextRenderer;
+    [SerializeField] TextMeshProUGUI cardTextCostRenderer;
     private CardSO cardInfo;
     public void Setup(CardSO card)
     {
         cardInfo = card;
         cardImageRenderer.sprite = card.cardImage; 
         cardTextRenderer.text = card.cardText;
+        cardTextCostRenderer.text = card.cardGoldText;
     }
     public void OnPointerDown(PointerEventData eventData)
     {
