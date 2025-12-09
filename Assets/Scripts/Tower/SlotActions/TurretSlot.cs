@@ -152,6 +152,13 @@ public class TurretSlot : MonoBehaviour, IPointerEnterHandler, IPointerDownHandl
 
     public void PlaceTower(GameObject towerBase)
     {
+        // Check that the player has enough Nuclear resource to add a tower
+        if (ResourceManager.instance != null &&
+            !ResourceManager.instance.CheckNuclear())
+        {
+            return;
+        }
+
         Turret = turretPlace.Place(towerBase, spawnPointTurret);
 
         //Turret = (GameObject)Instantiate(towerBase, transform);
