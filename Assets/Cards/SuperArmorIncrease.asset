@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardImage: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
   cardText: +60% Enemy Armor
+  cardGoldText: +150 Gold if wave completed
   effectType: 1
   effectValue: 60
   isUnique: 0
   unlockLevel: 2
+  GoldBonus: 150
