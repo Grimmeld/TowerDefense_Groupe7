@@ -1070,6 +1070,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8248ff60c0242b34f8ceab8878a9785e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isUpgrading: 0
+  currentTowerIG: {fileID: 0}
+  currentTowerUpgrade: {fileID: 0}
+  spawnPoint: {fileID: 0}
 --- !u!114 &8997038956298001346
 MonoBehaviour:
   m_ObjectHideFlags: 0
