@@ -1,9 +1,10 @@
 using NUnit.Framework;
-using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Build.Content;
-using UnityEngine.Rendering;
+using UnityEngine;
 using UnityEngine.Events;
+//using UnityEditor.Build.Content;
+using UnityEngine.Rendering;
 
 public class CardManager : MonoBehaviour
 {
@@ -27,10 +28,24 @@ public class CardManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
+    }
 
-        if(GameManager.Instance != null)
+    private void OnEnable()
+    {
+        if (GameManager.Instance != null)
             GameManager.Instance.OnStateChanged += HandleGameStateChanged;
-        
+        else
+        {
+            StartCoroutine(WaitForGameManagerAndSubscribe());
+        }
+    }
+
+    private IEnumerator WaitForGameManagerAndSubscribe()
+    {
+        while (GameManager.Instance == null)
+            yield return null;
+
+        GameManager.Instance.OnStateChanged += HandleGameStateChanged;
     }
 
     private void OnDisable()

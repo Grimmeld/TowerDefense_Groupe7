@@ -4,20 +4,25 @@ using System.Collections;
 
 public class Enemy_Air : MonoBehaviour
 {
+    EnemyHealthBar healthBar;
     EnemyStats stats;
     EnemyModifier enemyModifier;
+    EnemyAnimation enemyAnimation;
     private void Awake()
     {
         stats = GetComponent<EnemyStats>();
         enemyModifier = GetComponent<EnemyModifier>();
+        healthBar = GetComponent<EnemyHealthBar>();
+        enemyAnimation = GetComponent<EnemyAnimation>();
     }
     [Header("Stats")]
 
-    private float Health;
+    public float Health;
     private float Speed;
     private float Worth;//Argent qu'il rapporte
     private float EnemyResistance;
     private float HealthRegen;
+    [SerializeField] private float MaxHealth;
 
 
     [Header("Destination")]
@@ -39,6 +44,7 @@ public class Enemy_Air : MonoBehaviour
         Health = stats.EnemyHealth;
         Speed = stats.EnemySpeed;
         Worth = stats.EnemyWorth;
+        MaxHealth = Health;
         TargetManager.instance.RegisterEnemy(gameObject);
         waveSpawner = FindAnyObjectByType<WaveSpawner>();
         GameObject PointDest = GameObject.FindGameObjectWithTag("Destination");
@@ -46,12 +52,17 @@ public class Enemy_Air : MonoBehaviour
         Collide = GetComponent<BoxCollider>();
         Vector3 dest = PointDest.transform.position;
         agent.destination = dest;
-        waveSpawner.EnnemiesAlive++;
+        //waveSpawner.EnnemiesAlive++;
 
         enemyDeath = GetComponent<EnemyDeath>();
         if (enemyDeath == null)
         {
             Debug.Log("No death script found");
+        }
+        if (healthBar != null)
+        {
+            healthBar.SetMaxHealth(MaxHealth);
+            healthBar.SetHealth(Health);
         }
         SetStats();
         agent.speed = Speed;
@@ -80,7 +91,7 @@ public class Enemy_Air : MonoBehaviour
     }
     void Death()
     {
-        WaveSpawner.Instance.OnEnemyDied();
+        //WaveSpawner.Instance.OnEnemyDied();
         //Destroy(gameObject);
 
         // Determine when the enemy will die, if there is an animation or not
@@ -90,19 +101,30 @@ public class Enemy_Air : MonoBehaviour
         }
         else
         {
+            enemyAnimation.PlayDeath();
             Destroy(gameObject);
         }
     }
 
     public void TakeDamage(float damage)
     {
+        damage -= EnemyResistance;
         Health -= damage;
-
+        SetHealth(-damage);
         // Check health when damage is done
         if (Health <= 0)
         {
             Death();
         }
+    }
+
+    public void SetHealth(float healthChange)
+    {
+        Health += healthChange;
+        Health = Mathf.Clamp(Health, 0, MaxHealth);
+
+        if (healthBar != null)
+            healthBar.SetHealth(Health);
     }
     void SetStats()
     {

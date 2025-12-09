@@ -32,6 +32,7 @@ int currentLevel = 0;
 
     public void ChangeState(GameSate newState) //Changer l'état du jeu (combat / selection de carte)
     {
+        Debug.Log("state change");
         currentState = newState;
         OnStateChanged?.Invoke(newState);
         HandleStateChange();

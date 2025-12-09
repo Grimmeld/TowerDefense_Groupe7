@@ -1065,8 +1065,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3371a51053837df4895d4b858fddb4b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Turret: {fileID: 0}
   buildManager: {fileID: 0}
   spawnPointTurret: {fileID: 0}
+  panelEmpty: {fileID: 0}
+  panelOccupied: {fileID: 0}
+  panels: []
   HoverColor: {r: 1, g: 1, b: 1, a: 0}
   OriginalColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &416955792
@@ -2284,8 +2288,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3371a51053837df4895d4b858fddb4b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Turret: {fileID: 0}
   buildManager: {fileID: 0}
   spawnPointTurret: {fileID: 0}
+  panelEmpty: {fileID: 0}
+  panelOccupied: {fileID: 0}
+  panels: []
   HoverColor: {r: 1, g: 1, b: 1, a: 0}
   OriginalColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &848919919
@@ -3406,6 +3414,7 @@ Transform:
   - {fileID: 2090152457}
   - {fileID: 1841385334}
   - {fileID: 596425680}
+  - {fileID: 1869752576}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1413827157
@@ -3762,7 +3771,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 1.9
-  m_NavMeshData: {fileID: 23800000, guid: 5d8945a0fa53ca5409203ceb4eca813e, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 820c2d004c86ece48bedde06097c020c, type: 2}
   m_BuildHeightMesh: 0
 --- !u!4 &1570624558
 Transform:
@@ -3773,7 +3782,7 @@ Transform:
   m_GameObject: {fileID: 1570624556}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.258408, y: 3.6755707, z: -5.6838627}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4029,8 +4038,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3371a51053837df4895d4b858fddb4b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Turret: {fileID: 0}
   buildManager: {fileID: 0}
   spawnPointTurret: {fileID: 0}
+  panelEmpty: {fileID: 0}
+  panelOccupied: {fileID: 0}
+  panels: []
   HoverColor: {r: 1, g: 1, b: 1, a: 0}
   OriginalColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &1630203002
@@ -4570,6 +4583,81 @@ MonoBehaviour:
   TurretMissilePrefab: {fileID: 7494151623411648889, guid: 3095e433cb8ff50488977fae76b810b4, type: 3}
   TurretTeslaPrefab: {fileID: 0}
   turretToBuild: {fileID: 903522462910153207, guid: 2915369289815df4cae196ea128f6859, type: 3}
+--- !u!1 &1869752575
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1869752576}
+  - component: {fileID: 1869752577}
+  - component: {fileID: 1869752579}
+  - component: {fileID: 1869752578}
+  m_Layer: 0
+  m_Name: EventManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1869752576
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869752575}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1394760006}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1869752577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869752575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 168584b664373914ba0bc12a1a48b810, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpeedBuff: 0
+  ArmorBuff: 0
+  DamageBuff: 0
+  HealthRegen: 0
+  effectValue: 0
+--- !u!114 &1869752578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869752575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ec4e3cc1cd217940b4e3947f8687081, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1869752579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1869752575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0b5a4fa9d3f3b9479a752b157b4b358, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1910712547
 GameObject:
   m_ObjectHideFlags: 0
@@ -4843,8 +4931,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3371a51053837df4895d4b858fddb4b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Turret: {fileID: 0}
   buildManager: {fileID: 0}
   spawnPointTurret: {fileID: 0}
+  panelEmpty: {fileID: 0}
+  panelOccupied: {fileID: 0}
+  panels: []
   HoverColor: {r: 1, g: 1, b: 1, a: 0}
   OriginalColor: {r: 0, g: 0, b: 0, a: 0}
 --- !u!65 &2029207960
@@ -4990,7 +5082,7 @@ MonoBehaviour:
         - {fileID: 4301821913128253186, guid: fca18090603fd3b4ab36f9a65c8e6f0e, type: 3}
         count: 2
       - enemies:
-        - {fileID: 4301821913128253186, guid: fca18090603fd3b4ab36f9a65c8e6f0e, type: 3}
+        - {fileID: 8270443144933418462, guid: 00861825ffa355c4aa4010bf825f4c90, type: 3}
         count: 3
       rate: 2
       spawnPoints: {fileID: 807067362}

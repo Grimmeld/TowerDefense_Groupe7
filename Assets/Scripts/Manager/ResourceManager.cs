@@ -83,9 +83,11 @@ public class ResourceManager : MonoBehaviour
 
     private IEnumerator ShowingNuclearText()
     {
+        if (noMoreNuclearText != null)  
         noMoreNuclearText.gameObject.SetActive(true);
         yield return new WaitForSeconds(2f);
-        noMoreNuclearText.gameObject.SetActive(false);
+        if (noMoreNuclearText != null)
+            noMoreNuclearText.gameObject.SetActive(false);
     }
 
 }

@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -22,6 +23,12 @@ public class Enemy_ShieldBot : MonoBehaviour
 
     public Transform Destination;
 
+    [Header("Waypoints")]
+    public string WaypointTag = "Waypoint";
+    public float ReachDistance = 0.3f;
+    private Transform chosenWaypoint;
+    private bool waypointReached;
+
     [Header("Component")]
 
     public NavMeshAgent agent;
@@ -44,12 +51,16 @@ public class Enemy_ShieldBot : MonoBehaviour
         Worth = stats.EnemyWorth;
         rend = GetComponent<Renderer>();
         OriginalColor = rend.material.color;
-        GameObject PointDest = GameObject.FindGameObjectWithTag("Destination");
+
+        if (Destination == null)
+        {
+            GameObject PointDest = GameObject.FindGameObjectWithTag("Destination");
+            if (PointDest != null) Destination = PointDest.transform;
+            else Debug.LogWarning($"[{nameof(Enemy_Buggy)}] No object with tag \"Destination\" found.");
+        }
         waveSpawner = FindAnyObjectByType<WaveSpawner>();
         agent = GetComponent<NavMeshAgent>();
         Collide = GetComponent<BoxCollider>();
-        Vector3 dest = PointDest.transform.position;
-        agent.destination = dest;
         waveSpawner.EnnemiesAlive++;
 
         enemyDeath = GetComponent<EnemyDeath>();
@@ -57,6 +68,7 @@ public class Enemy_ShieldBot : MonoBehaviour
         {
             Debug.Log("No death script found");
         }
+        PickOneOfThreeClosestWaypoints();
         SetStats();
         agent.speed = Speed;
     }
@@ -66,6 +78,31 @@ public class Enemy_ShieldBot : MonoBehaviour
     {
         EnemyResistance = stats.EnemyResistance;
         SetStats();
+        if (!waypointReached && chosenWaypoint != null && agent != null)
+        {
+            // utilise un component du navmesh qui calcule la distance restante
+            bool arrived = false;
+            if (!agent.pathPending)
+            {
+                if (agent.remainingDistance <= agent.stoppingDistance + ReachDistance)
+                    arrived = true;
+                else if (agent.remainingDistance == Mathf.Infinity)
+                {
+                    if (Vector3.Distance(transform.position, chosenWaypoint.position) <= ReachDistance)
+                        arrived = true;
+                }
+            }
+
+            if (arrived)
+            {
+                waypointReached = true;
+                //Aller vers la base
+                if (Destination != null)
+                {
+                    agent.SetDestination(Destination.position);
+                }
+            }
+        }
         //BEG LEA -- // Best if death is triggered only once, not each frame
         //if(Health <= 0)
         //{
@@ -142,5 +179,36 @@ public class Enemy_ShieldBot : MonoBehaviour
         }
 
 
+    }
+
+    void PickOneOfThreeClosestWaypoints()
+    {
+        if (agent == null)
+        {
+            agent = GetComponent<NavMeshAgent>();
+            if (agent == null)
+            {
+                Debug.LogWarning($"[{nameof(Enemy_Buggy)}] No NavMeshAgent found.");
+                return;
+            }
+        }
+
+        GameObject[] points = GameObject.FindGameObjectsWithTag(WaypointTag);
+        if (points == null || points.Length == 0)
+        {
+            if (Destination != null) agent.SetDestination(Destination.position);
+            return;
+        }
+        var threeClosest = points
+            .OrderBy(p => Vector3.Distance(transform.position, p.transform.position))
+            .Take(3)
+            .ToArray();
+
+        // prend un waypoint au hazard
+        var chosen = threeClosest[Random.Range(0, threeClosest.Length)];
+        chosenWaypoint = chosen.transform;
+        waypointReached = false;
+
+        agent.SetDestination(chosenWaypoint.position);
     }
 }
