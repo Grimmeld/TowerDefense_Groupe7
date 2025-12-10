@@ -12,7 +12,7 @@ public class EnemyAnimation : MonoBehaviour
 
         if (animator == null)
         {
-            Debug.Log("No animator on : " + this.gameObject.name);
+            //Debug.Log("No animator on : " + this.gameObject.name);
         }
     }
 

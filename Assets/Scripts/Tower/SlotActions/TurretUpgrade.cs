@@ -13,7 +13,7 @@ public class TurretUpgrade : MonoBehaviour
 
     public void Upgrade(GameObject tower)
     {
-        Debug.Log("Upgrade : " + tower.name);
+        //Debug.Log("Upgrade : " + tower.name);
 
         EnableIsUpgrading(true);
         currentTowerIG = tower;

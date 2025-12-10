@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,11 +29,16 @@ public class UpgradeMenu : MonoBehaviour
     [SerializeField] private GameObject panelWeapon;
     [SerializeField] private TextMeshProUGUI goldText;
     [SerializeField] private TextMeshProUGUI goldUpgText;
+    [SerializeField] private GameObject panelStatModule;
+
+    [Header("Animation")]
     [SerializeField] private Animator animatorPanel;
     [SerializeField] private Button buttonWeapon;
 
+    [Header("Parameters")]
     [SerializeField] private Upgrade[] upgrades;
     [SerializeField] private List<Module> modulesToAdd;
+
 
     private void Awake()
     {
@@ -57,6 +63,8 @@ public class UpgradeMenu : MonoBehaviour
                 goldText.text = ResourceManager.instance.CheckGold().ToString();
                 goldUpgText.text = "";
             }
+
+            panelStatModule.SetActive(false);
 
             buttonWeapon.onClick.Invoke();
 
@@ -182,6 +190,7 @@ public class UpgradeMenu : MonoBehaviour
         {
             // Oui, On peut ajouter le module
             SlotImage[] slotImages = panelWeapon.GetComponentsInChildren<SlotImage>();
+            SlotSelected[] slotSelected = panelWeapon.GetComponentsInChildren<SlotSelected>();
 
             // S'il y a déjà 3 modules, ne pas en ajouter un en plus
 
@@ -199,6 +208,7 @@ public class UpgradeMenu : MonoBehaviour
                     slotImages[i].gameObject.GetComponent<Image>().enabled = true;
                     slotImages[i].gameObject.GetComponent<Image>().sprite = module.sprite;
 
+                    //slotSelected[i].SetModule(module); To sell slot
 
                     break; // Quand un slot est vide, terminé la boucle
                 }
@@ -242,7 +252,7 @@ public class UpgradeMenu : MonoBehaviour
                     }
                     if (!isSameName)
                     {
-                        Debug.Log(modulesToAdd[i].moduleName);
+                        //Debug.Log(modulesToAdd[i].moduleName);
                         upgrade.UpdateComponent(modulesToAdd[i]);
                     }
                     isSameName = false;
@@ -369,6 +379,8 @@ public class UpgradeMenu : MonoBehaviour
             if (upgrade.type == typeModule.weapon)
             {
                 // Weapon modules 
+
+
                 SlotImage[] slotImages = panelWeapon.GetComponentsInChildren<SlotImage>();
                 for (int i = 0; i < slotImages.Length; i++)
                 {
@@ -380,7 +392,7 @@ public class UpgradeMenu : MonoBehaviour
                     slotImages[i].gameObject.GetComponent<Image>().enabled = enable;
                     slotImages[i].gameObject.GetComponent<Image>().sprite = upgrade.sprite;
 
-                    Debug.Log(slotImages[i].name);
+                    //Debug.Log(slotImages[i].name);
 
                     break; // Quand un slot est vide, terminé la boucle
                 }
@@ -412,6 +424,35 @@ public class UpgradeMenu : MonoBehaviour
         {
             // inf à 0
             goldUpgText.text = ("- " + Mathf.Abs(goldUpgrades).ToString());
+        }
+    }
+
+    public void SellModule()
+    {
+        Debug.Log("click on module");
+        GameObject Button = EventSystem.current.currentSelectedGameObject;
+        Debug.Log(Button.name);
+
+        // Enlève de l'affichage
+
+
+        // Update le gold 
+
+
+        // Enlève l'upgrade de la tour
+
+
+        // Change de préfab
+
+
+    }
+
+    public void HoverSlot(bool enable)
+    {
+        if (panelStatModule != null)
+        {
+            panelStatModule.SetActive(enable);
+
         }
     }
 

@@ -1,8 +1,10 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using static UnityEngine.GraphicsBuffer;
 
-public class ShopSlot : MonoBehaviour
+public class ShopSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private Module module;
     [SerializeField] private Image slotImage;
@@ -22,5 +24,23 @@ public class ShopSlot : MonoBehaviour
         }
     }
 
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        Debug.Log("Slot hover enter");
+        if (UpgradeMenu.Instance != null)
+        {
+            UpgradeMenu.Instance.HoverSlot(true);
+            StatModule.Instance.SetInformation(module);
+        }
+    }
 
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        Debug.Log("Slot hover exit");
+        if (UpgradeMenu.Instance != null)
+        {
+            UpgradeMenu.Instance.HoverSlot(false);
+
+        }
+    }
 }
