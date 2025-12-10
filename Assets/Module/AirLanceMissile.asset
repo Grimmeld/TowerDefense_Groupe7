@@ -22,3 +22,4 @@ MonoBehaviour:
   level: 1
   price: 50
   sell: 25
+  nextUpgrade: {fileID: 11400000, guid: b132c94721a8e8d4cb1d737630295baa, type: 2}

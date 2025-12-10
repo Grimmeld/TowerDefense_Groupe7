@@ -15,6 +15,7 @@ public class Upgrade : MonoBehaviour
     public int level;
     public int price;
     public int sell;
+    public Module nextUpgrade;
     public Module module;
 
 
@@ -26,6 +27,7 @@ public class Upgrade : MonoBehaviour
         type = stat.type;
         level = stat.level;
         tower = stat.tower;
+        nextUpgrade = stat.nextUpgrade; 
         module = stat;
     }
     

@@ -14,6 +14,7 @@ public class Module : ScriptableObject
     public int level;
     public int price;
     public int sell;
+    public Module nextUpgrade;
 
     public enum typeModule
     {

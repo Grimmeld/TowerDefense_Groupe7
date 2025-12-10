@@ -1,7 +1,10 @@
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using static Module;
 
@@ -26,6 +29,7 @@ public class UpgradeMenu : MonoBehaviour
     [SerializeField] private TextMeshProUGUI goldText;
     [SerializeField] private TextMeshProUGUI goldUpgText;
     [SerializeField] private Animator animatorPanel;
+    [SerializeField] private Button buttonWeapon;
 
     [SerializeField] private Upgrade[] upgrades;
     [SerializeField] private List<Module> modulesToAdd;
@@ -54,7 +58,11 @@ public class UpgradeMenu : MonoBehaviour
                 goldUpgText.text = "";
             }
 
+            buttonWeapon.onClick.Invoke();
+
             OpenInventory();
+
+            
         }
         else
         {   // Close upgrade menu
@@ -102,13 +110,19 @@ public class UpgradeMenu : MonoBehaviour
         Upgrade[] upgrades = towerInGame.GetComponentsInChildren<Upgrade>();
 
         int maxLevel = 0;
+        string nextModule = null;
 
         foreach (Upgrade upgrade in upgrades)
         {
             if (upgrade.type == Module.typeModule.weapon)
             {
                 if (maxLevel < upgrade.level)
+                {
+                    // On recupère le module le plus amélioré
                     maxLevel = upgrade.level;
+                    if (upgrade.nextUpgrade != null)
+                    { nextModule = upgrade.nextUpgrade.moduleName; }
+                }
             }
 
             // Si le module existe déjà, ne pas l'ajouter.
@@ -118,7 +132,6 @@ public class UpgradeMenu : MonoBehaviour
             }
 
 
-            Debug.Log(maxLevel);
         }
 
 
@@ -134,6 +147,20 @@ public class UpgradeMenu : MonoBehaviour
 
 
         // Est-ce que l'amelio est du bon type
+        if (upgrades.Count() > 0)
+        {
+            if (nextModule != null)
+            {
+                if (nextModule != module.moduleName)
+                {
+                    Debug.Log("Ce n'est pas le bon module");
+                    return;
+                }
+
+            }
+
+        }
+
 
 
         int goldPlayer = ResourceManager.instance.CheckGold();
@@ -147,8 +174,8 @@ public class UpgradeMenu : MonoBehaviour
             Debug.Log("Pas assez de gold sur le player");
             goldUpgrades += module.price;
 
-            // animatorPanel.SetTrigger("NoGold"); Doesn't work because Time.timeScale = 0
-
+            animatorPanel.SetTrigger("NoGold"); //Doesn't work because Time.timeScale = 0
+            
 
         }
         else
@@ -387,4 +414,5 @@ public class UpgradeMenu : MonoBehaviour
             goldUpgText.text = ("- " + Mathf.Abs(goldUpgrades).ToString());
         }
     }
+
 }
