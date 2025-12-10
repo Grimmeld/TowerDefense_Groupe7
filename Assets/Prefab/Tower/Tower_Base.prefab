@@ -2537,7 +2537,7 @@ Transform:
   m_GameObject: {fileID: 5502398235229544065}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.1, y: 0.018, z: -2.2}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1.4, y: 1.4, z: 1.4}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -2602,6 +2602,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootingRate: 2
   Range: 5
+  UraniumToGive: 0
+  GoldToGive: 0
 --- !u!114 &-7506597290583774085
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2615,6 +2617,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackScript: {fileID: 0}
+  tower_Animation: {fileID: 0}
 --- !u!114 &-7606321742397220477
 MonoBehaviour:
   m_ObjectHideFlags: 0
