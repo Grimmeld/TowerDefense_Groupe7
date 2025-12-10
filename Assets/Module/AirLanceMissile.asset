@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 315b82bf9e7f9af4ba7a092ca6253096, type: 3}
+  m_Name: AirLanceMissile
+  m_EditorClassIdentifier: 
+  moduleName: Lance Missile
+  sprite: {fileID: 21300000, guid: 74fc71868e37e3149aa24ae790ff33ac, type: 3}
+  prefab: {fileID: 7494151623411648889, guid: 3095e433cb8ff50488977fae76b810b4, type: 3}
+  stats: {fileID: 6850251457851616559, guid: 3095e433cb8ff50488977fae76b810b4, type: 3}
+  type: 1
+  tower: 0
+  description: 
+  level: 1
+  price: 50
+  sell: 25
+  nextUpgrade: {fileID: 11400000, guid: b132c94721a8e8d4cb1d737630295baa, type: 2}

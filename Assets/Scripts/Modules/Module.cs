@@ -5,12 +5,16 @@ using UnityEngine;
 public class Module : ScriptableObject
 {
     public string moduleName;
-    public Sprite image;
+    public Sprite sprite;
     public GameObject prefab;
     public TowerStats stats;
     public typeModule type;
     public typeTower tower;
     public string description;
+    public int level;
+    public int price;
+    public int sell;
+    public Module nextUpgrade;
 
     public enum typeModule
     {

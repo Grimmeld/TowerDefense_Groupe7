@@ -14,7 +14,7 @@ public class EnemyAnimation : MonoBehaviour
         PlayAnimation("Robot_Walk");
         if (animator == null)
         {
-            Debug.Log("No animator on : " + this.gameObject.name);
+            //Debug.Log("No animator on : " + this.gameObject.name);
         }
     }
 
