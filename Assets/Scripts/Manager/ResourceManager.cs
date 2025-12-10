@@ -39,6 +39,18 @@ public class ResourceManager : MonoBehaviour
         UpdateHUD();
     }
 
+    public void AddNuclear(int bonus)
+    {
+        nuclear += bonus;
+        UpdateHUD();
+    }
+
+    public void RemoveNuclear(int cost)
+    {
+        nuclear -= cost;
+        UpdateHUD();
+    }
+
     public void AddGold(int bonus)
     {
         gold += bonus;

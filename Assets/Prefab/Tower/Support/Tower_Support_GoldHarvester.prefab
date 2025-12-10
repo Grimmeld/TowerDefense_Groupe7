@@ -585,7 +585,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootingRate: 10
   Range: 4
-  goldToGive: 10
+  UraniumToGive: 0
+  GoldToGive: 10
 --- !u!114 &2452185376195541018
 MonoBehaviour:
   m_ObjectHideFlags: 0

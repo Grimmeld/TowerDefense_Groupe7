@@ -25,7 +25,7 @@ public class Tower_GoldHarvester : MonoBehaviour
     void Update()
     {
         ShootingRate = towerStats.shootingRate;
-        goldPerShoot = towerStats.goldToGive;
+        goldPerShoot = towerStats.GoldToGive;
         if (WaveSpawner.Instance.buildMode == false && !towerSabotaged.Sabotaged)
         {
             Shooting += Time.deltaTime;
