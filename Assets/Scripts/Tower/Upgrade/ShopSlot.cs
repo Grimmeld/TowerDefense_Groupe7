@@ -30,7 +30,7 @@ public class ShopSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
         if (UpgradeMenu.Instance != null)
         {
             UpgradeMenu.Instance.HoverSlot(true);
-            StatModule.Instance.SetInformation(module);
+            if (StatModule.Instance != null) { StatModule.Instance.SetInformation(module); }
         }
     }
 
