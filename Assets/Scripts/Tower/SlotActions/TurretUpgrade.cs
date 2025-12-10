@@ -82,6 +82,9 @@ public class TurretUpgrade : MonoBehaviour
     public GameObject GetTowerInGame()
         { return currentTowerIG; }
 
+    public GameObject GetTowerInMenu()
+    { return currentTowerUpgrade; }
+
 
     public void UpdateTowerInMenu(GameObject gameObject)
     {
@@ -95,6 +98,7 @@ public class TurretUpgrade : MonoBehaviour
         Upgrade upgrade = currentTowerUpgrade.gameObject.AddComponent<Upgrade>();
         upgrade.SetStat(component);
     }
+
 
     public void CreateNewTower()
     {

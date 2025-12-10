@@ -15,6 +15,7 @@ public class Upgrade : MonoBehaviour
     public int level;
     public int price;
     public int sell;
+    public Module module;
 
 
     public void SetStat(Module stat)
@@ -25,6 +26,7 @@ public class Upgrade : MonoBehaviour
         type = stat.type;
         level = stat.level;
         tower = stat.tower;
+        module = stat;
     }
     
 

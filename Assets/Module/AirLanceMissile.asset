@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 315b82bf9e7f9af4ba7a092ca6253096, type: 3}
-  m_Name: AirBase
+  m_Name: AirLanceMissile
   m_EditorClassIdentifier: 
-  moduleName: AirBase
+  moduleName: Lance Missile
   sprite: {fileID: 21300000, guid: 74fc71868e37e3149aa24ae790ff33ac, type: 3}
-  prefab: {fileID: 6390477933439637306, guid: 69f8651fb12afa3448be74ff341ab581, type: 3}
-  stats: {fileID: -5871386832458425145, guid: 69f8651fb12afa3448be74ff341ab581, type: 3}
+  prefab: {fileID: 7494151623411648889, guid: 3095e433cb8ff50488977fae76b810b4, type: 3}
+  stats: {fileID: 6850251457851616559, guid: 3095e433cb8ff50488977fae76b810b4, type: 3}
   type: 1
   tower: 0
   description: 
   level: 1
-  price: 100
-  sell: 50
+  price: 50
+  sell: 25

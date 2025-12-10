@@ -1,8 +1,6 @@
-using JetBrains.Annotations;
-using NUnit.Framework;
 using System.Collections.Generic;
 using TMPro;
-using UnityEditor;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using static Module;
@@ -30,6 +28,7 @@ public class UpgradeMenu : MonoBehaviour
     [SerializeField] private Animator animatorPanel;
 
     [SerializeField] private Upgrade[] upgrades;
+    [SerializeField] private List<Module> modulesToAdd;
 
     private void Awake()
     {
@@ -94,11 +93,52 @@ public class UpgradeMenu : MonoBehaviour
         if (ResourceManager.instance == null)
             return;
 
+
+        // Est-ce que l'amelio est disponible ? (Bon level?)
+        
+        // Recup les upgrade de la mode
+        GameObject towerInGame = upgrade.GetTowerInMenu();
+
+        Upgrade[] upgrades = towerInGame.GetComponentsInChildren<Upgrade>();
+
+        int maxLevel = 0;
+
+        foreach (Upgrade upgrade in upgrades)
+        {
+            if (upgrade.type == Module.typeModule.weapon)
+            {
+                if (maxLevel < upgrade.level)
+                    maxLevel = upgrade.level;
+            }
+
+            // Si le module existe déjà, ne pas l'ajouter.
+            if (upgrade.moduleName ==  module.moduleName)
+            {
+                return;
+            }
+
+
+            Debug.Log(maxLevel);
+        }
+
+
+        if ((maxLevel + 1) != module.level)
+        {
+            return;
+        }
+
+        if (maxLevel >= module.level)
+        {
+            return;
+        }
+
+
+        // Est-ce que l'amelio est du bon type
+
+
         int goldPlayer = ResourceManager.instance.CheckGold();
 
         goldUpgrades -= module.price;
-        Debug.Log(goldPlayer);
-        Debug.Log(goldUpgrades);
 
         if (goldPlayer < Mathf.Abs(goldUpgrades)) // Comparaison
         {
@@ -116,33 +156,73 @@ public class UpgradeMenu : MonoBehaviour
             // Oui, On peut ajouter le module
             SlotImage[] slotImages = panelWeapon.GetComponentsInChildren<SlotImage>();
 
-        // Prendre le module
-        if (module.type == typeModule.weapon)
-        {
-            
-            for (int i = 0; i < slotImages.Length; i++)
+            // S'il y a déjà 3 modules, ne pas en ajouter un en plus
+
+            // Prendre le module
+            if (module.type == typeModule.weapon)
             {
+            
+                for (int i = 0; i < slotImages.Length; i++)
+                {
                 // Si le slot est déjà plein, passer au suivant
-                if (slotImages[i].gameObject.GetComponent<Image>().enabled)
+                    if (slotImages[i].gameObject.GetComponent<Image>().enabled)
                     continue;
 
                 // Changer l'image sur l'affichage du menu
-                slotImages[i].gameObject.GetComponent<Image>().enabled = true;
-                slotImages[i].gameObject.GetComponent<Image>().sprite = module.sprite;
+                    slotImages[i].gameObject.GetComponent<Image>().enabled = true;
+                    slotImages[i].gameObject.GetComponent<Image>().sprite = module.sprite;
 
 
-                break; // Quand un slot est vide, terminé la boucle
+                    break; // Quand un slot est vide, terminé la boucle
+                }
             }
-        }
-        else
-        {
+            else
+            {
 
-        }
+            }
 
 
             // Mettre à jour l'amelioration sur la mode
-        upgrade.UpdateTowerInMenu(module.prefab);   
-        upgrade.UpdateComponent(module);
+            upgrade.UpdateTowerInMenu(module.prefab);
+
+            foreach (Upgrade u in upgrades)
+            {
+
+                // Si le module existe déjà, ne pas l'ajouter.
+                if (u.moduleName == module.moduleName)
+                {
+                    continue;
+                }
+                Debug.Log(u.moduleName);
+                upgrade.UpdateComponent(u.module);
+
+            }
+
+            modulesToAdd.Add(module);
+
+            
+
+            if (modulesToAdd.Count > 0)
+            {
+
+                for (int i = 0; i < modulesToAdd.Count;i++)
+                {
+                    bool isSameName = false;
+                    foreach (Upgrade u in upgrades)
+                    {
+                        if (u.moduleName == modulesToAdd[i].moduleName)
+                        { isSameName = true; }
+                    }
+                    if (!isSameName)
+                    {
+                        Debug.Log(modulesToAdd[i].moduleName);
+                        upgrade.UpdateComponent(modulesToAdd[i]);
+                    }
+                    isSameName = false;
+                }
+            }
+
+
 
         }
         UpdateGoldUpgrade();
@@ -188,36 +268,57 @@ public class UpgradeMenu : MonoBehaviour
     public void SaveInventory()
     {
         // Si sauvegarde : Save dans Upgrades de la tour gameObject
-        Debug.Log("on sauvegarde");
 
         // Creer les nouvelles tours avec les upgrade
         upgrade.CreateNewTower();
 
+        // Use or add golds from resources
+        if (goldUpgrades > 0)
+        {
+            ResourceManager.instance.AddGold(Mathf.Abs(goldUpgrades));
+        }
+        else
+        {
+            ResourceManager.instance.UseGold(Mathf.Abs(goldUpgrades));
+        }
 
-
+        // Reset menu Upgrade
+        goldUpgrades = 0;
+        UpdateGoldUpgrade();
 
         // Deslectionné tous les slot
         SlotImage[] slotImages = panelWeapon.GetComponentsInChildren<SlotImage>();
         for (int i = 0; i < slotImages.Length; i++)
         {
             slotImages[i].gameObject.GetComponent<Image>().enabled = false;
-            Debug.Log("on remets les images du menu à zero");
         }
+
+        modulesToAdd.Clear();
+
     }
 
     public void Unddo()
     {
-        Debug.Log("Unddo");
+        modulesToAdd.Clear();
+
         // Unddo all modifications and get the info from scene 
         upgrade.GetTowerFromGame();
-        //upgrade.ResetModule();
+        GameObject towerInGame = upgrade.GetTowerInMenu();
+        Upgrade[] upgrades = towerInGame.GetComponentsInChildren<Upgrade>();
+        foreach (Upgrade u in upgrades)
+        {
+            modulesToAdd.Add(u.module);
+        }
 
         SlotImage[] slotImages = panelWeapon.GetComponentsInChildren<SlotImage>();
         for (int i = 0; i < slotImages.Length; i++)
         {
             slotImages[i].gameObject.GetComponent<Image>().enabled = false;
-            Debug.Log("on remets les images du menu à zero");
         }
+
+        // reset gold used for upgrades
+        goldUpgrades = 0;
+        UpdateGoldUpgrade();
 
         ShowUpgradesInMenu(true);
 
@@ -265,6 +366,7 @@ public class UpgradeMenu : MonoBehaviour
 
 
             }
+
         }
     }
 
@@ -276,7 +378,7 @@ public class UpgradeMenu : MonoBehaviour
             goldUpgText.text = "";
         }
         else if (goldUpgrades > 0)
-        {
+        {   
             goldUpgText.text = ("+ " + goldUpgrades.ToString());
         }
         else
