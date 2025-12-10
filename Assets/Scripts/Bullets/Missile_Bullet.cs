@@ -47,7 +47,7 @@ public class Missile_Bullet : MonoBehaviour
 
     IEnumerator StartLaunching()
     {
-        yield return new WaitForSeconds(startTime);
+        yield return new WaitForSeconds(0);
         isTargeting = true;
     }
 

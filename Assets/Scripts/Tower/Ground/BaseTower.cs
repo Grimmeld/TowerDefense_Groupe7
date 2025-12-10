@@ -7,10 +7,12 @@ public class BaseTower : MonoBehaviour
 {
     TowerStats stats;
     TowerSabotaged towerSabotaged;
+    Tower_Animation tower_Animation;
     private void Awake()
     {
         stats = GetComponent<TowerStats>();
         towerSabotaged = GetComponent<TowerSabotaged>();
+        tower_Animation = GetComponent<Tower_Animation>();
     }
     [Header("Type de la tourelle")]
     public Turret_Type type;
@@ -19,6 +21,7 @@ public class BaseTower : MonoBehaviour
     public Transform TorsoPivot;
     public Transform ArmPivot;
     public Transform ShootingPoint;
+    public Transform RobotHead;
 
 
     [Header("Bullet")]
@@ -34,9 +37,13 @@ public class BaseTower : MonoBehaviour
 
     [SerializeField] public Transform target;
     public string enemyTag = "Enemy";
+
+    private bool waitingForAttackFire = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        if (tower_Animation != null)
+            tower_Animation.OnAttackFire -= HandleAttackFire;
 
         Invoke(nameof(UpdateTarget), 0);
         InvokeRepeating("UpdateTarget", 0f, 0.5f);
@@ -61,6 +68,7 @@ public class BaseTower : MonoBehaviour
         Shooting += Time.deltaTime;
         if(target == null)
         {
+            tower_Animation.State = Turret_State.Idling;
             return;
         }
 
@@ -74,10 +82,30 @@ public class BaseTower : MonoBehaviour
             ArmPivot.LookAt(target.transform.position);
             if (ShootingRate < Shooting)
             {
+                tower_Animation.State = Turret_State.Attacking;
                 Instantiate(BulletPrefab, ShootingPoint.position, ShootingPoint.rotation);
                 Shooting = 0f;
             }
         }
+        else
+        {
+            tower_Animation.State = Turret_State.Idling;
+        }
+    }
+
+    private void HandleAttackFire()
+    {
+        Instantiate(BulletPrefab, ShootingPoint.position, ShootingPoint.rotation);
+        Shooting = 0f;
+        waitingForAttackFire = false;
+    }
+    private void LateUpdate()
+    {
+        if (target == null)
+            return;
+        Quaternion Offset = new Quaternion(0, 0, -180, 0);
+        RobotHead.LookAt(target.transform.position);
+        RobotHead.rotation = Quaternion.Slerp(RobotHead.rotation, RobotHead.rotation * Offset, TurnSpeed);
     }
     void UpdateTarget()
     {
