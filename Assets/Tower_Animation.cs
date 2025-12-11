@@ -87,7 +87,7 @@ public class Tower_Animation : MonoBehaviour
         {
             yield return null;
         }
-        OnAttackFire.Invoke();
+        //OnAttackFire.Invoke();
         prepareAttack = false;
         finishedAttack = false;
     }

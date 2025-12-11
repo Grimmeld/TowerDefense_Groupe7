@@ -50,6 +50,8 @@ public class Enemy_Sapper : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        Debug.Log("Sapper est là");
+
         NavMeshAgent.baseOffset = 2f;
         Health = stats.EnemyHealth;
         Speed = stats.EnemySpeed;
@@ -95,8 +97,15 @@ public class Enemy_Sapper : MonoBehaviour
     {
         
         GameObject[] target = GameObject.FindGameObjectsWithTag(TurretTag);
-        GameObject destination = target[Random.Range(0, target.Length)];
-        targetPosition = destination.transform;
+        if (target.Length > 0)
+        {
+            GameObject destination = target[Random.Range(0, target.Length)];
+            targetPosition = destination.transform;
+        }
+        else
+        {
+            Debug.Log("Le sapper n'a pas de cible");
+        }
     }
 
     private void OnTriggerEnter(Collider other)

@@ -82,6 +82,7 @@ public class WaveSpawner : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(currentWave);
         EnnemiesLeftText.text = EnnemiesAlive.ToString();
         WaveNumberText.text = "Wave : " + (currentWave + 1).ToString();
         WaveIncomingText.text = "Wave " + currentWave.ToString() + " Is Coming!";
