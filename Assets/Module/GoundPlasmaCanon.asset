@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 315b82bf9e7f9af4ba7a092ca6253096, type: 3}
-  m_Name: AirHellFire
+  m_Name: GoundPlasmaCanon
   m_EditorClassIdentifier: 
-  moduleName: Hell fire
-  sprite: {fileID: 21300000, guid: bb74a350c344a8d42a22ac9b0eb9c44b, type: 3}
-  prefab: {fileID: 6390477933439637306, guid: 69f8651fb12afa3448be74ff341ab581, type: 3}
-  stats: {fileID: -5871386832458425145, guid: 69f8651fb12afa3448be74ff341ab581, type: 3}
+  moduleName: Plasma Canon
+  sprite: {fileID: 21300000, guid: 74fc71868e37e3149aa24ae790ff33ac, type: 3}
+  prefab: {fileID: 6085328349020118952, guid: 41802fcde3f5a7742af2edc1785bab97, type: 3}
+  stats: {fileID: 5129706454490840231, guid: 41802fcde3f5a7742af2edc1785bab97, type: 3}
   type: 1
-  tower: 0
-  description: Fire several missiles\nSeveral targets\nHigh damages
+  tower: 1
+  description: Damages increase with time\nTarget one enemy\nHigh fire rate
   level: 2
   price: 150
   sell: 75

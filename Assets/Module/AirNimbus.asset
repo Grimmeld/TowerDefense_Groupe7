@@ -18,8 +18,8 @@ MonoBehaviour:
   stats: {fileID: -3760820008098739899, guid: 04d0cee6fb8f8bf4d90ab75d43651f9c, type: 3}
   type: 1
   tower: 0
-  description: 
+  description: Fire a stormy cloud\nContinuous damage\nHigh range
   level: 2
-  price: 100
+  price: 150
   sell: 50
   nextUpgrade: {fileID: 0}

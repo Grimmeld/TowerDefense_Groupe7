@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 315b82bf9e7f9af4ba7a092ca6253096, type: 3}
-  m_Name: AirHellFire
+  m_Name: GroundFragMortar
   m_EditorClassIdentifier: 
-  moduleName: Hell fire
+  moduleName: Mortar with fragmentation
   sprite: {fileID: 21300000, guid: bb74a350c344a8d42a22ac9b0eb9c44b, type: 3}
-  prefab: {fileID: 6390477933439637306, guid: 69f8651fb12afa3448be74ff341ab581, type: 3}
-  stats: {fileID: -5871386832458425145, guid: 69f8651fb12afa3448be74ff341ab581, type: 3}
-  type: 1
-  tower: 0
-  description: Fire several missiles\nSeveral targets\nHigh damages
+  prefab: {fileID: 7364147474512016721, guid: d8aab9dbcfd83b24c9985d22f5223b7a, type: 3}
+  stats: {fileID: -1365761613302879202, guid: d8aab9dbcfd83b24c9985d22f5223b7a, type: 3}
+  type: 0
+  tower: 1
+  description: Explodes into several small projectiles\nArea damages\nHigh damages
   level: 2
   price: 150
   sell: 75

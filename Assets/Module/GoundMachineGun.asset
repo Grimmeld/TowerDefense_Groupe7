@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 315b82bf9e7f9af4ba7a092ca6253096, type: 3}
-  m_Name: AirLanceMissile
+  m_Name: GoundMachineGun
   m_EditorClassIdentifier: 
-  moduleName: Lance Missile
+  moduleName: Machine Gun
   sprite: {fileID: 21300000, guid: 74fc71868e37e3149aa24ae790ff33ac, type: 3}
-  prefab: {fileID: 7494151623411648889, guid: 3095e433cb8ff50488977fae76b810b4, type: 3}
-  stats: {fileID: 6850251457851616559, guid: 3095e433cb8ff50488977fae76b810b4, type: 3}
+  prefab: {fileID: 903522462910153207, guid: 3773889c7ebef674c9aa0a4014630123, type: 3}
+  stats: {fileID: 8581019091387703202, guid: 3773889c7ebef674c9aa0a4014630123, type: 3}
   type: 1
-  tower: 0
-  description: Fires a seeker projectile\nOnetarget\nMedium amount damages
+  tower: 1
+  description: Quickly fires projectiles at nearby enemies\nMedium damages
   level: 1
   price: 50
   sell: 25
-  nextUpgrade: {fileID: 11400000, guid: b132c94721a8e8d4cb1d737630295baa, type: 2}
+  nextUpgrade: {fileID: 11400000, guid: 6c17b8ffa4b327249bd5af451ca5a015, type: 2}

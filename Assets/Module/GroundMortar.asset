@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 315b82bf9e7f9af4ba7a092ca6253096, type: 3}
-  m_Name: AirHellFire
+  m_Name: GroundMortar
   m_EditorClassIdentifier: 
-  moduleName: Hell fire
+  moduleName: Mortar
   sprite: {fileID: 21300000, guid: bb74a350c344a8d42a22ac9b0eb9c44b, type: 3}
-  prefab: {fileID: 6390477933439637306, guid: 69f8651fb12afa3448be74ff341ab581, type: 3}
-  stats: {fileID: -5871386832458425145, guid: 69f8651fb12afa3448be74ff341ab581, type: 3}
-  type: 1
-  tower: 0
-  description: Fire several missiles\nSeveral targets\nHigh damages
-  level: 2
-  price: 150
-  sell: 75
-  nextUpgrade: {fileID: 0}
+  prefab: {fileID: 6360326138211833162, guid: c2a83e5a0298d664ba512cdd9db2ab0e, type: 3}
+  stats: {fileID: 6268079156751564517, guid: c2a83e5a0298d664ba512cdd9db2ab0e, type: 3}
+  type: 0
+  tower: 1
+  description: Fire a curved projectile\nArea damages\nHigh damages
+  level: 1
+  price: 50
+  sell: 25
+  nextUpgrade: {fileID: 11400000, guid: a23920fa133c246469648256b54ad03c, type: 2}

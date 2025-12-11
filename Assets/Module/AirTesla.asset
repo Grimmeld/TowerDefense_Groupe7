@@ -18,8 +18,8 @@ MonoBehaviour:
   stats: {fileID: -4934851094136469752, guid: f8c436795f30d464c8e0ecb27b7b1043, type: 3}
   type: 1
   tower: 0
-  description: 
+  description: Fires an electric arc\nTarget several enemies\nMedium damages
   level: 1
-  price: 100
-  sell: 50
+  price: 50
+  sell: 25
   nextUpgrade: {fileID: 11400000, guid: e718049b0b34d8645bbf46a9a94f96e1, type: 2}
