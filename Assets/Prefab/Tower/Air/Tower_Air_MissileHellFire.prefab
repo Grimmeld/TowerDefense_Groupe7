@@ -220,6 +220,7 @@ GameObject:
   - component: {fileID: -5871386832458425145}
   - component: {fileID: 2530552918979715652}
   - component: {fileID: -1124211673494921596}
+  - component: {fileID: -8076759923130062035}
   m_Layer: 0
   m_Name: Tower_Air_MissileHellFire
   m_TagString: Turret
@@ -279,6 +280,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackScript: {fileID: 0}
+  tower_Animation: {fileID: 0}
 --- !u!114 &-5871386832458425145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -293,6 +295,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootingRate: 0
   Range: 0
+  UraniumToGive: 0
+  GoldToGive: 0
 --- !u!65 &2530552918979715652
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -328,6 +332,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Sabotaged: 0
   SapDuration: 8
+--- !u!114 &-8076759923130062035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6390477933439637306}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3af2989a8346fd846a9f58aa33d793ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: Anti-Air
+  damage: 4.5
 --- !u!1 &6902783822395253994
 GameObject:
   m_ObjectHideFlags: 0

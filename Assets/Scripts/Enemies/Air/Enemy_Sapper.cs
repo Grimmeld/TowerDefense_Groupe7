@@ -55,6 +55,8 @@ public class Enemy_Sapper : MonoBehaviour
         Speed = stats.EnemySpeed;
         Worth = stats.EnemyWorth;
         MaxHealth = Health;
+        WaveSpawner.Instance.EnnemiesAlive++;
+        WaveSpawner.Instance.Triger();
         FindTarget();
         if (targetPosition != null)
             FaceTargetImmediate(targetPosition);

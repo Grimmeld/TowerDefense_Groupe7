@@ -2542,8 +2542,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 0
   MaxHealth: 0
-  EnemiesToSpawn: 0
-  EnemySpawnRate: 2555
+  EnemiesToSpawn: 2
+  EnemySpawnRate: 10
   EnemySpawn: 0
   Destination: {fileID: 0}
   EnemyBuggyPrefab: {fileID: 4301821913128253186, guid: 5f257ce18417e294886f259e11b38e25, type: 3}

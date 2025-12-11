@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e37eca64f36b964489ef08e0f7e7b9c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 3
+  Speed: 5
   Damage: 3
   BulletTransform: {fileID: 6235066777519443148}
 --- !u!54 &-9026599688156558746

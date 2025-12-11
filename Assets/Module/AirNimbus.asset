@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 315b82bf9e7f9af4ba7a092ca6253096, type: 3}
+  m_Name: AirNimbus
+  m_EditorClassIdentifier: 
+  moduleName: Nimbus
+  sprite: {fileID: 21300000, guid: 71079ee9a59ca0f4f9c4446df0177fca, type: 3}
+  prefab: {fileID: 6281579445302266790, guid: 04d0cee6fb8f8bf4d90ab75d43651f9c, type: 3}
+  stats: {fileID: -3760820008098739899, guid: 04d0cee6fb8f8bf4d90ab75d43651f9c, type: 3}
+  type: 1
+  tower: 0
+  description: Fire a stormy cloud\nContinuous damage\nHigh range
+  level: 2
+  price: 150
+  sell: 50
+  nextUpgrade: {fileID: 0}

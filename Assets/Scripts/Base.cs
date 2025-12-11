@@ -4,6 +4,7 @@ public class Base : MonoBehaviour
 {
     public float Health, MaxHealth;
     public BaseHealthBar healthBar;
+    public Animator AttackedAnimator;
 
     void Start()
     {
@@ -41,6 +42,7 @@ public class Base : MonoBehaviour
         if (other.CompareTag("EnemyBullet"))
         {
             Enemy_Projectile projectile = other.GetComponent<Enemy_Projectile>();
+            AttackedAnimator.SetTrigger("Attacked!");
             SetHealth(-projectile.Damage);
         }
     }

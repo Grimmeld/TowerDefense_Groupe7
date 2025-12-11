@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SpeedIncrease
   m_EditorClassIdentifier: 
   cardImage: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  cardName: Speed Module
   cardText: +20% Enemy Speed
   cardGoldText: +50 Gold if wave completed
   effectType: 0

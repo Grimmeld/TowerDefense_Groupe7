@@ -2,6 +2,7 @@ using NUnit.Framework.Internal;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Rendering;
@@ -56,6 +57,12 @@ public class WaveSpawner : MonoBehaviour
 
     [Header("UI")]
     public GameObject NextWaveButton;
+    public TextMeshProUGUI EnnemiesLeftText;
+    public Animator EnemiesLeftAnimator;
+    public TextMeshProUGUI WaveNumberText;
+    public TextMeshProUGUI WaveIncomingText;
+    [SerializeField] private GameObject waveText;
+    public Animator animator;
 
     private List<GameObject> aliveEnemies = new List<GameObject>();
 
@@ -75,6 +82,9 @@ public class WaveSpawner : MonoBehaviour
 
     private void Update()
     {
+        EnnemiesLeftText.text = EnnemiesAlive.ToString();
+        WaveNumberText.text = "Wave : " + (currentWave + 1).ToString();
+        WaveIncomingText.text = "Wave " + currentWave.ToString() + " Is Coming!";
         if (currentWave >= waves.Length) //toute les vague terminé
         {
             Debug.Log(" vagues terminées");
@@ -149,8 +159,9 @@ public class WaveSpawner : MonoBehaviour
     public void OnEnemyDied()
     {
         EnnemiesAlive--;
+        Triger();
 
-        if(EnnemiesAlive >0)
+        if (EnnemiesAlive >0)
         {
             return;
         }
@@ -170,12 +181,12 @@ public class WaveSpawner : MonoBehaviour
 
     public void StartNextWave()
     {
+        StartCoroutine(WaveIsComing());
+        animator.SetTrigger("Incoming");
         TimeBetweenSubWaves = 15f;
         currentSubWave = -1;
         buildMode = false;
         NextWaveButton.SetActive(false);
-        
-
         NextWave();
         StartCoroutine(Waiting());
     }
@@ -189,5 +200,18 @@ public class WaveSpawner : MonoBehaviour
     {
         
         GameManager.Instance.ChangeState(GameManager.GameSate.CardSelection);
+    }
+
+    IEnumerator WaveIsComing()
+    {
+        animator.SetTrigger("Incoming");
+        //waveText.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        //waveText.SetActive(false);
+    }
+
+    public void Triger()
+    {
+        EnemiesLeftAnimator.SetTrigger("Bump");
     }
 }

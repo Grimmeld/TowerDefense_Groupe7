@@ -1,6 +1,10 @@
+using NUnit.Framework;
+using System;
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ResourceManager : MonoBehaviour
 {
@@ -9,6 +13,9 @@ public class ResourceManager : MonoBehaviour
     // Player's resources
     [SerializeField] private int nuclear;
     [SerializeField] private int gold;
+
+    [SerializeField] private List<GameObject> NuclearImages = new List<GameObject>();
+    [SerializeField] private List<GameObject> VisibleImages = new List<GameObject>();
 
     [SerializeField] private TextMeshProUGUI numberNuclear, numberGold;
     [SerializeField] private TextMeshProUGUI noMoreNuclearText;
@@ -22,6 +29,35 @@ public class ResourceManager : MonoBehaviour
         instance = this;
     }
 
+    public void RegisterImage(GameObject image)
+    {
+        if (image == null) return;
+        if (!NuclearImages.Contains(image))
+        {
+            NuclearImages.Add(image);
+            UpdateNuclearImages();
+        }
+    }
+
+    public void UnregisterImage(int index)
+    {
+        if (index < 0 && index >= nuclear)
+        {
+            nuclear--;
+            NuclearImages[index].SetActive(false);
+        }
+    }
+
+    private void UpdateNuclearImages()
+    {
+        for (int i = 0; i < NuclearImages.Count; i++)
+        {
+            bool shouldBeActive = i < nuclear;
+            if (NuclearImages[i] != null)
+                NuclearImages[i].SetActive(shouldBeActive);
+        }
+    }
+
     private void Start()
     {
         UpdateHUD();
@@ -29,13 +65,30 @@ public class ResourceManager : MonoBehaviour
 
     public void UseNuclear()
     {
-        nuclear--;
+        nuclear = Mathf.Max(0, nuclear - 1);
+        UnregisterImage(nuclear);
+        UpdateNuclearImages();
         UpdateHUD();
     }
 
     public void StoreNuclear()
     {
-        nuclear++;
+        nuclear = Mathf.Max(0, nuclear + 1);
+        UpdateNuclearImages();
+        UpdateHUD(); ;
+    }
+
+    public void AddNuclear(int bonus)
+    {
+        nuclear = Mathf.Clamp(nuclear + bonus, 0, NuclearImages.Count);
+        UpdateNuclearImages();
+        UpdateHUD();
+    }
+
+    public void RemoveNuclear(int cost)
+    {
+        nuclear = Mathf.Max(0, nuclear - cost);
+        UpdateNuclearImages();
         UpdateHUD();
     }
 

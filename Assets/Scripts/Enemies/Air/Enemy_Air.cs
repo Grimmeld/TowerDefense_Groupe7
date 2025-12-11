@@ -52,8 +52,8 @@ public class Enemy_Air : MonoBehaviour
         Collide = GetComponent<BoxCollider>();
         Vector3 dest = PointDest.transform.position;
         agent.destination = dest;
-        //waveSpawner.EnnemiesAlive++;
-
+        waveSpawner.EnnemiesAlive++;
+        WaveSpawner.Instance.Triger();
         enemyDeath = GetComponent<EnemyDeath>();
         if (enemyDeath == null)
         {
@@ -91,7 +91,7 @@ public class Enemy_Air : MonoBehaviour
     }
     void Death()
     {
-        //WaveSpawner.Instance.OnEnemyDied();
+        WaveSpawner.Instance.OnEnemyDied();
         //Destroy(gameObject);
 
         // Determine when the enemy will die, if there is an animation or not

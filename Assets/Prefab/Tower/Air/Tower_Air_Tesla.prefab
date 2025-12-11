@@ -586,6 +586,7 @@ GameObject:
   - component: {fileID: -4934851094136469752}
   - component: {fileID: 3745864614299762498}
   - component: {fileID: 8156818174918321121}
+  - component: {fileID: -6446625970718682980}
   m_Layer: 0
   m_Name: Tower_Air_Tesla
   m_TagString: Turret
@@ -643,6 +644,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackScript: {fileID: 2797140158819919172}
+  tower_Animation: {fileID: 0}
 --- !u!114 &-4934851094136469752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -657,6 +659,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootingRate: 0
   Range: 0
+  UraniumToGive: 0
+  GoldToGive: 0
 --- !u!65 &3745864614299762498
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -692,6 +696,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Sabotaged: 1
   SapDuration: 0
+--- !u!114 &-6446625970718682980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7333832761058895145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3af2989a8346fd846a9f58aa33d793ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: Anti-Air
+  damage: 0.3
 --- !u!1 &8086930882719510853
 GameObject:
   m_ObjectHideFlags: 0

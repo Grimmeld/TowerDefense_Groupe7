@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 315b82bf9e7f9af4ba7a092ca6253096, type: 3}
+  m_Name: GoundMachineGun
+  m_EditorClassIdentifier: 
+  moduleName: Machine Gun
+  sprite: {fileID: 21300000, guid: 74fc71868e37e3149aa24ae790ff33ac, type: 3}
+  prefab: {fileID: 903522462910153207, guid: 3773889c7ebef674c9aa0a4014630123, type: 3}
+  stats: {fileID: 8581019091387703202, guid: 3773889c7ebef674c9aa0a4014630123, type: 3}
+  type: 1
+  tower: 1
+  description: Quickly fires projectiles at nearby enemies\nMedium damages
+  level: 1
+  price: 50
+  sell: 25
+  nextUpgrade: {fileID: 11400000, guid: 6c17b8ffa4b327249bd5af451ca5a015, type: 2}
