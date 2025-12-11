@@ -58,6 +58,7 @@ public class WaveSpawner : MonoBehaviour
     [Header("UI")]
     public GameObject NextWaveButton;
     public TextMeshProUGUI EnnemiesLeftText;
+    public Animator EnemiesLeftAnimator;
     public TextMeshProUGUI WaveNumberText;
     public TextMeshProUGUI WaveIncomingText;
     [SerializeField] private GameObject waveText;
@@ -158,8 +159,9 @@ public class WaveSpawner : MonoBehaviour
     public void OnEnemyDied()
     {
         EnnemiesAlive--;
+        Triger();
 
-        if(EnnemiesAlive >0)
+        if (EnnemiesAlive >0)
         {
             return;
         }
@@ -206,5 +208,10 @@ public class WaveSpawner : MonoBehaviour
         //waveText.SetActive(true);
         yield return new WaitForSeconds(3f);
         //waveText.SetActive(false);
+    }
+
+    public void Triger()
+    {
+        EnemiesLeftAnimator.SetTrigger("Bump");
     }
 }

@@ -73,6 +73,7 @@ public class Enemy_Buggy : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         Collide = GetComponent<BoxCollider>();
         waveSpawner.EnnemiesAlive++;
+        WaveSpawner.Instance.Triger();
         enemyDeath = GetComponent<EnemyDeath>();
         if (enemyDeath == null)
         {

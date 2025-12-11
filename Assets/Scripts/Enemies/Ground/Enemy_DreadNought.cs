@@ -75,7 +75,7 @@ public class Enemy_DreadNought : MonoBehaviour
         Collide = GetComponent<BoxCollider>();
 
         waveSpawner.EnnemiesAlive++;
-
+        WaveSpawner.Instance.Triger();
         enemyDeath = GetComponent<EnemyDeath>();
         if (enemyDeath == null)
         {
