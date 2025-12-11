@@ -293,6 +293,7 @@ GameObject:
   - component: {fileID: 2571739842202913447}
   - component: {fileID: -3760820008098739899}
   - component: {fileID: -3865237033305637728}
+  - component: {fileID: -5623310249781188541}
   m_Layer: 0
   m_Name: Tower_Air_Nimbus
   m_TagString: Turret
@@ -333,6 +334,7 @@ MonoBehaviour:
   TorsoPivot: {fileID: 835627246649337059}
   ArmPivot: {fileID: 4642049251843144738}
   ShootingPoint: {fileID: 5353846743042134020}
+  RobotHead: {fileID: 0}
   BulletPrefab: {fileID: 583628465185215073, guid: 46e2d2003f31f074582cb64a46f900c3, type: 3}
   target: {fileID: 0}
   enemyTag: EnemyAir
@@ -349,6 +351,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackScript: {fileID: 5101081516849371860, guid: 46e2d2003f31f074582cb64a46f900c3, type: 3}
+  tower_Animation: {fileID: 0}
 --- !u!65 &2571739842202913447
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -384,6 +387,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootingRate: 5
   Range: 6
+  UraniumToGive: 0
+  GoldToGive: 0
 --- !u!114 &-3865237033305637728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -398,6 +403,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Sabotaged: 0
   SapDuration: 8
+--- !u!114 &-5623310249781188541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6281579445302266790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3af2989a8346fd846a9f58aa33d793ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: Anti-Air
+  damage: 4.5
 --- !u!1 &6945153010119106772
 GameObject:
   m_ObjectHideFlags: 0

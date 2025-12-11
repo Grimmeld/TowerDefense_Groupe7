@@ -154,6 +154,7 @@ GameObject:
   - component: {fileID: 8581019091387703202}
   - component: {fileID: 7894870512520305339}
   - component: {fileID: 4539114939792415881}
+  - component: {fileID: -5405828615213714517}
   m_Layer: 0
   m_Name: Tower_Ground_MachineGun
   m_TagString: Turret
@@ -194,6 +195,7 @@ MonoBehaviour:
   TorsoPivot: {fileID: 1302656909067345495}
   ArmPivot: {fileID: 3031187078150944631}
   ShootingPoint: {fileID: 7906512389227323311}
+  RobotHead: {fileID: 0}
   BulletPrefab: {fileID: 4508185490172828934, guid: 4817075dec705d9459cc7c586011b22a, type: 3}
   target: {fileID: 0}
   enemyTag: Enemy
@@ -232,6 +234,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootingRate: 0.7
   Range: 4
+  UraniumToGive: 0
+  GoldToGive: 0
 --- !u!114 &7894870512520305339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,6 +249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackScript: {fileID: 0}
+  tower_Animation: {fileID: 0}
 --- !u!114 &4539114939792415881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -259,6 +264,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Sabotaged: 0
   SapDuration: 8
+--- !u!114 &-5405828615213714517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 903522462910153207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3af2989a8346fd846a9f58aa33d793ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: Anti-Sol
+  damage: 1.5
 --- !u!1 &939554786003090314
 GameObject:
   m_ObjectHideFlags: 0

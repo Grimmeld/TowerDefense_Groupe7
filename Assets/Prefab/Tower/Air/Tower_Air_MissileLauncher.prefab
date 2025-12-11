@@ -4364,7 +4364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: Anti-Air
-  damage: 10
+  damage: 3
 --- !u!1 &7511479354454625140
 GameObject:
   m_ObjectHideFlags: 0

@@ -406,6 +406,7 @@ GameObject:
   - component: {fileID: 7716105378469663860}
   - component: {fileID: 4713730156372793590}
   - component: {fileID: 1302899853554789185}
+  - component: {fileID: -1023179916371978646}
   m_Layer: 0
   m_Name: Tower_Ground_PlasmaCanon
   m_TagString: Turret
@@ -465,6 +466,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shootingRate: 0.7
   Range: 2
+  UraniumToGive: 0
+  GoldToGive: 0
 --- !u!114 &1333866808987870998
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -529,6 +532,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   State: 0
   animator: {fileID: 0}
+--- !u!114 &-1023179916371978646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6085328349020118952}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3af2989a8346fd846a9f58aa33d793ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: Anti-Sol
+  damage: 9
 --- !u!1 &7501613511798570142
 GameObject:
   m_ObjectHideFlags: 0
