@@ -451,9 +451,27 @@ public class UpgradeMenu : MonoBehaviour
     {
         if (panelStatModule != null)
         {
-            panelStatModule.SetActive(enable);
+
+            if (enable == true)
+            { 
+                animatorPanel.SetTrigger("ModuleAppear"); 
+                panelStatModule.SetActive(enable);
+
+            }
+
+            else
+            {
+                //animatorPanel.SetTrigger("ModuleDisappear");
+                panelStatModule.SetActive(enable);
+            }
 
         }
+    }
+
+    private IEnumerator DisappearingModule()
+    {
+        yield return new WaitForSecondsRealtime(0.25f);
+        panelStatModule.SetActive(false);
     }
 
 }

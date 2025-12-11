@@ -26,7 +26,7 @@ public class ShopSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        Debug.Log("Slot hover enter");
+        //Debug.Log("Slot hover enter");
         if (UpgradeMenu.Instance != null)
         {
             UpgradeMenu.Instance.HoverSlot(true);
@@ -36,7 +36,7 @@ public class ShopSlot : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        Debug.Log("Slot hover exit");
+        //Debug.Log("Slot hover exit");
         if (UpgradeMenu.Instance != null)
         {
             UpgradeMenu.Instance.HoverSlot(false);

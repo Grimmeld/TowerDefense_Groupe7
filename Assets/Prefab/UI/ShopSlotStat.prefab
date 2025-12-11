@@ -8,9 +8,13 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 317160087282441595, guid: e6ffff1b60031a94fb6b381c96f82c87, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3027906683195310192, guid: e6ffff1b60031a94fb6b381c96f82c87, type: 3}
       propertyPath: m_Name
-      value: ShopSlot
+      value: ShopSlotStat
       objectReference: {fileID: 0}
     - target: {fileID: 5494673313227608834, guid: e6ffff1b60031a94fb6b381c96f82c87, type: 3}
       propertyPath: m_Pivot.x
@@ -90,6 +94,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5494673313227608834, guid: e6ffff1b60031a94fb6b381c96f82c87, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6598819337426926527, guid: e6ffff1b60031a94fb6b381c96f82c87, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 3399322447892ef4483d1e342a89d545, type: 3}
+    - target: {fileID: 8600890651140586841, guid: e6ffff1b60031a94fb6b381c96f82c87, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -13,7 +13,10 @@ public class TowerController : MonoBehaviour
     public void EnableScript(bool enable)
     {
         attackScript.enabled = enable;
-        tower_Animation.enabled = enable;
+        if (tower_Animation != null)
+        {
+            tower_Animation.enabled = enable;
+        }
     }
 
     //BEG LEA ++
