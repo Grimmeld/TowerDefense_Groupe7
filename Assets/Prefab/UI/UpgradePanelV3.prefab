@@ -10131,7 +10131,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Unddo actions
+  m_text: Unddo action
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 37ea047a0b10bba41afa33cd6aa98c85, type: 2}
   m_sharedMaterial: {fileID: 855364633366728198, guid: 37ea047a0b10bba41afa33cd6aa98c85, type: 2}

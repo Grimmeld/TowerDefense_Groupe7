@@ -132,6 +132,7 @@ public class TurretUpgrade : MonoBehaviour
     {
         Destroy(currentTowerIG);
         Destroy(currentTowerUpgrade);
+        Destroy(currentTowerMenu);
     }
 
     public void GetTowerFromGame()
