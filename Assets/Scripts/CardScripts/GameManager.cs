@@ -13,6 +13,7 @@ int currentLevel = 0;
     {
         Instance = this;
     }
+    [SerializeField] private GameObject CardTitle;
 
     private void Update() //Test des cartes
     {
@@ -23,6 +24,10 @@ int currentLevel = 0;
             ChangeState(GameSate.CardSelection);
             currentLevel++;
         }
+        if(currentState == GameSate.CardSelection)
+            CardTitle.SetActive(true);
+        else
+            CardTitle.SetActive(false);
     }
 
     public int GetCurrentLevel()
