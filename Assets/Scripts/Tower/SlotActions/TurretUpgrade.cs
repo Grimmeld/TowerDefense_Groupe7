@@ -6,8 +6,8 @@ public class TurretUpgrade : MonoBehaviour
 
     [SerializeField] private GameObject currentTowerIG;
     [SerializeField] private GameObject currentTowerUpgrade;
+    [SerializeField] private GameObject currentTowerMenu;
     [SerializeField] private Transform spawnPoint;
-
 
 
 
@@ -34,6 +34,9 @@ public class TurretUpgrade : MonoBehaviour
         if (spawnPoint != null)
         {
             currentTowerUpgrade = Instantiate(tower, spawnPoint);
+
+            UpgradeAppear upgradeAppear = tower.GetComponent<UpgradeAppear>();
+            if (upgradeAppear != null) { currentTowerMenu = Instantiate(upgradeAppear.GetTowerIdle(), spawnPoint); }
             currentTowerUpgrade.transform.position = spawnPoint.position; // remettre la position de la tour sur le spawnpoint
             Rigidbody r = currentTowerUpgrade.GetComponent<Rigidbody>();
             if (r != null)
@@ -89,6 +92,11 @@ public class TurretUpgrade : MonoBehaviour
     public void UpdateTowerInMenu(GameObject gameObject)
     {
         Destroy(currentTowerUpgrade);
+        Destroy(currentTowerMenu);
+        //currentTowerUpgrade = Instantiate(gameObject, spawnPoint);
+
+        UpgradeAppear upgradeAppear = gameObject.GetComponent<UpgradeAppear>();
+        if (upgradeAppear != null) { currentTowerMenu = Instantiate(upgradeAppear.GetTowerIdle(), spawnPoint); }
         currentTowerUpgrade = Instantiate(gameObject, spawnPoint);
         currentTowerUpgrade.transform.position = spawnPoint.position;
     }

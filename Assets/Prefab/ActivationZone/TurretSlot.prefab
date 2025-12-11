@@ -1074,6 +1074,7 @@ MonoBehaviour:
   currentTowerIG: {fileID: 0}
   currentTowerUpgrade: {fileID: 0}
   spawnPoint: {fileID: 0}
+  testTower: {fileID: 8456648510886587580, guid: 30bb2f8f2ca1fda439f2d408dc6b2919, type: 3}
 --- !u!114 &8997038956298001346
 MonoBehaviour:
   m_ObjectHideFlags: 0

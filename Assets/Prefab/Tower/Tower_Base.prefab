@@ -2521,6 +2521,7 @@ GameObject:
   - component: {fileID: -7506597290583774085}
   - component: {fileID: -7606321742397220477}
   - component: {fileID: 2742460021787574463}
+  - component: {fileID: 2740061882934974678}
   m_Layer: 0
   m_Name: Tower_Base
   m_TagString: Turret
@@ -2646,6 +2647,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   State: 0
   animator: {fileID: 3009138003389163615}
+--- !u!114 &2740061882934974678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5502398235229544065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54ad193d152464149a3e96c879aed533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerIdle: {fileID: 8456648510886587580, guid: 30bb2f8f2ca1fda439f2d408dc6b2919, type: 3}
 --- !u!1 &5867205544247516287
 GameObject:
   m_ObjectHideFlags: 0

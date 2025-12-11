@@ -402,6 +402,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ee122f4d30981742944ed4ebbdfb1aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CardTitle: {fileID: 0}
 --- !u!1 &1690638217140277083
 GameObject:
   m_ObjectHideFlags: 0
@@ -3122,6 +3123,11 @@ MonoBehaviour:
   TimeBetweenSubWaves: 0
   buildMode: 0
   NextWaveButton: {fileID: 0}
+  EnnemiesLeftText: {fileID: 0}
+  WaveNumberText: {fileID: 0}
+  WaveIncomingText: {fileID: 0}
+  waveText: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!1 &6202883378469965100
 GameObject:
   m_ObjectHideFlags: 0
@@ -3548,6 +3554,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nuclear: 10
   gold: 0
+  NuclearImages: []
+  VisibleImages: []
   numberNuclear: {fileID: 8074367961096342491}
   numberGold: {fileID: 1426011536863432872}
   noMoreNuclearText: {fileID: 1718621987269373834}
@@ -4359,6 +4367,10 @@ PrefabInstance:
     - target: {fileID: 6596061253486062364, guid: afb9be698c7db8f418375c238791724a, type: 3}
       propertyPath: m_Name
       value: UpgradePanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 6596061253486062364, guid: afb9be698c7db8f418375c238791724a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7215828264691654861, guid: afb9be698c7db8f418375c238791724a, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
