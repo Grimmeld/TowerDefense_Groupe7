@@ -9,6 +9,7 @@ public class StatModule : MonoBehaviour
     [SerializeField] private TextMeshProUGUI attackValue;
     [SerializeField] private TextMeshProUGUI rangeValue;
     [SerializeField] private TextMeshProUGUI fireRangeValue;
+    [SerializeField] private TextMeshProUGUI description;
 
     public static StatModule Instance;
 
@@ -22,19 +23,29 @@ public class StatModule : MonoBehaviour
 
     public void SetInformation(Module module)
     {
+        GameObject prefab = module.prefab;
+
         moduleName.text = module.moduleName;
-        typeModule.text = module.type.ToString();
+
+        TowerInformation towerInfo = prefab.GetComponent<TowerInformation>();
+        if (towerInfo != null)
+        {
+            typeModule.text = towerInfo.type.ToString();
+            attackValue.text = towerInfo.damage.ToString();
+
+        }
+
+
+
         levelNb.text = module.level.ToString();
 
         // Get attack value
-        GameObject prefab = module.prefab;
         TowerStats towerStats = prefab.GetComponent<TowerStats>();
 
         rangeValue.text = towerStats.Range.ToString();
         fireRangeValue.text = towerStats.shootingRate.ToString();
     
-        TowerController towerController = prefab.GetComponent<TowerController>();
-
+        description.text = module.description.ToString();
     }
 
 }

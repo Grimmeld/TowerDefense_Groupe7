@@ -4227,6 +4227,7 @@ GameObject:
   - component: {fileID: -4474902774537795471}
   - component: {fileID: -2922790416970813781}
   - component: {fileID: 2275093368106695872}
+  - component: {fileID: -6102528319473070256}
   m_Layer: 0
   m_Name: Tower_Air_MissileLauncher
   m_TagString: Turret
@@ -4350,6 +4351,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   State: 0
   animator: {fileID: 6084310980881538274}
+--- !u!114 &-6102528319473070256
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7494151623411648889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3af2989a8346fd846a9f58aa33d793ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: Anti-Air
+  damage: 10
 --- !u!1 &7511479354454625140
 GameObject:
   m_ObjectHideFlags: 0
