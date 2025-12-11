@@ -129,4 +129,17 @@ public class CameraController : MonoBehaviour
         }
     }
 
+    public void MouseScroll(InputAction.CallbackContext context)
+    {
+        float scrollValue = context.ReadValue<float>();
+        if(transform.position.y <= 10f && transform.position.y >= 2f)
+        {
+            transform.Translate(0, -scrollValue, 0);
+        }
+        else if(transform.position.y > 10f && scrollValue > 0)
+            transform.Translate(0, -scrollValue, 0);
+        else if(transform.position.y < 2f && scrollValue < 0)
+        transform.Translate(0, -scrollValue, 0);
+    }
+
 }

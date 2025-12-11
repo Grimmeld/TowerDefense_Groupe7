@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class CardSO : ScriptableObject
 {
     public Sprite cardImage;
+    public string cardName;
     public string cardText;
     public string cardGoldText;
 
