@@ -11,11 +11,18 @@ public class CameraController : MonoBehaviour
 
     // Manage the distance of the camera from the manager
 
+    CameraSwitcher cameraSwitcher;
+    void Awake()
+    {
+        cameraSwitcher = GetComponent<CameraSwitcher>();
+    }
+
     [SerializeField] private Vector3 cameraOffset;
 
     [Header("Movement")]
     [SerializeField] private Vector2 inputMove;
     [SerializeField] private float speedMove;
+
 
     [Header("Rotation")]
     [SerializeField] private float speedRotation;
@@ -32,11 +39,43 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
+        if (cameraSwitcher.MapCamera)
+        {
+            speedMove = 20f;
+        }
+        else if (cameraSwitcher.MainCamera)
+        {
+            speedMove = 0f;
+        }
         if (inputMove != Vector2.zero)
         {
-            float speed = Time.deltaTime * speedMove;
+            if (transform.position.x <= 33f && transform.position.x >= -33f && transform.position.z <= 35f && transform.position.z >= -35f)
+            {
+                float speed = Time.deltaTime * speedMove;
 
-            transform.Translate(speed * inputMove.x, 0, speed * inputMove.y);
+                transform.Translate(speed * inputMove.x, 0, speed * inputMove.y);
+            }
+            else if (transform.position.x > 33f && inputMove.x < 0)
+            {
+                float speed = Time.deltaTime * speedMove;
+                transform.Translate(speed * inputMove.x, 0, speed * inputMove.y);
+            }
+            else if (transform.position.x < -33f && inputMove.x > 0)
+            {
+                float speed = Time.deltaTime * speedMove;
+                transform.Translate(speed * inputMove.x, 0, speed * inputMove.y);
+            }
+            else if (transform.position.z > 35f && inputMove.y < 0)
+            {
+                float speed = Time.deltaTime * speedMove;
+                transform.Translate(speed * inputMove.x, 0, speed * inputMove.y);
+            }
+            else if (transform.position.z < -35f && inputMove.y > 0)
+            {
+                float speed = Time.deltaTime * speedMove;
+                transform.Translate(speed * inputMove.x, 0, speed * inputMove.y);
+            }
+
         }
 
         if (turnLeft || turnRight)
