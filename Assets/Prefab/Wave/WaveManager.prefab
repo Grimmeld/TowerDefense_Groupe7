@@ -1,0 +1,415 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3752476847198298589
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3208887407227867705}
+  - component: {fileID: 6879319858026741197}
+  m_Layer: 0
+  m_Name: WaveManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3208887407227867705
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3752476847198298589}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6879319858026741197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3752476847198298589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 453c451a6084c4e44b639cc3a4260f63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onAllWavesCompleted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  onBuildModeStart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6879319858026741197}
+        m_TargetAssemblyTypeName: WaveSpawner, Assembly-CSharp
+        m_MethodName: ChangeState
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  waves:
+  - Subwaves:
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 4301821913128253186, guid: 9cd5c05f646498d45bcaa3c102c79f77, type: 3}
+        count: 6
+      rate: 0.5
+      spawnPoints: {fileID: 8176255935241641383, guid: e22f92886cb56964080e98b185fa5c9b, type: 3}
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 8270443144933418462, guid: 00861825ffa355c4aa4010bf825f4c90, type: 3}
+        count: 8
+      rate: 0.5
+      spawnPoints: {fileID: 6609003056815347016, guid: 7cb9b75c5012e8a45a4fc00bfc7889d6, type: 3}
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 4301821913128253186, guid: 9cd5c05f646498d45bcaa3c102c79f77, type: 3}
+        count: 7
+      rate: 0.5
+      spawnPoints: {fileID: 8437273448252089808, guid: 33480475a524d2f48aed074fc639053d, type: 3}
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 4301821913128253186, guid: 9cd5c05f646498d45bcaa3c102c79f77, type: 3}
+        count: 7
+      rate: 0.5
+      spawnPoints: {fileID: 2593865713009166773, guid: fb9b1d8659ee422489e39ca79268aa96, type: 3}
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 8270443144933418462, guid: 00861825ffa355c4aa4010bf825f4c90, type: 3}
+        count: 7
+      rate: 0.5
+      spawnPoints: {fileID: 6351497261660586923, guid: f78704a0f8623af4ab948703871381b3, type: 3}
+  - Subwaves:
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 272126984777200635, guid: 48d3f39bc0849874e87e235a718962cc, type: 3}
+        count: 5
+      rate: 0.5
+      spawnPoints: {fileID: 2593865713009166773, guid: fb9b1d8659ee422489e39ca79268aa96, type: 3}
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 545362407022032932, guid: 659136c7f5d369c4bb67e1a4e8fd4624, type: 3}
+        count: 5
+      rate: 0.5
+      spawnPoints: {fileID: 6609003056815347016, guid: 7cb9b75c5012e8a45a4fc00bfc7889d6, type: 3}
+  - Subwaves:
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 272126984777200635, guid: 48d3f39bc0849874e87e235a718962cc, type: 3}
+        count: 3
+      rate: 0.5
+      spawnPoints: {fileID: 6609003056815347016, guid: 7cb9b75c5012e8a45a4fc00bfc7889d6, type: 3}
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 4301821913128253186, guid: 9cd5c05f646498d45bcaa3c102c79f77, type: 3}
+        count: 8
+      rate: 0.5
+      spawnPoints: {fileID: 8176255935241641383, guid: e22f92886cb56964080e98b185fa5c9b, type: 3}
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 8270443144933418462, guid: 00861825ffa355c4aa4010bf825f4c90, type: 3}
+        count: 10
+      rate: 0.5
+      spawnPoints: {fileID: 6351497261660586923, guid: f78704a0f8623af4ab948703871381b3, type: 3}
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 4301821913128253186, guid: 9cd5c05f646498d45bcaa3c102c79f77, type: 3}
+        count: 7
+      rate: 0.5
+      spawnPoints: {fileID: 8437273448252089808, guid: 33480475a524d2f48aed074fc639053d, type: 3}
+  - Subwaves:
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 272126984777200635, guid: 48d3f39bc0849874e87e235a718962cc, type: 3}
+        count: 3
+      rate: 0.5
+      spawnPoints: {fileID: 8437273448252089808, guid: 33480475a524d2f48aed074fc639053d, type: 3}
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 4301821913128253186, guid: 9cd5c05f646498d45bcaa3c102c79f77, type: 3}
+        count: 6
+      rate: 0.5
+      spawnPoints: {fileID: 2593865713009166773, guid: fb9b1d8659ee422489e39ca79268aa96, type: 3}
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 545362407022032932, guid: 659136c7f5d369c4bb67e1a4e8fd4624, type: 3}
+        count: 4
+      rate: 0.5
+      spawnPoints: {fileID: 8176255935241641383, guid: e22f92886cb56964080e98b185fa5c9b, type: 3}
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 4301821913128253186, guid: 9cd5c05f646498d45bcaa3c102c79f77, type: 3}
+        count: 4
+      rate: 0.5
+      spawnPoints: {fileID: 6351497261660586923, guid: f78704a0f8623af4ab948703871381b3, type: 3}
+  - Subwaves:
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 4301821913128253186, guid: 9cd5c05f646498d45bcaa3c102c79f77, type: 3}
+        count: 10
+      rate: 0.5
+      spawnPoints: {fileID: 2593865713009166773, guid: fb9b1d8659ee422489e39ca79268aa96, type: 3}
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 545362407022032932, guid: 659136c7f5d369c4bb67e1a4e8fd4624, type: 3}
+        count: 4
+      rate: 0.5
+      spawnPoints: {fileID: 6609003056815347016, guid: 7cb9b75c5012e8a45a4fc00bfc7889d6, type: 3}
+  - Subwaves:
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 272126984777200635, guid: 48d3f39bc0849874e87e235a718962cc, type: 3}
+        count: 4
+      rate: 0.5
+      spawnPoints: {fileID: 8176255935241641383, guid: e22f92886cb56964080e98b185fa5c9b, type: 3}
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 8270443144933418462, guid: 00861825ffa355c4aa4010bf825f4c90, type: 3}
+        count: 10
+      rate: 0.5
+      spawnPoints: {fileID: 6351497261660586923, guid: f78704a0f8623af4ab948703871381b3, type: 3}
+  - Subwaves:
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 545362407022032932, guid: 659136c7f5d369c4bb67e1a4e8fd4624, type: 3}
+        count: 5
+      rate: 0.5
+      spawnPoints: {fileID: 8176255935241641383, guid: e22f92886cb56964080e98b185fa5c9b, type: 3}
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 4301821913128253186, guid: 9cd5c05f646498d45bcaa3c102c79f77, type: 3}
+        count: 7
+      rate: 0.5
+      spawnPoints: {fileID: 8437273448252089808, guid: 33480475a524d2f48aed074fc639053d, type: 3}
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 4301821913128253186, guid: 9cd5c05f646498d45bcaa3c102c79f77, type: 3}
+        count: 3
+      rate: 0.5
+      spawnPoints: {fileID: 2593865713009166773, guid: fb9b1d8659ee422489e39ca79268aa96, type: 3}
+  - Subwaves:
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 272126984777200635, guid: 48d3f39bc0849874e87e235a718962cc, type: 3}
+        count: 5
+      rate: 0.5
+      spawnPoints: {fileID: 6351497261660586923, guid: f78704a0f8623af4ab948703871381b3, type: 3}
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 8270443144933418462, guid: 00861825ffa355c4aa4010bf825f4c90, type: 3}
+        count: 10
+      rate: 0.5
+      spawnPoints: {fileID: 2593865713009166773, guid: fb9b1d8659ee422489e39ca79268aa96, type: 3}
+  - Subwaves:
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 8270443144933418462, guid: 00861825ffa355c4aa4010bf825f4c90, type: 3}
+        count: 4
+      rate: 0.5
+      spawnPoints: {fileID: 8437273448252089808, guid: 33480475a524d2f48aed074fc639053d, type: 3}
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 272126984777200635, guid: 48d3f39bc0849874e87e235a718962cc, type: 3}
+        count: 4
+      rate: 0.5
+      spawnPoints: {fileID: 8176255935241641383, guid: e22f92886cb56964080e98b185fa5c9b, type: 3}
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 545362407022032932, guid: 659136c7f5d369c4bb67e1a4e8fd4624, type: 3}
+        count: 3
+      rate: 0.5
+      spawnPoints: {fileID: 6351497261660586923, guid: f78704a0f8623af4ab948703871381b3, type: 3}
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 8270443144933418462, guid: 00861825ffa355c4aa4010bf825f4c90, type: 3}
+        count: 6
+      rate: 0.5
+      spawnPoints: {fileID: 8437273448252089808, guid: 33480475a524d2f48aed074fc639053d, type: 3}
+  - Subwaves:
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 272126984777200635, guid: 48d3f39bc0849874e87e235a718962cc, type: 3}
+        count: 5
+      rate: 0.5
+      spawnPoints: {fileID: 6609003056815347016, guid: 7cb9b75c5012e8a45a4fc00bfc7889d6, type: 3}
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 4301821913128253186, guid: 9cd5c05f646498d45bcaa3c102c79f77, type: 3}
+        count: 8
+      rate: 0.5
+      spawnPoints: {fileID: 2593865713009166773, guid: fb9b1d8659ee422489e39ca79268aa96, type: 3}
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 545362407022032932, guid: 659136c7f5d369c4bb67e1a4e8fd4624, type: 3}
+        count: 4
+      rate: 0.5
+      spawnPoints: {fileID: 6351497261660586923, guid: f78704a0f8623af4ab948703871381b3, type: 3}
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 8270443144933418462, guid: 00861825ffa355c4aa4010bf825f4c90, type: 3}
+        count: 6
+      rate: 0.5
+      spawnPoints: {fileID: 2593865713009166773, guid: fb9b1d8659ee422489e39ca79268aa96, type: 3}
+  - Subwaves:
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 4301821913128253186, guid: 9cd5c05f646498d45bcaa3c102c79f77, type: 3}
+        count: 8
+      rate: 0.5
+      spawnPoints: {fileID: 6609003056815347016, guid: 7cb9b75c5012e8a45a4fc00bfc7889d6, type: 3}
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 545362407022032932, guid: 659136c7f5d369c4bb67e1a4e8fd4624, type: 3}
+        count: 5
+      rate: 0.5
+      spawnPoints: {fileID: 8176255935241641383, guid: e22f92886cb56964080e98b185fa5c9b, type: 3}
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 8270443144933418462, guid: 00861825ffa355c4aa4010bf825f4c90, type: 3}
+        count: 8
+      rate: 0.5
+      spawnPoints: {fileID: 6351497261660586923, guid: f78704a0f8623af4ab948703871381b3, type: 3}
+  - Subwaves:
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 272126984777200635, guid: 48d3f39bc0849874e87e235a718962cc, type: 3}
+        count: 4
+      rate: 0.5
+      spawnPoints: {fileID: 8437273448252089808, guid: 33480475a524d2f48aed074fc639053d, type: 3}
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 8270443144933418462, guid: 00861825ffa355c4aa4010bf825f4c90, type: 3}
+        count: 6
+      rate: 0.5
+      spawnPoints: {fileID: 2593865713009166773, guid: fb9b1d8659ee422489e39ca79268aa96, type: 3}
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 4301821913128253186, guid: 9cd5c05f646498d45bcaa3c102c79f77, type: 3}
+        count: 6
+      rate: 0.5
+      spawnPoints: {fileID: 6609003056815347016, guid: 7cb9b75c5012e8a45a4fc00bfc7889d6, type: 3}
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 8270443144933418462, guid: 00861825ffa355c4aa4010bf825f4c90, type: 3}
+        count: 4
+      rate: 0.5
+      spawnPoints: {fileID: 6351497261660586923, guid: f78704a0f8623af4ab948703871381b3, type: 3}
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 4301821913128253186, guid: 9cd5c05f646498d45bcaa3c102c79f77, type: 3}
+        count: 9
+      rate: 0.5
+      spawnPoints: {fileID: 8437273448252089808, guid: 33480475a524d2f48aed074fc639053d, type: 3}
+  - Subwaves:
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 4301821913128253186, guid: 9cd5c05f646498d45bcaa3c102c79f77, type: 3}
+        count: 8
+      rate: 0.5
+      spawnPoints: {fileID: 6351497261660586923, guid: f78704a0f8623af4ab948703871381b3, type: 3}
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 545362407022032932, guid: 659136c7f5d369c4bb67e1a4e8fd4624, type: 3}
+        count: 6
+      rate: 0.5
+      spawnPoints: {fileID: 6609003056815347016, guid: 7cb9b75c5012e8a45a4fc00bfc7889d6, type: 3}
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 8270443144933418462, guid: 00861825ffa355c4aa4010bf825f4c90, type: 3}
+        count: 6
+      rate: 0.5
+      spawnPoints: {fileID: 2593865713009166773, guid: fb9b1d8659ee422489e39ca79268aa96, type: 3}
+  - Subwaves:
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 4301821913128253186, guid: 9cd5c05f646498d45bcaa3c102c79f77, type: 3}
+        count: 8
+      rate: 0.5
+      spawnPoints: {fileID: 6609003056815347016, guid: 7cb9b75c5012e8a45a4fc00bfc7889d6, type: 3}
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 272126984777200635, guid: 48d3f39bc0849874e87e235a718962cc, type: 3}
+        count: 5
+      rate: 0.5
+      spawnPoints: {fileID: 8176255935241641383, guid: e22f92886cb56964080e98b185fa5c9b, type: 3}
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 545362407022032932, guid: 659136c7f5d369c4bb67e1a4e8fd4624, type: 3}
+        count: 4
+      rate: 0.5
+      spawnPoints: {fileID: 2593865713009166773, guid: fb9b1d8659ee422489e39ca79268aa96, type: 3}
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 8270443144933418462, guid: 00861825ffa355c4aa4010bf825f4c90, type: 3}
+        count: 10
+      rate: 0.5
+      spawnPoints: {fileID: 8437273448252089808, guid: 33480475a524d2f48aed074fc639053d, type: 3}
+  - Subwaves:
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 545362407022032932, guid: 659136c7f5d369c4bb67e1a4e8fd4624, type: 3}
+        count: 5
+      rate: 0.5
+      spawnPoints: {fileID: 2593865713009166773, guid: fb9b1d8659ee422489e39ca79268aa96, type: 3}
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 272126984777200635, guid: 48d3f39bc0849874e87e235a718962cc, type: 3}
+        count: 5
+      rate: 0.5
+      spawnPoints: {fileID: 6351497261660586923, guid: f78704a0f8623af4ab948703871381b3, type: 3}
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 4301821913128253186, guid: 9cd5c05f646498d45bcaa3c102c79f77, type: 3}
+        count: 7
+      rate: 0.5
+      spawnPoints: {fileID: 6609003056815347016, guid: 7cb9b75c5012e8a45a4fc00bfc7889d6, type: 3}
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 8270443144933418462, guid: 00861825ffa355c4aa4010bf825f4c90, type: 3}
+        count: 12
+      rate: 0.5
+      spawnPoints: {fileID: 8176255935241641383, guid: e22f92886cb56964080e98b185fa5c9b, type: 3}
+    - EnemyTypes:
+      - enemies:
+        - {fileID: 4301821913128253186, guid: 9cd5c05f646498d45bcaa3c102c79f77, type: 3}
+        count: 6
+      rate: 0.5
+      spawnPoints: {fileID: 8437273448252089808, guid: 33480475a524d2f48aed074fc639053d, type: 3}
+  currentWave: 0
+  EnnemiesAlive: 0
+  TimeBetweenSubWaves: 15
+  buildMode: 0
+  NextWaveButton: {fileID: 0}
+  EnnemiesLeftText: {fileID: 0}
+  EnemiesLeftAnimator: {fileID: 0}
+  WaveNumberText: {fileID: 0}
+  WaveIncomingText: {fileID: 0}
+  waveText: {fileID: 0}
+  animator: {fileID: 0}
