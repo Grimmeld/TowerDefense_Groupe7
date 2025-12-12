@@ -208,4 +208,9 @@ public class Enemy_Sapper : MonoBehaviour
         Quaternion targetRot = Quaternion.LookRotation(dir);
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRot, lookSlerpSpeed * Time.deltaTime);
     }
+
+    private void OnDestroy()
+    {
+        WaveSpawner.Instance.OnEnemyDied();
+    }
 }

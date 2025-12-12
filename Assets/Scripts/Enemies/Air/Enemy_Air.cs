@@ -52,7 +52,7 @@ public class Enemy_Air : MonoBehaviour
         Collide = GetComponent<BoxCollider>();
         Vector3 dest = PointDest.transform.position;
         agent.destination = dest;
-        waveSpawner.EnnemiesAlive++;
+        WaveSpawner.Instance.EnnemiesAlive++;
         WaveSpawner.Instance.Triger();
         enemyDeath = GetComponent<EnemyDeath>();
         if (enemyDeath == null)
