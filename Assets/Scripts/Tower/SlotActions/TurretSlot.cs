@@ -28,6 +28,7 @@ public class TurretSlot : MonoBehaviour, IPointerEnterHandler, IPointerDownHandl
     [Header("Feedback")]
     public Color HoverColor;
     public Color OriginalColor;
+    public Color HoverMove = Color.red;
     private Renderer rend;          
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -63,8 +64,19 @@ public class TurretSlot : MonoBehaviour, IPointerEnterHandler, IPointerDownHandl
         //    return;
         //if (!buildManager.BuildMode)
         //    return;
+        if(TurretMove.instance.isMoving == true)
+        {
+            Debug.Log("Hover Move Color");
+            rend.material.color = HoverMove;
+        }
+        else
+        {
+            Debug.Log("Hover Color");
+            rend.material.color = HoverColor;
+        }
 
-        rend.material.color = HoverColor;
+        
+
 
 
         // Add code for tower information in HUD
@@ -104,6 +116,14 @@ public class TurretSlot : MonoBehaviour, IPointerEnterHandler, IPointerDownHandl
         {
             // Close panels before opening another one
             ClosePanel();
+
+            if (TurretMove.instance.isMoving == true)
+            {
+                Debug.Log("Click Move Color");
+                Turret = TurretMove.instance.InstantiateMovedTower(TurretMove.instance.GetTower(), spawnPointTurret);
+
+                return;
+            }
 
             foreach (CanvasRenderer panel in panels)
             {
@@ -180,8 +200,10 @@ public class TurretSlot : MonoBehaviour, IPointerEnterHandler, IPointerDownHandl
 
     public void MoveTower()
     {
-        turretMove.Move(Turret);
+        TurretMove.instance.Move(Turret);
         ClosePanel();
+
+
     }
 
 
