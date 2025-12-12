@@ -151,7 +151,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MissileTransform: {fileID: 8392044096850262889}
   startSpeed: 0
-  speed: 1
+  speed: 2
   startTime: 1
   target: {fileID: 0}
   enemyTag: EnemyAir
