@@ -2723,7 +2723,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a92a0c8612b28ce4da296953a738edd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nuclear: 10
+  nuclear: 12
   gold: 500
   NuclearImages: []
   VisibleImages: []
@@ -8232,7 +8232,7 @@ MonoBehaviour:
         m_MethodName: SelectingModule
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 449bfdb474406634f8f3074e4187af67, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: c7e18d968783acd49bfa5682020c969f, type: 2}
           m_ObjectArgumentAssemblyTypeName: Module, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -8251,7 +8251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f6cab1df3e58b345bdd0de76ed91df8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  module: {fileID: 11400000, guid: 449bfdb474406634f8f3074e4187af67, type: 2}
+  module: {fileID: 11400000, guid: c7e18d968783acd49bfa5682020c969f, type: 2}
   slotImage: {fileID: 5377023704436450963}
   slotGold: {fileID: 8803103395692380329}
 --- !u!1 &3934254919727254781
@@ -13635,7 +13635,7 @@ MonoBehaviour:
         m_MethodName: SelectingModule
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 11400000, guid: 449bfdb474406634f8f3074e4187af67, type: 2}
+          m_ObjectArgument: {fileID: 11400000, guid: 394702a999154314584edd8ad3466044, type: 2}
           m_ObjectArgumentAssemblyTypeName: Module, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -13654,7 +13654,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f6cab1df3e58b345bdd0de76ed91df8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  module: {fileID: 11400000, guid: 449bfdb474406634f8f3074e4187af67, type: 2}
+  module: {fileID: 11400000, guid: 394702a999154314584edd8ad3466044, type: 2}
   slotImage: {fileID: 7957160312282165522}
   slotGold: {fileID: 2150290491267876426}
 --- !u!1 &6799478852151820099
@@ -15834,7 +15834,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8506349829085551005
 Transform:
   m_ObjectHideFlags: 0
@@ -18984,6 +18984,62 @@ PrefabInstance:
       propertyPath: EnemiesLeftAnimator
       value: 
       objectReference: {fileID: 5236473676159249908}
+    - target: {fileID: 6879319858026741197, guid: 722dfcc6de3273a41b5881c89a51f231, type: 3}
+      propertyPath: waves.Array.data[1].Subwaves.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6879319858026741197, guid: 722dfcc6de3273a41b5881c89a51f231, type: 3}
+      propertyPath: waves.Array.data[0].Subwaves.Array.data[0].rate
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6879319858026741197, guid: 722dfcc6de3273a41b5881c89a51f231, type: 3}
+      propertyPath: waves.Array.data[1].Subwaves.Array.data[2].rate
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6879319858026741197, guid: 722dfcc6de3273a41b5881c89a51f231, type: 3}
+      propertyPath: waves.Array.data[1].Subwaves.Array.data[0].spawnPoints
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6879319858026741197, guid: 722dfcc6de3273a41b5881c89a51f231, type: 3}
+      propertyPath: waves.Array.data[1].Subwaves.Array.data[1].spawnPoints
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6879319858026741197, guid: 722dfcc6de3273a41b5881c89a51f231, type: 3}
+      propertyPath: waves.Array.data[1].Subwaves.Array.data[2].spawnPoints
+      value: 
+      objectReference: {fileID: 6609003056815347016, guid: 7cb9b75c5012e8a45a4fc00bfc7889d6, type: 3}
+    - target: {fileID: 6879319858026741197, guid: 722dfcc6de3273a41b5881c89a51f231, type: 3}
+      propertyPath: waves.Array.data[1].Subwaves.Array.data[2].EnemyTypes.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6879319858026741197, guid: 722dfcc6de3273a41b5881c89a51f231, type: 3}
+      propertyPath: waves.Array.data[1].Subwaves.Array.data[0].EnemyTypes.Array.data[0].count
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6879319858026741197, guid: 722dfcc6de3273a41b5881c89a51f231, type: 3}
+      propertyPath: waves.Array.data[1].Subwaves.Array.data[1].EnemyTypes.Array.data[0].count
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6879319858026741197, guid: 722dfcc6de3273a41b5881c89a51f231, type: 3}
+      propertyPath: waves.Array.data[1].Subwaves.Array.data[2].EnemyTypes.Array.data[0].count
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6879319858026741197, guid: 722dfcc6de3273a41b5881c89a51f231, type: 3}
+      propertyPath: waves.Array.data[1].Subwaves.Array.data[2].EnemyTypes.Array.data[0].enemies.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6879319858026741197, guid: 722dfcc6de3273a41b5881c89a51f231, type: 3}
+      propertyPath: 'waves.Array.data[1].Subwaves.Array.data[0].EnemyTypes.Array.data[0].enemies.Array.data[0]'
+      value: 
+      objectReference: {fileID: 545362407022032932, guid: 659136c7f5d369c4bb67e1a4e8fd4624, type: 3}
+    - target: {fileID: 6879319858026741197, guid: 722dfcc6de3273a41b5881c89a51f231, type: 3}
+      propertyPath: 'waves.Array.data[1].Subwaves.Array.data[1].EnemyTypes.Array.data[0].enemies.Array.data[0]'
+      value: 
+      objectReference: {fileID: 272126984777200635, guid: 48d3f39bc0849874e87e235a718962cc, type: 3}
+    - target: {fileID: 6879319858026741197, guid: 722dfcc6de3273a41b5881c89a51f231, type: 3}
+      propertyPath: 'waves.Array.data[1].Subwaves.Array.data[2].EnemyTypes.Array.data[0].enemies.Array.data[0]'
+      value: 
+      objectReference: {fileID: 545362407022032932, guid: 659136c7f5d369c4bb67e1a4e8fd4624, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20105,7 +20161,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6596061253486062364, guid: afb9be698c7db8f418375c238791724a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6768540917647949391, guid: afb9be698c7db8f418375c238791724a, type: 3}
       propertyPath: m_fontSize

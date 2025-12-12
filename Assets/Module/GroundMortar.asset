@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GroundMortar
   m_EditorClassIdentifier: 
   moduleName: Mortar
-  sprite: {fileID: 21300000, guid: bb74a350c344a8d42a22ac9b0eb9c44b, type: 3}
+  sprite: {fileID: 21300000, guid: 51af2f4f421765a41b34fe2df6d1657e, type: 3}
   prefab: {fileID: 6360326138211833162, guid: c2a83e5a0298d664ba512cdd9db2ab0e, type: 3}
   stats: {fileID: 6268079156751564517, guid: c2a83e5a0298d664ba512cdd9db2ab0e, type: 3}
   type: 0
