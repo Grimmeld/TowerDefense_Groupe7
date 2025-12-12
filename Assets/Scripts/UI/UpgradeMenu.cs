@@ -30,6 +30,7 @@ public class UpgradeMenu : MonoBehaviour
     [SerializeField] private TextMeshProUGUI goldText;
     [SerializeField] private TextMeshProUGUI goldUpgText;
     [SerializeField] private GameObject panelStatModule;
+    
 
     [Header("Animation")]
     [SerializeField] private Animator animatorPanel;
@@ -39,6 +40,8 @@ public class UpgradeMenu : MonoBehaviour
     [SerializeField] private Upgrade[] upgrades;
     [SerializeField] private List<Module> modulesToAdd;
 
+    [Header("Base")]
+    [SerializeField] private Canvas baseCanvas;
 
     private void Awake()
     {
@@ -49,8 +52,19 @@ public class UpgradeMenu : MonoBehaviour
         Instance = this;
     }
 
+    private void Start()
+    {
+        Transform nuclearBase = GameObject.FindWithTag("Destination").GetComponent<Transform>();
+        baseCanvas = nuclearBase.GetComponentInChildren<Canvas>();
+    }
+
     public void SwitchPanel(TurretUpgrade tUpgrade, bool enable)
     {
+        if (baseCanvas != null)
+        {   // Show/Hide health bar base
+            baseCanvas.gameObject.SetActive(!enable);
+        }
+
         if (enable)
         {   // Open upgrade menu
             hudPanel.gameObject.SetActive(false);
@@ -70,7 +84,9 @@ public class UpgradeMenu : MonoBehaviour
 
             OpenInventory();
 
-            
+
+
+
         }
         else
         {   // Close upgrade menu
@@ -80,6 +96,7 @@ public class UpgradeMenu : MonoBehaviour
 
             upgrade.EnableIsUpgrading(false);
             upgrade = null;
+
         }
 
     }
