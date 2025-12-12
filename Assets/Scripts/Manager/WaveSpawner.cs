@@ -82,10 +82,10 @@ public class WaveSpawner : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(currentWave);
+        //Debug.Log(currentWave);
         EnnemiesLeftText.text = EnnemiesAlive.ToString();
         WaveNumberText.text = "Wave : " + (currentWave + 1).ToString();
-        WaveIncomingText.text = "Wave " + currentWave.ToString() + " Is Coming!";
+        WaveIncomingText.text = "Wave " + (currentWave+1).ToString() + " Is Coming!";
         if (currentWave >= waves.Length) //toute les vague terminé
         {
             Debug.Log(" vagues terminées");
