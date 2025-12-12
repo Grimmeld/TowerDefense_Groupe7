@@ -123,6 +123,7 @@ public class TurretSlot : MonoBehaviour, IPointerEnterHandler, IPointerDownHandl
             if (TurretMove.instance.isMoving == true)
             {
                 Debug.Log("Click Move Color");
+                TurretMove.instance.selectedSlot = this.gameObject;
                 Turret = TurretMove.instance.InstantiateMovedTower(TurretMove.instance.GetTower(), spawnPointTurret);
                 panelMove.gameObject.SetActive(false);
                 return;
@@ -208,9 +209,17 @@ public class TurretSlot : MonoBehaviour, IPointerEnterHandler, IPointerDownHandl
     public void MoveTower()
     {
         TurretMove.instance.Move(Turret);
+        Animator animation = Turret.GetComponentInChildren<Animator>();
+        animation.Play("Tower_Move");
         ClosePanel();
+        //DeleteTower();
 
 
+    }
+
+    public void DeleteTower()
+    {
+        Destroy(Turret);
     }
 
 

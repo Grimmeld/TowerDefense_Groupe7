@@ -28,9 +28,9 @@ public class Tower_Animation : MonoBehaviour
             {
                 if (!prepareAttack)
                 {
+                    IdleAttack();
                     prepareAttack = true;
                     Idling = false;
-                    IdleAttack();
                 }
                 if (finishedAttack)
                 {
@@ -42,10 +42,10 @@ public class Tower_Animation : MonoBehaviour
             {
                 if (!Idling)
                 {
+                    ReturnToIdle();
                     Idling = true;
                     finishedAttack = false;
                     prepareAttack = false;
-                    ReturnToIdle();
                 }
             }
         }
@@ -88,7 +88,7 @@ public class Tower_Animation : MonoBehaviour
             yield return null;
         }
         //OnAttackFire.Invoke();
-        prepareAttack = false;
+        //prepareAttack = false;
         finishedAttack = false;
     }
 
