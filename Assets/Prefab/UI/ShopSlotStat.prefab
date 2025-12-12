@@ -12,6 +12,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 687051395563499434, guid: e6ffff1b60031a94fb6b381c96f82c87, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e2722973dfbcbfb45b585d3731ad4e5c, type: 3}
+    - target: {fileID: 2735777023757111300, guid: e6ffff1b60031a94fb6b381c96f82c87, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 102
+      objectReference: {fileID: 0}
+    - target: {fileID: 2735777023757111300, guid: e6ffff1b60031a94fb6b381c96f82c87, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 102
+      objectReference: {fileID: 0}
+    - target: {fileID: 2735777023757111300, guid: e6ffff1b60031a94fb6b381c96f82c87, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -2.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2735777023757111300, guid: e6ffff1b60031a94fb6b381c96f82c87, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 20.4
+      objectReference: {fileID: 0}
     - target: {fileID: 3027906683195310192, guid: e6ffff1b60031a94fb6b381c96f82c87, type: 3}
       propertyPath: m_Name
       value: ShopSlotStat
@@ -42,11 +62,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5494673313227608834, guid: e6ffff1b60031a94fb6b381c96f82c87, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 128
+      value: 170
       objectReference: {fileID: 0}
     - target: {fileID: 5494673313227608834, guid: e6ffff1b60031a94fb6b381c96f82c87, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 128
+      value: 170
       objectReference: {fileID: 0}
     - target: {fileID: 5494673313227608834, guid: e6ffff1b60031a94fb6b381c96f82c87, type: 3}
       propertyPath: m_LocalPosition.x
@@ -99,7 +119,7 @@ PrefabInstance:
     - target: {fileID: 6598819337426926527, guid: e6ffff1b60031a94fb6b381c96f82c87, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 3399322447892ef4483d1e342a89d545, type: 3}
+      objectReference: {fileID: 21300000, guid: f87aed2f49c3e434db4dd743ebc6ddb9, type: 3}
     - target: {fileID: 8600890651140586841, guid: e6ffff1b60031a94fb6b381c96f82c87, type: 3}
       propertyPath: m_IsActive
       value: 0
