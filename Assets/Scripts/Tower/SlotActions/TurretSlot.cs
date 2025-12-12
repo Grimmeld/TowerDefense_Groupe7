@@ -23,6 +23,7 @@ public class TurretSlot : MonoBehaviour, IPointerEnterHandler, IPointerDownHandl
     [Header("UI")]
     [SerializeField] private CanvasRenderer panelEmpty;
     [SerializeField] private CanvasRenderer panelOccupied;
+    [SerializeField] private CanvasRenderer panelMove;
     [SerializeField] private List<CanvasRenderer> panels;
 
     [Header("Feedback")]
@@ -67,6 +68,7 @@ public class TurretSlot : MonoBehaviour, IPointerEnterHandler, IPointerDownHandl
         if(TurretMove.instance.isMoving == true)
         {
             Debug.Log("Hover Move Color");
+            panelMove.gameObject.SetActive(true);
             rend.material.color = HoverMove;
         }
         else
@@ -151,6 +153,7 @@ public class TurretSlot : MonoBehaviour, IPointerEnterHandler, IPointerDownHandl
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        panelMove.gameObject.SetActive(false);
         rend.material.color = OriginalColor;
     }
 
