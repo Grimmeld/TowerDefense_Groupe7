@@ -74,8 +74,6 @@ public class Enemy_Sapper : MonoBehaviour
         }
         SetStats();
     }
-    [Header("Citation")]
-    private string citation = "fait avec l'aide de NOM";
     // Update is called once per frame
     void Update()
     {
@@ -92,6 +90,8 @@ public class Enemy_Sapper : MonoBehaviour
         Vector3 desiredPos = new Vector3(targetPosition.position.x, desiredY, targetPosition.position.z);
         transform.position = Vector3.MoveTowards(transform.position, desiredPos, Speed * Time.deltaTime);
         FaceTargetSmooth(targetPosition);
+        if(isPlunging)
+            NavMeshAgent.enabled = false;
     }
     public void FindTarget()
     {

@@ -83,10 +83,10 @@ MonoBehaviour:
   hoverHeight: 4
   plungeHeight: 1
   hoverBaseOffset: 2
-  plungeBaseOffset: 0.4
-  baseOffsetChangeSpeed: 1
+  plungeBaseOffset: 2
+  baseOffsetChangeSpeed: 3
   heightChangeSpeed: 1
-  plungeStartDistance: 3
+  plungeStartDistance: 4
   lookSlerpSpeed: 10
 --- !u!65 &5265301333198309895
 BoxCollider:
@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e81dcb470d87f5f41bb9bf342674723e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyHealth: 999
+  EnemyHealth: 10
   EnemySpeed: 1
   EnemyWorth: 20
   EnemyResistance: 0
