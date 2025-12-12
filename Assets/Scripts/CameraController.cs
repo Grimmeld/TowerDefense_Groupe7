@@ -49,28 +49,28 @@ public class CameraController : MonoBehaviour
         }
         if (inputMove != Vector2.zero)
         {
-            if (transform.position.x <= 33f && transform.position.x >= -33f && transform.position.z <= 35f && transform.position.z >= -35f)
+            if (transform.position.x <= 30f && transform.position.x >= -30f && transform.position.z <= 28f && transform.position.z >= -28f)
             {
                 float speed = Time.deltaTime * speedMove;
 
                 transform.Translate(speed * inputMove.x, 0, speed * inputMove.y);
             }
-            else if (transform.position.x > 33f && inputMove.x < 0)
+            else if (transform.position.x > 30f && inputMove.x < 0)
             {
                 float speed = Time.deltaTime * speedMove;
                 transform.Translate(speed * inputMove.x, 0, speed * inputMove.y);
             }
-            else if (transform.position.x < -33f && inputMove.x > 0)
+            else if (transform.position.x < -30f && inputMove.x > 0)
             {
                 float speed = Time.deltaTime * speedMove;
                 transform.Translate(speed * inputMove.x, 0, speed * inputMove.y);
             }
-            else if (transform.position.z > 35f && inputMove.y < 0)
+            else if (transform.position.z > 28f && inputMove.y < 0)
             {
                 float speed = Time.deltaTime * speedMove;
                 transform.Translate(speed * inputMove.x, 0, speed * inputMove.y);
             }
-            else if (transform.position.z < -35f && inputMove.y > 0)
+            else if (transform.position.z < -28f && inputMove.y > 0)
             {
                 float speed = Time.deltaTime * speedMove;
                 transform.Translate(speed * inputMove.x, 0, speed * inputMove.y);
