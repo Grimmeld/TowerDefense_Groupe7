@@ -30,7 +30,10 @@ public class TowerController : MonoBehaviour
     private void OnDisable()
     {
         EnableScript(false);
-        tower_Animation.animator.SetTrigger("Disable");
+        if (tower_Animation != null)
+        {
+            tower_Animation.animator.SetTrigger("Disable");
+        }
     }
     //END LEA ++ 
 }

@@ -7,11 +7,16 @@ public class BulletCollide : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag(EnemyTag))
+        Debug.Log(EnemyTag);
+        Debug.Log(EnemyAirTag);
+
+        //if (other.CompareTag(EnemyTag))
+        if (other.gameObject.CompareTag(EnemyTag))
         {
             Destroy(gameObject);
         }
-        if (other.CompareTag(EnemyAirTag))
+        //if (other.CompareTag(EnemyAirTag))
+        if (other.gameObject.CompareTag(EnemyAirTag))
         {
             Destroy(gameObject);
         }

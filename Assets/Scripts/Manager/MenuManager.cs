@@ -11,7 +11,7 @@ public class MenuManager : MonoBehaviour
     }
     public void StartGame()
     {
-        SceneManager.LoadScene("LD_Scene_LD_V2");
+        SceneManager.LoadScene("LD_Scene_LA_V2");
     }
     public void Zoo()
     {
@@ -19,7 +19,7 @@ public class MenuManager : MonoBehaviour
     }
     public void MainMenu()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("Menu_Main");
     }
 
     public void Credits()

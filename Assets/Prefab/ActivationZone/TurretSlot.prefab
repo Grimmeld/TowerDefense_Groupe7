@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3549759165655640670}
   - component: {fileID: 563636538408980897}
   - component: {fileID: 3250847074617953879}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PanelOccupied
   m_TagString: SlotPanel
   m_Icon: {fileID: 0}
@@ -198,7 +198,7 @@ GameObject:
   - component: {fileID: 6625387826547154212}
   - component: {fileID: 4618968847948908961}
   - component: {fileID: 2987898420441267903}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -273,7 +273,7 @@ GameObject:
   - component: {fileID: 7338197429126393616}
   - component: {fileID: 3268446071141914048}
   - component: {fileID: 3239603396977304385}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -349,7 +349,7 @@ GameObject:
   - component: {fileID: 7694585499116175793}
   - component: {fileID: 4034190292605462296}
   - component: {fileID: 6679186366249370162}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Upgrade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -481,7 +481,7 @@ GameObject:
   - component: {fileID: 1679256006125194267}
   - component: {fileID: 838992813438891345}
   - component: {fileID: 4487583656720675336}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PanelEmpty
   m_TagString: SlotPanel
   m_Icon: {fileID: 0}
@@ -559,7 +559,7 @@ GameObject:
   - component: {fileID: 6299811803926155254}
   - component: {fileID: 5542282448531655204}
   - component: {fileID: 8189321102525176474}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Sell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -691,7 +691,7 @@ GameObject:
   - component: {fileID: 8855227447142053272}
   - component: {fileID: 4282569087705040476}
   - component: {fileID: 8410351906711680324}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -829,7 +829,7 @@ GameObject:
   - component: {fileID: 5966335223754704289}
   - component: {fileID: 2463782871790020935}
   - component: {fileID: 7725170934093734658}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -968,7 +968,7 @@ GameObject:
   - component: {fileID: 5874625563785777238}
   - component: {fileID: 6413315161929644112}
   - component: {fileID: 7049737202640675316}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PanelMove
   m_TagString: SlotPanel
   m_Icon: {fileID: 0}
@@ -1066,7 +1066,7 @@ GameObject:
   - component: {fileID: 8801118866032830943}
   - component: {fileID: 4836407946819874748}
   - component: {fileID: 6882580149370331856}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Circle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1292,7 +1292,7 @@ GameObject:
   - component: {fileID: 8696660845457334195}
   - component: {fileID: 2411349362749009639}
   - component: {fileID: 5277833518708169420}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Place
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1424,7 +1424,7 @@ GameObject:
   - component: {fileID: 5806870791580439178}
   - component: {fileID: 6988798842269673534}
   - component: {fileID: 3594844351856856400}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1564,7 +1564,7 @@ GameObject:
   - component: {fileID: 8407564908852461259}
   - component: {fileID: 5246242958023717518}
   - component: {fileID: 3966638542398255728}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1712,7 +1712,7 @@ GameObject:
   - component: {fileID: 4649974319668902871}
   - component: {fileID: 9117739057064436263}
   - component: {fileID: 6032386200895688171}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Move
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1844,7 +1844,7 @@ GameObject:
   - component: {fileID: 1462677694399933124}
   - component: {fileID: 1687671746459901773}
   - component: {fileID: 8521811493992600609}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
