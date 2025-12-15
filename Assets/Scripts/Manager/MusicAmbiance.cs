@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MusicAmbiance : MonoBehaviour
@@ -13,12 +14,7 @@ public class MusicAmbiance : MonoBehaviour
     void Start()
     {
         if (enable)
-        PlayMusic(musics[0]);
-
-        for (int i = 0; i < musics.Length; i++)
-        {
-            
-        }
+            StartCoroutine(LoopAmbiance());
     }
 
     private void PlayMusic(string name)
@@ -26,6 +22,32 @@ public class MusicAmbiance : MonoBehaviour
         if (AudioManager.instance != null && name != null)
         {
             AudioManager.instance.Play(name);
+        }
+    }
+
+    private IEnumerator LoopAmbiance()
+    {
+        while (enable)
+        {
+
+            for (int i = 0; i <= musics.Length; i++)
+            {
+                PlayMusic(musics[i]);
+
+                float timeMusic = 0f;
+
+                if (AudioManager.instance != null && musics[i] != null)
+                {
+                    Sound sound = AudioManager.instance.GetSound(musics[i]);
+                    if (sound != null)
+                    {
+                        timeMusic = sound.clip.length;
+                    }
+                }
+
+                yield return new WaitForSeconds(timeMusic);
+
+            }
         }
     }
 }
