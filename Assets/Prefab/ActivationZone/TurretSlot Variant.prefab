@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 421992867577140743, guid: aaa6568187b2807418b379a2840223f7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2188558514889408110, guid: aaa6568187b2807418b379a2840223f7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.373
@@ -48,12 +52,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4882346586433257262, guid: aaa6568187b2807418b379a2840223f7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6363357383902776632, guid: aaa6568187b2807418b379a2840223f7, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6787256663066620096, guid: aaa6568187b2807418b379a2840223f7, type: 3}
       propertyPath: m_Name
       value: TurretSlot Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8401389393405919594, guid: aaa6568187b2807418b379a2840223f7, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aaa6568187b2807418b379a2840223f7, type: 3}

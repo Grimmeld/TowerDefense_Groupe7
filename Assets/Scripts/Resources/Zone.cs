@@ -129,17 +129,27 @@ public class Zone : MonoBehaviour
         if (!isEnabled)
         {
             GetComponent<Renderer>().material.color = Color.red; // désactivée
-            transmitter.DisableTransmitter();
+            if (transmitter != null)
+            {
+                transmitter.DisableTransmitter();
+            }
         }
         else if (isEnabled && !isPowered)
         {
             GetComponent<Renderer>().material.color = Color.yellow; // activée mais non alimentée
-            transmitter.EnableTransmitter();
+            if(transmitter != null)
+            {
+                transmitter.EnableTransmitter();
+            }
+            
         }
         else // isEnabled && isPowered
         {
             GetComponent<Renderer>().material.color = Color.green; // activée et alimentée
-            transmitter.EnableTransmitter();
+            if (transmitter != null)
+            {
+                transmitter.EnableTransmitter();
+            }
         }
 
         ActivationLights(isPowered);

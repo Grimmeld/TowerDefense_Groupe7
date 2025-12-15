@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GroundFragMortar
   m_EditorClassIdentifier: 
   moduleName: Mortar with fragmentation
-  sprite: {fileID: 21300000, guid: bb74a350c344a8d42a22ac9b0eb9c44b, type: 3}
+  sprite: {fileID: 21300000, guid: e88c66f84db6c674382e21028e39bad8, type: 3}
   prefab: {fileID: 7364147474512016721, guid: d8aab9dbcfd83b24c9985d22f5223b7a, type: 3}
   stats: {fileID: -1365761613302879202, guid: d8aab9dbcfd83b24c9985d22f5223b7a, type: 3}
   type: 0

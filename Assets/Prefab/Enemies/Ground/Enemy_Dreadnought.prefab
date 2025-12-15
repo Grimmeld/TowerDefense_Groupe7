@@ -2542,7 +2542,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Health: 0
   MaxHealth: 0
-  EnemiesToSpawn: 2
+  EnemiesToSpawn: 3
   EnemySpawnRate: 10
   EnemySpawn: 0
   Destination: {fileID: 0}
@@ -2565,7 +2565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e81dcb470d87f5f41bb9bf342674723e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyHealth: 25
+  EnemyHealth: 16
   EnemySpeed: 1
   EnemyWorth: 20
   EnemyResistance: 0

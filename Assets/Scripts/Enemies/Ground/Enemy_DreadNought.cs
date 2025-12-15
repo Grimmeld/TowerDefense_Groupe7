@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Linq;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -74,7 +73,7 @@ public class Enemy_DreadNought : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         Collide = GetComponent<BoxCollider>();
 
-        waveSpawner.EnnemiesAlive++;
+        WaveSpawner.Instance.EnnemiesAlive++;
         WaveSpawner.Instance.Triger();
         enemyDeath = GetComponent<EnemyDeath>();
         if (enemyDeath == null)

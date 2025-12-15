@@ -14,6 +14,7 @@ public class TurretMove : MonoBehaviour
     [SerializeField] public bool isMoving;
 
     [SerializeField] private GameObject selectedTower;
+    [SerializeField] public GameObject selectedSlot;
     public Transform targetSlot;
     public void Move(GameObject tower)
     {
@@ -37,17 +38,22 @@ public class TurretMove : MonoBehaviour
 
     public void DeleteTower()
     {
+        TurretSlot turretSlot = GetComponent<TurretSlot>();
         Destroy(selectedTower);
     }
 
     public GameObject InstantiateMovedTower(GameObject turret, Transform SpawnPoint)
     {
-        TurretSlot turretSlot = GetComponent<TurretSlot>();
+        TurretSlot turretSlot = selectedSlot.GetComponent<TurretSlot>();
 
         GameObject go = (GameObject)Instantiate(selectedTower, turretSlot.transform);
-        go.transform.position = SpawnPoint.position; // Positionner la tour sur le slot
+
+        if (SpawnPoint != null)
+            go.transform.position = SpawnPoint.position; // Positionner la tour sur le slot
+
         turretSlot.UpdateTurretSlot(go); // Update tour dans les paramètres du slot
         EnableIsMoving(false);
+
         Zone zone = turretSlot.GetComponentInParent<Zone>();
 
         if (zone != null)

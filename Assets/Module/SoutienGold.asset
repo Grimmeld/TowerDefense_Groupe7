@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 315b82bf9e7f9af4ba7a092ca6253096, type: 3}
+  m_Name: SoutienGold
+  m_EditorClassIdentifier: 
+  moduleName: Gold Harvester
+  sprite: {fileID: 21300000, guid: 4a9e1b42b46438e4bbded5151d2376d9, type: 3}
+  prefab: {fileID: 7110773058098557628, guid: 4b15542d74a1865468077fc4ee68a28d, type: 3}
+  stats: {fileID: 5650840124057906427, guid: 4b15542d74a1865468077fc4ee68a28d, type: 3}
+  type: 0
+  tower: 1
+  description: Gain gold
+  level: 1
+  price: 50
+  sell: 25
+  nextUpgrade: {fileID: 11400000, guid: 394702a999154314584edd8ad3466044, type: 2}

@@ -110,8 +110,10 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        //Play("JamSongFinal");
+       
     }
+
+
 
     //SUR LES SONS MONO (effet 2D, spatial blend = 0) FAIRE UN PLAY()
     //SUR LES SONS STEREO (effef3D, spatial bland = 1) FAIRE UN PLAYONACTOR() -> ça va créer un component du son sur l'objet, le temps que le clip se joue

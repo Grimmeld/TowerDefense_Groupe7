@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 315b82bf9e7f9af4ba7a092ca6253096, type: 3}
+  m_Name: SoutienNuclear
+  m_EditorClassIdentifier: 
+  moduleName: Nuclear Harvester
+  sprite: {fileID: 21300000, guid: 8e070e830a78d95409ddfc0dd81a9263, type: 3}
+  prefab: {fileID: 1693989278171082319, guid: cbb292b5b7956b047a713d6fff52c65a, type: 3}
+  stats: {fileID: 6700721126694269201, guid: cbb292b5b7956b047a713d6fff52c65a, type: 3}
+  type: 0
+  tower: 1
+  description: 'Gain 1 nuclear '
+  level: 2
+  price: 150
+  sell: 75
+  nextUpgrade: {fileID: 0}
