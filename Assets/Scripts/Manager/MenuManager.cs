@@ -9,7 +9,7 @@ public class MenuManager : MonoBehaviour
     }
     public void StartGame()
     {
-        SceneManager.LoadScene("GameScene");
+        SceneManager.LoadScene("LD_Scene_LD_V2");
     }
     public void Zoo()
     {

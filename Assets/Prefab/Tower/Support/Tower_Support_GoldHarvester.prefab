@@ -4287,6 +4287,7 @@ GameObject:
   - component: {fileID: 2452185376195541018}
   - component: {fileID: 8032447174955654149}
   - component: {fileID: 2294514784283968421}
+  - component: {fileID: 7644938129116107544}
   m_Layer: 0
   m_Name: Tower_Support_GoldHarvester
   m_TagString: Turret
@@ -4402,6 +4403,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   State: 0
   animator: {fileID: 8808946922117740931}
+--- !u!114 &7644938129116107544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7110773058098557628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54ad193d152464149a3e96c879aed533, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerIdle: {fileID: 361364451423443395, guid: 05096e2c99347514fa5d8bb1ef6752f8, type: 3}
 --- !u!1 &7142090639601807340
 GameObject:
   m_ObjectHideFlags: 0
