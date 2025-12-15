@@ -15,7 +15,8 @@ public class Tower_Animation : MonoBehaviour
     public event Action OnAttackFire;
     void Start()
     {
-        animator.Play("Tower_Arrive");
+        if (animator != null)
+        { animator.Play("Tower_Arrive"); }
         Invoke(nameof(animFinish), 3);
     }
 
