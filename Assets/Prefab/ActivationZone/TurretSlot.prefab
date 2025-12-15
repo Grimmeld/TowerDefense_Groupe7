@@ -1196,6 +1196,7 @@ MonoBehaviour:
   panelOccupied: {fileID: 563636538408980897}
   panelMove: {fileID: 5874625563785777238}
   panels: []
+  click: ClickSlot
   HoverColor: {r: 1, g: 1, b: 1, a: 0}
   OriginalColor: {r: 0, g: 0, b: 0, a: 0}
   HoverMove: {r: 1, g: 0, b: 0, a: 1}
@@ -1242,6 +1243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isMoving: 0
   selectedTower: {fileID: 0}
+  selectedSlot: {fileID: 0}
   targetSlot: {fileID: 0}
 --- !u!114 &2922160844556939354
 MonoBehaviour:

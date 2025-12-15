@@ -26,6 +26,9 @@ public class TurretSlot : MonoBehaviour, IPointerEnterHandler, IPointerDownHandl
     [SerializeField] private CanvasRenderer panelMove;
     [SerializeField] private List<CanvasRenderer> panels;
 
+    [Header("Music")]
+    [SerializeField] private string click;
+
     [Header("Feedback")]
     public Color HoverColor;
     public Color OriginalColor;
@@ -114,7 +117,6 @@ public class TurretSlot : MonoBehaviour, IPointerEnterHandler, IPointerDownHandl
         //buildManager.DisableCanvas();
         //buildManager.BuildMode = false;
 
-
         if (SlotPanelManager.instance != null)
         {
             // Close panels before opening another one
@@ -151,6 +153,10 @@ public class TurretSlot : MonoBehaviour, IPointerEnterHandler, IPointerDownHandl
         {
             Debug.Log("Put a Slot Panel Manager in the scene");
         }
+
+
+        PlayMusic(click);
+
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -191,18 +197,26 @@ public class TurretSlot : MonoBehaviour, IPointerEnterHandler, IPointerDownHandl
 
         //Turret = (GameObject)Instantiate(towerBase, transform);
 
+        PlayMusic(click);
+
         ClosePanel();
     }
 
     public void UpgradeTower()
     {
         turretUpgrade.Upgrade(Turret);
+
+        PlayMusic(click);
+
         ClosePanel();
     }
 
     public void SellTower()
     {
         Turret = turretSell.Sell(Turret); // Clear Turret variable
+        
+        PlayMusic(click);
+
         ClosePanel();
     }
 
@@ -211,6 +225,9 @@ public class TurretSlot : MonoBehaviour, IPointerEnterHandler, IPointerDownHandl
         TurretMove.instance.Move(Turret);
         Animator animation = Turret.GetComponentInChildren<Animator>();
         animation.Play("Tower_Move");
+
+        PlayMusic(click);
+
         ClosePanel();
         //DeleteTower();
 
@@ -222,5 +239,12 @@ public class TurretSlot : MonoBehaviour, IPointerEnterHandler, IPointerDownHandl
         Destroy(Turret);
     }
 
+    private void PlayMusic(string music)
+    {
+        if (AudioManager.instance != null && music != null)
+        {
+            AudioManager.instance.Play(music);
+        }
 
+    }
 }

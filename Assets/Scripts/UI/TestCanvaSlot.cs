@@ -1,16 +1,22 @@
+using System.Data;
 using UnityEngine;
 
 public class TestCanvaSlot : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] private GameObject panel;
+    [SerializeField] private Vector3 target;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if (target != null)
+        {
+            //panel.transform.position = Camera.main.WorldToScreenPoint(target);
+
+            var position = Camera.main.WorldToScreenPoint(target);
+            position.z = (panel.transform.position - Camera.main.transform.position).magnitude;
+            panel.transform.position = Camera.main.ScreenToWorldPoint(position);
+
+
+        }
     }
 }

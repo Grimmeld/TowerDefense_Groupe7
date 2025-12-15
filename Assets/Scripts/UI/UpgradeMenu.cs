@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -42,6 +43,10 @@ public class UpgradeMenu : MonoBehaviour
 
     [Header("Base")]
     [SerializeField] private Canvas baseCanvas;
+
+    [Header("Music")]
+    [SerializeField] private string clickMenu;
+    [SerializeField] private string wrong;
 
     private void Awake()
     {
@@ -153,6 +158,8 @@ public class UpgradeMenu : MonoBehaviour
             // Si le module existe déjà, ne pas l'ajouter.
             if (upgrade.moduleName ==  module.moduleName)
             {
+                PlayMusic(wrong);
+
                 return;
             }
 
@@ -162,6 +169,7 @@ public class UpgradeMenu : MonoBehaviour
 
         if ((maxLevel + 1) != module.level)
         {
+            PlayMusic(wrong);
             return;
         }
 
@@ -178,6 +186,8 @@ public class UpgradeMenu : MonoBehaviour
             {
                 if (nextModule != module.moduleName)
                 {
+                    PlayMusic(wrong);
+
                     Debug.Log("Ce n'est pas le bon module");
                     return;
                 }
@@ -199,6 +209,7 @@ public class UpgradeMenu : MonoBehaviour
             Debug.Log("Pas assez de gold sur le player");
             goldUpgrades += module.price;
 
+            PlayMusic(wrong);
             animatorPanel.SetTrigger("NoGold"); //Doesn't work because Time.timeScale = 0
             
 
@@ -208,6 +219,8 @@ public class UpgradeMenu : MonoBehaviour
             // Oui, On peut ajouter le module
             SlotImage[] slotImages = panelWeapon.GetComponentsInChildren<SlotImage>();
             SlotSelected[] slotSelected = panelWeapon.GetComponentsInChildren<SlotSelected>();
+
+            PlayMusic(clickMenu);
 
             // S'il y a déjà 3 modules, ne pas en ajouter un en plus
 
@@ -324,6 +337,8 @@ public class UpgradeMenu : MonoBehaviour
         // Si sauvegarde : Save dans Upgrades de la tour gameObject
 
         // Creer les nouvelles tours avec les upgrade
+        PlayMusic(clickMenu);
+
         upgrade.CreateNewTower();
 
         // Use or add golds from resources
@@ -353,6 +368,8 @@ public class UpgradeMenu : MonoBehaviour
 
     public void Unddo()
     {
+        PlayMusic(clickMenu);
+
         modulesToAdd.Clear();
 
         // Unddo all modifications and get the info from scene 
@@ -489,6 +506,14 @@ public class UpgradeMenu : MonoBehaviour
     {
         yield return new WaitForSecondsRealtime(0.25f);
         panelStatModule.SetActive(false);
+    }
+
+    private void PlayMusic(string music)
+    {
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.Play(music);
+        }
     }
 
 }
