@@ -68,7 +68,7 @@ public class BaseTower : MonoBehaviour
         Shooting += Time.deltaTime;
         if(target == null)
         {
-            tower_Animation.State = Turret_State.Idling;
+            tower_Animation.State = Turret_State.Idling;    
             return;
         }
 
