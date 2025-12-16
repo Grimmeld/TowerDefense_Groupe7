@@ -45,11 +45,14 @@ public class Enemy_Sapper : MonoBehaviour
     [SerializeField] private float heightChangeSpeed = 6f;
     [SerializeField] private float plungeStartDistance = 4f;
     [SerializeField] private float lookSlerpSpeed = 10f;
+    [SerializeField] private Animator animator;
+    [SerializeField] private BoxCollider boxcollider;
     bool isPlunging;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        boxcollider = GetComponent<BoxCollider>();
         Debug.Log("Sapper est là");
 
         NavMeshAgent.baseOffset = 2f;
@@ -79,6 +82,10 @@ public class Enemy_Sapper : MonoBehaviour
     {
         if (targetPosition == null)
             FindTarget();
+        if(Vector3.Distance(transform.position, targetPosition.position) < 5f)
+        {
+            animator.SetTrigger("Attacking");
+        }
         float dist = Vector3.Distance(transform.position, targetPosition.position);
         isPlunging = dist < plungeStartDistance;
         if (NavMeshAgent != null)
@@ -114,7 +121,9 @@ public class Enemy_Sapper : MonoBehaviour
         {
             var TowerSabotaged = other.GetComponent<TowerSabotaged>();
             TowerSabotaged.Sapping();
-            Destroy(gameObject);
+            animator.SetTrigger("Locked");
+            boxcollider.enabled = false;
+            Invoke(nameof(Death), 8f);
         }
         if (other.CompareTag("Bullet"))
         {
