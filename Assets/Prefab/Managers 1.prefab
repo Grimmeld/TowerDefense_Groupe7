@@ -19324,7 +19324,7 @@ PrefabInstance:
     - target: {fileID: 6879319858026741197, guid: 722dfcc6de3273a41b5881c89a51f231, type: 3}
       propertyPath: waves.Array.data[1].Subwaves.Array.data[0].spawnPoints
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8176255935241641383, guid: e22f92886cb56964080e98b185fa5c9b, type: 3}
     - target: {fileID: 6879319858026741197, guid: 722dfcc6de3273a41b5881c89a51f231, type: 3}
       propertyPath: waves.Array.data[1].Subwaves.Array.data[1].spawnPoints
       value: 
@@ -20764,7 +20764,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6596061253486062364, guid: afb9be698c7db8f418375c238791724a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6768540917647949391, guid: afb9be698c7db8f418375c238791724a, type: 3}
       propertyPath: m_fontSize
