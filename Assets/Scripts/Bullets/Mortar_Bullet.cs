@@ -11,6 +11,7 @@ public class Mortar_Bullet : MonoBehaviour
     public Vector3 TargetPos;
     private float time;
     public GameObject ExplosionPrefab;
+    public GameObject ImpactEffect;
     [Header("Cible du bullet")]
     [SerializeField] public Transform target;
     [Header("Tag de l'ennemi")]
@@ -44,6 +45,7 @@ public class Mortar_Bullet : MonoBehaviour
         if (t >= 1)
         {
             Instantiate(ExplosionPrefab, transform.position, transform.rotation);
+            Instantiate(ImpactEffect, transform.position, transform.rotation);
             Destroy(gameObject);
         }
     }
