@@ -15,6 +15,7 @@ public class Tower_Animation : MonoBehaviour
     public event Action OnAttackFire;
     void Start()
     {
+        Idling = false;
         if (animator != null)
         { animator.Play("Tower_Arrive"); }
         Invoke(nameof(animFinish), 3);
@@ -96,5 +97,10 @@ public class Tower_Animation : MonoBehaviour
     void animFinish()
     {
                animationFinished = true;
+    }
+
+    public void Sapped()
+    {
+               animator.Play("Tower_Idle");
     }
 }
