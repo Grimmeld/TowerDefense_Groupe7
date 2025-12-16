@@ -4119,7 +4119,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyHealth: 6
-  EnemySpeed: 0.5
+  EnemySpeed: 1
   EnemyWorth: 10
   EnemyResistance: 0
   EnemyRange: 3
