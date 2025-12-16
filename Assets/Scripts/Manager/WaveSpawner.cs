@@ -167,6 +167,11 @@ public class WaveSpawner : MonoBehaviour
             return;
         }
 
+        if (EnnemiesAlive < 0)
+        {
+            EnnemiesAlive = 0; // Le minimum d'ennemi = 0; pas d'inférieur possible
+        }
+
         bool lastSubWave = currentSubWave +1 >= waves[currentWave].Subwaves.Count;
 
         if(lastSubWave && EnnemiesAlive <= 0)
@@ -178,6 +183,8 @@ public class WaveSpawner : MonoBehaviour
         {
             //NextSubWave();
         }
+
+
     }
 
     public void StartNextWave()

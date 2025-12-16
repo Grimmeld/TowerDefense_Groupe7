@@ -192,6 +192,7 @@ public class Enemy_DreadNought : MonoBehaviour
         while (t < EnemiesToSpawn)
         {
             Instantiate(EnemyBuggyPrefab, EnemySpawnPoint.position, EnemySpawnPoint.rotation);
+            WaveSpawner.Instance.EnnemiesAlive++;   // Add enemy to the enemy left text
             yield return new WaitForSeconds(0.5f);
             t++;
         }
