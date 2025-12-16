@@ -167,4 +167,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   normalDamage: 3
   DamageBuff: 0
+  apply: 0
   EffectValue: 0
