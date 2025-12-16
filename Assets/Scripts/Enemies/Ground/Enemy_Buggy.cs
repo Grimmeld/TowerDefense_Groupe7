@@ -72,8 +72,8 @@ public class Enemy_Buggy : MonoBehaviour
         waveSpawner = FindAnyObjectByType<WaveSpawner>();
         agent = GetComponent<NavMeshAgent>();
         Collide = GetComponent<BoxCollider>();
-        waveSpawner.EnnemiesAlive++;
-        WaveSpawner.Instance.Triger();
+        //waveSpawner.EnnemiesAlive++;
+        //WaveSpawner.Instance.Triger();
         enemyDeath = GetComponent<EnemyDeath>();
         if (enemyDeath == null)
         {
@@ -209,6 +209,7 @@ public class Enemy_Buggy : MonoBehaviour
         {
             HealthRegen = enemyModifier.EffectValue;
             Health += HealthRegen * Time.deltaTime;
+            healthBar.SetHealth(Health);
         }
         else
         {

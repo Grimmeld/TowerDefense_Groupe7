@@ -149,6 +149,7 @@ public class Enemy_Air : MonoBehaviour
         {
             HealthRegen = enemyModifier.EffectValue;
             Health += HealthRegen * Time.deltaTime;
+            healthBar.SetHealth(Health);
         }
         else
         {

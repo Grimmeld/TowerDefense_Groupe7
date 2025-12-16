@@ -192,6 +192,7 @@ public class Enemy_Sapper : MonoBehaviour
         {
             HealthRegen = enemyModifier.EffectValue;
             Health += HealthRegen * Time.deltaTime;
+            healthBar.SetHealth(Health);
         }
         else
         {

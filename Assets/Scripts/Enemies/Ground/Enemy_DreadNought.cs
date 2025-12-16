@@ -231,6 +231,7 @@ public class Enemy_DreadNought : MonoBehaviour
         {
             HealthRegen = enemyModifier.EffectValue;
             Health += HealthRegen * Time.deltaTime;
+            healthBar.SetHealth(Health);
         }
         else
         {
