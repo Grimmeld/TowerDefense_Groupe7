@@ -5,9 +5,13 @@ using System.Collections.Generic;
 public class Tesla_RaycastM : MonoBehaviour
 {
     TowerStats stats;
+    Tower_Animation towerAnimation;
+    TowerSabotaged towerSabotaged;
     private void Awake()
     {
         stats = GetComponent<TowerStats>();
+        towerAnimation = GetComponent<Tower_Animation>();
+        towerSabotaged = GetComponent<TowerSabotaged>();
     }
     [Header("Type de la tourelle")]
     public Turret_Type type;
@@ -44,6 +48,8 @@ public class Tesla_RaycastM : MonoBehaviour
 
     private void Update()
     {
+        if(towerSabotaged.Sabotaged)
+            return;
         Range = stats.Range;
         ShootingRate = stats.shootingRate;
         Shooting += Time.deltaTime;
@@ -65,9 +71,14 @@ public class Tesla_RaycastM : MonoBehaviour
             ArmPivot.LookAt(target.transform.position);
             if (ShootingRate < Shooting)
             {
+                towerAnimation.State = Turret_State.Attacking;
                 Shoot();
                 Shooting = 0;
             }
+        }
+        else
+        {
+                       towerAnimation.State = Turret_State.Idling;
         }
     }
     public void Shoot()

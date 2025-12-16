@@ -126,6 +126,7 @@ MonoBehaviour:
   height: 2
   TargetPos: {x: 0, y: 0, z: 0}
   ExplosionPrefab: {fileID: 6423563864944547642, guid: e7dfe2c58a0a59547bf6b490582fa427, type: 3}
+  ImpactEffect: {fileID: 6041500611807548461, guid: b83b36a9878f4314990cf8ced3f3fb78, type: 3}
   target: {fileID: 0}
   enemyTag: Enemy
 --- !u!114 &5909882280396185482

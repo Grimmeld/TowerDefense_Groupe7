@@ -15,7 +15,7 @@ public class Tower_Animation : MonoBehaviour
     public event Action OnAttackFire;
     void Start()
     {
-        Idling = false;
+        Idling = true;
         if (animator != null)
         { animator.Play("Tower_Arrive"); }
         Invoke(nameof(animFinish), 3);
