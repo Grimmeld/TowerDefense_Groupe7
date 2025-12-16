@@ -20,7 +20,8 @@ public class Tower_PlasmaCanon : MonoBehaviour
 
 
     [Header("Bullet")]
-    public LineRenderer lightningFX;
+   // public LineRenderer lightningFX;
+   public LayerMask enemyLayer;
 
 
     [Header("Stats")]
@@ -92,9 +93,14 @@ public class Tower_PlasmaCanon : MonoBehaviour
             ArmPivot.LookAt(target.transform.position);
             if (ShootingRate < Shooting)
             {
+                tower_Animation.State = Turret_State.Attacking;
                 Shoot();
                 Shooting = 0;
             }
+        }
+        else
+        {
+            tower_Animation.State = Turret_State.Idling;
         }
 
     }
@@ -107,7 +113,7 @@ public class Tower_PlasmaCanon : MonoBehaviour
         Vector3 dir = (target.position - ShootingPoint.position).normalized;
         Ray theRay = new Ray(ShootingPoint.position, transform.TransformDirection(dir * Range));
         Debug.DrawRay(ShootingPoint.position, transform.TransformDirection(dir * Range), Color.yellow);
-        if (Physics.Raycast(theRay, out RaycastHit hit, Range))
+        if (Physics.Raycast(theRay, out RaycastHit hit, Range, enemyLayer))
         {
             Debug.Log("Raycast : " + hit.collider.name);
             Debug.DrawRay(transform.position, dir, Color.red);
@@ -158,11 +164,11 @@ public class Tower_PlasmaCanon : MonoBehaviour
 
     IEnumerator PlayLightningFX(Transform target)
     {
-            lightningFX.enabled = true;
+            /*lightningFX.enabled = true;
             lightningFX.SetPosition(0, ShootingPoint.position);
-            lightningFX.SetPosition(1, target.position);
+            lightningFX.SetPosition(1, target.position);*/
             yield return new WaitForSeconds(1);
-            lightningFX.enabled = false;
+            //lightningFX.enabled = false;
         
     }
 
