@@ -15,6 +15,7 @@ public class Tower_Animation : MonoBehaviour
     public event Action OnAttackFire;
     void Start()
     {
+        Idling = false;
         if (animator != null)
         { animator.Play("Tower_Arrive"); }
         Invoke(nameof(animFinish), 3);
@@ -57,22 +58,25 @@ public class Tower_Animation : MonoBehaviour
 
     public void IdleAttack()
     {
-        animator.Play("Tower_Idle_To_Attack");
+        if (animator != null)
+        { animator.Play("Tower_Idle_To_Attack"); }
         finishedAttack = true;
     }
     public void Attack()
     {
-
-        animator.Play("Tower_Attack");
+        if (animator != null)
+            animator.Play("Tower_Attack");
     }
     public void ReturnToIdle()
     {
-        animator.Play("Tower_Attack_To_Idle");
+        if (animator != null)
+            animator.Play("Tower_Attack_To_Idle");
     }
 
     private IEnumerator PlayAttackAndNotify()
     {
-        animator.Play("Tower_Attack");
+        if (animator != null)
+            animator.Play("Tower_Attack");
         yield return null;
         float length = 0f;
         var clips = animator.GetCurrentAnimatorClipInfo(0);
@@ -96,5 +100,10 @@ public class Tower_Animation : MonoBehaviour
     void animFinish()
     {
                animationFinished = true;
+    }
+
+    public void Sapped()
+    {
+               animator.Play("Tower_Idle");
     }
 }

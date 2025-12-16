@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8828608867784367126
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1402408803881331353, guid: d8aab9dbcfd83b24c9985d22f5223b7a, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: f2745dffdc9f19048b93b347c1aa7dc4, type: 2}
+    - target: {fileID: 1402408803881331353, guid: d8aab9dbcfd83b24c9985d22f5223b7a, type: 3}
+      propertyPath: m_UpdateMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053067041186600605, guid: d8aab9dbcfd83b24c9985d22f5223b7a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053067041186600605, guid: d8aab9dbcfd83b24c9985d22f5223b7a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053067041186600605, guid: d8aab9dbcfd83b24c9985d22f5223b7a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053067041186600605, guid: d8aab9dbcfd83b24c9985d22f5223b7a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053067041186600605, guid: d8aab9dbcfd83b24c9985d22f5223b7a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053067041186600605, guid: d8aab9dbcfd83b24c9985d22f5223b7a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053067041186600605, guid: d8aab9dbcfd83b24c9985d22f5223b7a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053067041186600605, guid: d8aab9dbcfd83b24c9985d22f5223b7a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053067041186600605, guid: d8aab9dbcfd83b24c9985d22f5223b7a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4053067041186600605, guid: d8aab9dbcfd83b24c9985d22f5223b7a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7110291460569244455, guid: d8aab9dbcfd83b24c9985d22f5223b7a, type: 3}
+      propertyPath: towerIdle
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7364147474512016721, guid: d8aab9dbcfd83b24c9985d22f5223b7a, type: 3}
+      propertyPath: m_Name
+      value: Tower_Ground_FragMortar_Idle
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d8aab9dbcfd83b24c9985d22f5223b7a, type: 3}

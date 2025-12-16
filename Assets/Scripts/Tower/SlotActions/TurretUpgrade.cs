@@ -96,7 +96,7 @@ public class TurretUpgrade : MonoBehaviour
         //currentTowerUpgrade = Instantiate(gameObject, spawnPoint);
 
         UpgradeAppear upgradeAppear = gameObject.GetComponent<UpgradeAppear>();
-        if (upgradeAppear != null) { currentTowerMenu = Instantiate(upgradeAppear.GetTowerIdle(), spawnPoint); }
+        if (upgradeAppear != null) { currentTowerMenu = Instantiate(upgradeAppear.GetTowerIdle(), spawnPoint); } 
         currentTowerUpgrade = Instantiate(gameObject, spawnPoint);
         currentTowerUpgrade.transform.position = spawnPoint.position;
     }
