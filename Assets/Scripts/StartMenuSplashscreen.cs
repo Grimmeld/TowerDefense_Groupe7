@@ -6,6 +6,8 @@ public class StartMenuSplashscreen : MonoBehaviour
     [SerializeField] private Animator animator;
     public GameObject panel;
 
+    public string whip;
+
     void Start()
     {
         if (animator != null)
@@ -13,6 +15,7 @@ public class StartMenuSplashscreen : MonoBehaviour
             animator.SetTrigger("Start");
         }
 
+        StartCoroutine("Whipping");
         StartCoroutine("DisablingPanel");
     }
     
@@ -23,4 +26,13 @@ public class StartMenuSplashscreen : MonoBehaviour
         panel.SetActive(false);
     }
 
+    private IEnumerator Whipping()
+    {
+
+        yield return new WaitForSeconds(1.3f);
+        if (AudioManager.instance != null)
+        {
+            AudioManager.instance.Play(whip);
+        }
+    }
 }

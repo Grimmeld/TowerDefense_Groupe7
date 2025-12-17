@@ -781,12 +781,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4262003094141482381, guid: 6366549acffbe0146ab6f7f28dfc3f80, type: 3}
       propertyPath: sounds.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4262003094141482381, guid: 6366549acffbe0146ab6f7f28dfc3f80, type: 3}
       propertyPath: sounds.Array.data[0].clip
       value: 
       objectReference: {fileID: 8300000, guid: ca626ffb74d4a1141a94daa05678aee9, type: 3}
+    - target: {fileID: 4262003094141482381, guid: 6366549acffbe0146ab6f7f28dfc3f80, type: 3}
+      propertyPath: sounds.Array.data[1].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 625afeb31b9988745b404fc807537427, type: 3}
     - target: {fileID: 4262003094141482381, guid: 6366549acffbe0146ab6f7f28dfc3f80, type: 3}
       propertyPath: sounds.Array.data[0].mixer
       value: 
@@ -796,12 +800,32 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4262003094141482381, guid: 6366549acffbe0146ab6f7f28dfc3f80, type: 3}
+      propertyPath: sounds.Array.data[1].mixer
+      value: 
+      objectReference: {fileID: 619011504373843919, guid: 5da14db85cc30aa44b4aee817abec343, type: 2}
+    - target: {fileID: 4262003094141482381, guid: 6366549acffbe0146ab6f7f28dfc3f80, type: 3}
+      propertyPath: sounds.Array.data[1].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4262003094141482381, guid: 6366549acffbe0146ab6f7f28dfc3f80, type: 3}
       propertyPath: sounds.Array.data[0].volume
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 4262003094141482381, guid: 6366549acffbe0146ab6f7f28dfc3f80, type: 3}
+      propertyPath: sounds.Array.data[1].volume
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 4262003094141482381, guid: 6366549acffbe0146ab6f7f28dfc3f80, type: 3}
       propertyPath: sounds.Array.data[0].nameMusic
       value: clickMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 4262003094141482381, guid: 6366549acffbe0146ab6f7f28dfc3f80, type: 3}
+      propertyPath: sounds.Array.data[1].nameMusic
+      value: whip
+      objectReference: {fileID: 0}
+    - target: {fileID: 4262003094141482381, guid: 6366549acffbe0146ab6f7f28dfc3f80, type: 3}
+      propertyPath: sounds.Array.data[1].playOnAwake
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8212682484807129985, guid: 6366549acffbe0146ab6f7f28dfc3f80, type: 3}
       propertyPath: m_Name
@@ -2495,6 +2519,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1191363977}
   panel: {fileID: 1191363973}
+  whip: whip
 --- !u!4 &1143002976
 Transform:
   m_ObjectHideFlags: 0

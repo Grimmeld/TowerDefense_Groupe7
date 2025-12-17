@@ -9922,7 +9922,17 @@ MonoBehaviour:
     source: {fileID: 0}
   - nameMusic: Ambiance1
     typeMusic: 0
-    clip: {fileID: 8300000, guid: cb78aa66516fcc34cae89d694607c5b5, type: 3}
+    clip: {fileID: 8300000, guid: 9315dd45b7c84c646bfb449cbc0f4845, type: 3}
+    mixer: {fileID: -8623995707738177023, guid: 5da14db85cc30aa44b4aee817abec343, type: 2}
+    volume: 0.3
+    pitch: 1
+    spatialBlend: 0
+    loop: 0
+    playOnAwake: 1
+    source: {fileID: 0}
+  - nameMusic: Ambiance2
+    typeMusic: 0
+    clip: {fileID: 8300000, guid: 18cc6b1f04a51dc408e9d8a8284cb755, type: 3}
     mixer: {fileID: -8623995707738177023, guid: 5da14db85cc30aa44b4aee817abec343, type: 2}
     volume: 0.3
     pitch: 1
@@ -9934,7 +9944,7 @@ MonoBehaviour:
     typeMusic: 0
     clip: {fileID: 8300000, guid: 7c4fbacbce7e801419d46d847f72127f, type: 3}
     mixer: {fileID: -8623995707738177023, guid: 5da14db85cc30aa44b4aee817abec343, type: 2}
-    volume: 0.3
+    volume: 0.5
     pitch: 1
     spatialBlend: 0
     loop: 0
