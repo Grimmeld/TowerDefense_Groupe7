@@ -10,7 +10,6 @@ public class Base : MonoBehaviour
     {
         if (MaxHealth <= 0f)
         {
-            Debug.LogWarning($"[{nameof(Base)}] MaxHealth not set on {gameObject.name}. Defaulting to 1.");
             MaxHealth = 1f;
         }
 
@@ -22,10 +21,6 @@ public class Base : MonoBehaviour
             healthBar.SetMaxHealth(MaxHealth);
             healthBar.SetHealth(Health); // ensure bar matches current health immediately
         }
-        else
-        {
-            Debug.LogWarning($"[{nameof(Base)}] healthBar reference is not assigned on {gameObject.name}.");
-        }
     }
 
     public void SetHealth(float healthChange)
@@ -35,6 +30,16 @@ public class Base : MonoBehaviour
 
         if (healthBar != null)
             healthBar.SetHealth(Health);
+
+        // Base destroyed
+        if (Health <= 0)
+        {
+            if (VictoryManager.instance != null)
+            {
+                VictoryManager.instance.Defeat();
+            }
+        }
+
     }
 
     private void OnTriggerEnter(Collider other)
