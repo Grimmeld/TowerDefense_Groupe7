@@ -124,7 +124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletType: 1
-  Damage: 1
+  Damage: 0.5
 --- !u!114 &2509332003179772195
 MonoBehaviour:
   m_ObjectHideFlags: 0
