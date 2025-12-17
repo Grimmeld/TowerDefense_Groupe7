@@ -11,14 +11,17 @@ public class MenuManager : MonoBehaviour
     }
     public void StartGame()
     {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene("LD_Scene_LA_V2");
     }
     public void Zoo()
     {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene("Zoo 1");
     }
     public void MainMenu()
     {
+        Time.timeScale = 1.0f;
         SceneManager.LoadScene("Menu_Main");
     }
 
