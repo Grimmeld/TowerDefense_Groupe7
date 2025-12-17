@@ -16621,7 +16621,7 @@ MonoBehaviour:
   musics:
   - Ambiance1
   - Ambiance2
-  enable: 0
+  enable: 1
 --- !u!1 &7133268767751210057
 GameObject:
   m_ObjectHideFlags: 0
