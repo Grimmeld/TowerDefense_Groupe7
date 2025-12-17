@@ -17,7 +17,7 @@ MonoBehaviour:
   cardText: Minor enemy health regen
   cardGoldText: +100 Gold if wave completed
   effectType: 3
-  effectValue: 0.5
+  effectValue: 0.4
   isUnique: 0
   unlockLevel: 2
   GoldBonus: 100

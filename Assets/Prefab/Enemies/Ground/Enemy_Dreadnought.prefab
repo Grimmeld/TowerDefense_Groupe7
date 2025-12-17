@@ -2546,7 +2546,7 @@ MonoBehaviour:
   EnemySpawnRate: 10
   EnemySpawn: 0
   Destination: {fileID: 0}
-  EnemyBuggyPrefab: {fileID: 4301821913128253186, guid: 9cd5c05f646498d45bcaa3c102c79f77, type: 3}
+  EnemyBuggyPrefab: {fileID: 8778709224000571500, guid: 1a4d13609b5d0bb46bc1d5c5dacfffd6, type: 3}
   agent: {fileID: 0}
   Collide: {fileID: 0}
   EnemySpawnPoint: {fileID: 4328492306618784519}

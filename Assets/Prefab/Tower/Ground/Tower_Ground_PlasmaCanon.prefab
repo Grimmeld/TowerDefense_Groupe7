@@ -4057,7 +4057,7 @@ MonoBehaviour:
   ShootingPoint: {fileID: 4708168564312128858}
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 0
   Damage: 1
   damageRampPerSecond: 0.5
   maxDamageMultiplier: 9
