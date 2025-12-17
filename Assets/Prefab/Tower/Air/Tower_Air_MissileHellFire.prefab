@@ -4965,7 +4965,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootingRate: 4
-  Range: 0
+  Range: 4
   UraniumToGive: 0
   GoldToGive: 0
 --- !u!65 &2530552918979715652
