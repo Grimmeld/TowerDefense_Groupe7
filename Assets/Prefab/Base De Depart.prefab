@@ -430,8 +430,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4bb04d27f949474a9b58b629075b587, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Health: 2000
-  MaxHealth: 2000
+  Health: 3500
+  MaxHealth: 3500
   healthBar: {fileID: 4481172514400946846}
   AttackedAnimator: {fileID: 0}
 --- !u!1 &7992416767856734631
