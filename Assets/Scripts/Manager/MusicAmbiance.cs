@@ -30,7 +30,7 @@ public class MusicAmbiance : MonoBehaviour
         while (enable)
         {
 
-            for (int i = 0; i <= musics.Length; i++)
+            for (int i = 0; i < musics.Length; i++)
             {
                 PlayMusic(musics[i]);
 
