@@ -10,11 +10,13 @@ public class Enemy_Buggy : MonoBehaviour
     EnemyHealthBar healthBar;
     EnemyStats stats;
     EnemyModifier enemyModifier;
+    EnemyAnimation enemyAnimation;
     private void Awake()
     {
         stats = GetComponent<EnemyStats>();
         enemyModifier = GetComponent<EnemyModifier>();
         healthBar = GetComponent<EnemyHealthBar>();
+        enemyAnimation = GetComponent<EnemyAnimation>();
         Health = stats.EnemyHealth;
 
         Worth = stats.EnemyWorth;
@@ -132,7 +134,7 @@ public class Enemy_Buggy : MonoBehaviour
     {
         WaveSpawner.Instance.OnEnemyDied();
         Debug.Log("Enemy Buggy Death");
-        Destroy(gameObject);
+        //Destroy(gameObject);
 
         if (enemyDeath != null)
         {
@@ -140,6 +142,7 @@ public class Enemy_Buggy : MonoBehaviour
         }
         else
         {
+            enemyAnimation.PlayDeath();
             Destroy(gameObject);
         }
     }
