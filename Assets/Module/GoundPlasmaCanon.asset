@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GoundPlasmaCanon
   m_EditorClassIdentifier: 
   moduleName: Plasma Canon
-  sprite: {fileID: 21300000, guid: 74fc71868e37e3149aa24ae790ff33ac, type: 3}
+  sprite: {fileID: 21300000, guid: ee852d06b72ff7e4984e24827d143384, type: 3}
   prefab: {fileID: 6085328349020118952, guid: 41802fcde3f5a7742af2edc1785bab97, type: 3}
   stats: {fileID: 5129706454490840231, guid: 41802fcde3f5a7742af2edc1785bab97, type: 3}
   type: 1

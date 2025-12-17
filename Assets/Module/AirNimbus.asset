@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AirNimbus
   m_EditorClassIdentifier: 
   moduleName: Nimbus
-  sprite: {fileID: 21300000, guid: 71079ee9a59ca0f4f9c4446df0177fca, type: 3}
+  sprite: {fileID: 21300000, guid: 576194dd08c585944855f3437c53e8ba, type: 3}
   prefab: {fileID: 6281579445302266790, guid: 04d0cee6fb8f8bf4d90ab75d43651f9c, type: 3}
   stats: {fileID: -3760820008098739899, guid: 04d0cee6fb8f8bf4d90ab75d43651f9c, type: 3}
   type: 1

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SoutienNuclear
   m_EditorClassIdentifier: 
   moduleName: Nuclear Harvester
-  sprite: {fileID: 21300000, guid: 8e070e830a78d95409ddfc0dd81a9263, type: 3}
+  sprite: {fileID: 21300000, guid: 93b676f30bfc82e438d89a1eeff8548a, type: 3}
   prefab: {fileID: 1693989278171082319, guid: cbb292b5b7956b047a713d6fff52c65a, type: 3}
   stats: {fileID: 6700721126694269201, guid: cbb292b5b7956b047a713d6fff52c65a, type: 3}
   type: 0

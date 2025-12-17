@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AirHellFire
   m_EditorClassIdentifier: 
   moduleName: Hell fire
-  sprite: {fileID: 21300000, guid: bb74a350c344a8d42a22ac9b0eb9c44b, type: 3}
+  sprite: {fileID: 21300000, guid: 104ec53c2e715614caa9cfea9a610276, type: 3}
   prefab: {fileID: 6390477933439637306, guid: 69f8651fb12afa3448be74ff341ab581, type: 3}
   stats: {fileID: -5871386832458425145, guid: 69f8651fb12afa3448be74ff341ab581, type: 3}
   type: 1

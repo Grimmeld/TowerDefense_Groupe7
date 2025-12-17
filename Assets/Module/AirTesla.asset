@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: AirTesla
   m_EditorClassIdentifier: 
   moduleName: Tesla
-  sprite: {fileID: 21300000, guid: fe589993da38f7d4daf6faa62ed41d45, type: 3}
-  prefab: {fileID: 7333832761058895145, guid: f8c436795f30d464c8e0ecb27b7b1043, type: 3}
-  stats: {fileID: -4934851094136469752, guid: f8c436795f30d464c8e0ecb27b7b1043, type: 3}
+  sprite: {fileID: 21300000, guid: bb6034c31a0c1864b99dfd4ee878e02b, type: 3}
+  prefab: {fileID: 3599199418376130341, guid: f8c436795f30d464c8e0ecb27b7b1043, type: 3}
+  stats: {fileID: 3557894866106671306, guid: f8c436795f30d464c8e0ecb27b7b1043, type: 3}
   type: 1
   tower: 0
   description: Fires an electric arc\nTarget several enemies\nMedium damages

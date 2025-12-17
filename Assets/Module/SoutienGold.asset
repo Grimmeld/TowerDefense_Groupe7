@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SoutienGold
   m_EditorClassIdentifier: 
   moduleName: Gold Harvester
-  sprite: {fileID: 21300000, guid: 4a9e1b42b46438e4bbded5151d2376d9, type: 3}
+  sprite: {fileID: 21300000, guid: f472fde9e7386dc4fb11309bc5dfb7d5, type: 3}
   prefab: {fileID: 7110773058098557628, guid: 4b15542d74a1865468077fc4ee68a28d, type: 3}
   stats: {fileID: 5650840124057906427, guid: 4b15542d74a1865468077fc4ee68a28d, type: 3}
   type: 0

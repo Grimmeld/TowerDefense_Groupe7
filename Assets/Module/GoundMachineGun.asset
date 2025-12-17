@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: GoundMachineGun
   m_EditorClassIdentifier: 
   moduleName: Machine Gun
-  sprite: {fileID: 21300000, guid: 74fc71868e37e3149aa24ae790ff33ac, type: 3}
+  sprite: {fileID: 21300000, guid: 193aa6aff1619c64eaf3af5e510efdb1, type: 3}
   prefab: {fileID: 903522462910153207, guid: 3773889c7ebef674c9aa0a4014630123, type: 3}
   stats: {fileID: 8581019091387703202, guid: 3773889c7ebef674c9aa0a4014630123, type: 3}
   type: 1
