@@ -45,6 +45,7 @@ public class Mortar_Bullet : MonoBehaviour
         if (t >= 1)
         {
             Instantiate(ExplosionPrefab, transform.position, transform.rotation);
+            PlayingEffect();
             Destroy(gameObject);
         }
     }
@@ -75,4 +76,14 @@ public class Mortar_Bullet : MonoBehaviour
         }
     }
 
+
+    private void PlayingEffect()
+    {
+        if (ImpactEffect != null)
+        {
+            GameObject go = Instantiate(ImpactEffect, transform.position, transform.rotation);
+            Destroy(go, 2f);
+
+        }
+    }
 }
