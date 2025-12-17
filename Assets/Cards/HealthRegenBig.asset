@@ -17,7 +17,7 @@ MonoBehaviour:
   cardText: Important enemy health regen
   cardGoldText: +150 Gold if wave completed
   effectType: 3
-  effectValue: 0.8
+  effectValue: 0.6
   isUnique: 0
   unlockLevel: 2
   GoldBonus: 150
