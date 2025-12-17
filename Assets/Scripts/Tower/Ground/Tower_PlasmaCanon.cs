@@ -5,9 +5,13 @@ using System.Collections.Generic;
 public class Tower_PlasmaCanon : MonoBehaviour
 {
     TowerStats stats;
+    Tower_Animation Tower_Animation;
+    TowerSabotaged towerSabotaged;
     private void Awake()
     {
         stats = GetComponent<TowerStats>();
+        Tower_Animation = GetComponent<Tower_Animation>();
+        towerSabotaged = GetComponent<TowerSabotaged>();
         baseDamage = Damage;
     }
     [Header("Type de la tourelle")]
@@ -60,12 +64,14 @@ public class Tower_PlasmaCanon : MonoBehaviour
 
         Range = stats.Range;
         ShootingRate = stats.shootingRate;
+        if (towerSabotaged.Sabotaged)
+            return;
         Shooting += Time.deltaTime;
         if (target == null)
         {
             sustainedFireTime = 0f;
             lastTarget = null;
-            tower_Animation.State = Turret_State.Idling;
+            Tower_Animation.State = Turret_State.Idling;
             return;
         }
 
@@ -93,14 +99,14 @@ public class Tower_PlasmaCanon : MonoBehaviour
             ArmPivot.LookAt(target.transform.position);
             if (ShootingRate < Shooting)
             {
-                tower_Animation.State = Turret_State.Attacking;
+                Tower_Animation.State = Turret_State.Attacking;
                 Shoot();
                 Shooting = 0;
             }
         }
         else
         {
-            tower_Animation.State = Turret_State.Idling;
+            Tower_Animation.State = Turret_State.Idling;
         }
 
     }

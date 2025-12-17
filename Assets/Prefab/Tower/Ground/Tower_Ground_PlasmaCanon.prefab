@@ -2438,7 +2438,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3776817350374981206}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.13834895, y: -0.0026943844, z: 0.7416898, w: 0.65631443}
+  m_LocalRotation: {x: 0.05264952, y: 0.14105023, z: 0.7040237, w: 0.69403416}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.030527182, y: 0.030527199, z: 0.030527191}
   m_ConstrainProportionsScale: 0
@@ -2456,7 +2456,7 @@ Transform:
   - {fileID: 7750891620596164413}
   - {fileID: 2509978525404729859}
   m_Father: {fileID: 7946988077623118153}
-  m_LocalEulerAnglesHint: {x: -10.23, y: -12.247, z: 98.09}
+  m_LocalEulerAnglesHint: {x: -7.211, y: 15.788, z: 89.818}
 --- !u!1 &3860277655244765870
 GameObject:
   m_ObjectHideFlags: 0
@@ -4057,10 +4057,10 @@ MonoBehaviour:
   ShootingPoint: {fileID: 4708168564312128858}
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   Damage: 1
-  damageRampPerSecond: 0.2
-  maxDamageMultiplier: 5
+  damageRampPerSecond: 0.5
+  maxDamageMultiplier: 9
   target: {fileID: 0}
   enemyTag: EnemyAir
 --- !u!114 &5129706454490840231

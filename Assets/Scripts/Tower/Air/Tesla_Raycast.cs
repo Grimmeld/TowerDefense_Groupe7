@@ -20,10 +20,11 @@ public class Tesla_RaycastM : MonoBehaviour
     public Transform TorsoPivot;
     public Transform ArmPivot;
     public Transform ShootingPoint;
+    public Transform RobotHead;
 
 
     [Header("Bullet")]
-    public LineRenderer lightningFX;
+    public LayerMask enemyLayer;
 
 
     [Header("Stats")]
@@ -55,6 +56,7 @@ public class Tesla_RaycastM : MonoBehaviour
         Shooting += Time.deltaTime;
         if (target == null)
         {
+            towerAnimation.State = Turret_State.Idling;
             return;
         }
 
@@ -87,7 +89,7 @@ public class Tesla_RaycastM : MonoBehaviour
         Vector3 dir = (target.position - ShootingPoint.position).normalized;
         Ray theRay = new Ray(ShootingPoint.position, transform.TransformDirection(dir * Range));
         Debug.DrawRay(ShootingPoint.position, transform.TransformDirection(dir * Range), Color.yellow);
-        if (Physics.Raycast(theRay, out RaycastHit hit, Range))
+        if (Physics.Raycast(theRay, out RaycastHit hit, Range, enemyLayer))
         {
             if (hit.collider.tag == "EnemyAir")
             {
@@ -104,8 +106,16 @@ public class Tesla_RaycastM : MonoBehaviour
                 }
                 Debug.Log("Enemy touché");
             }
-            StartCoroutine(PlayLightningFX(target));
+            //StartCoroutine(PlayLightningFX(target));
         }
+    }
+    private void LateUpdate()
+    {
+        if (target == null)
+            return;
+        Quaternion Offset = new Quaternion(0, 0, -180, 0);
+        RobotHead.LookAt(target.transform.position);
+        RobotHead.rotation = Quaternion.Slerp(RobotHead.rotation, RobotHead.rotation * Offset, TurnSpeed);
     }
 
     void UpdateTarget()
@@ -133,14 +143,14 @@ public class Tesla_RaycastM : MonoBehaviour
         }
     }
 
-    IEnumerator PlayLightningFX(Transform target)
+    /*IEnumerator PlayLightningFX(Transform target)
     {
         lightningFX.enabled = true;
         lightningFX.SetPosition(0, ShootingPoint.position);
         lightningFX.SetPosition(1, target.position);
         yield return new WaitForSeconds(1);
         lightningFX.enabled = false;
-    }
+    }*/
 
     public void OnDrawGizmosSelected()
     {
