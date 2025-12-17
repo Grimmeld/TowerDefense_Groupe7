@@ -3647,9 +3647,9 @@ MonoBehaviour:
   TorsoPivot: {fileID: 6474499718588898838}
   ArmPivot: {fileID: 1066740565733384268}
   ShootingPoint: {fileID: 4151238659893562278}
-  RobotHead: {fileID: 0}
+  RobotHead: {fileID: 4165947170140569813}
   BulletPrefab: {fileID: 2264482880616421794, guid: a7802a101ac1adb4e9770aeebcfd6330, type: 3}
-  target: {fileID: 4165947170140569813}
+  target: {fileID: 0}
   enemyTag: Enemy
 --- !u!65 &2121895724065431435
 BoxCollider:
