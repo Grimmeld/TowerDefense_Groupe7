@@ -38,11 +38,12 @@ public class VictoryManager : MonoBehaviour
 
     public void Victory()
     {
-        Time.timeScale = 0.0f;
         if (victoryPanel != null)
         {
             victoryPanel.SetActive(true);
         }
+        Time.timeScale = 0.0f;
+        
     }
 
     public void OnClic()
