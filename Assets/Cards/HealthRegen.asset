@@ -19,5 +19,5 @@ MonoBehaviour:
   effectType: 3
   effectValue: 0.4
   isUnique: 0
-  unlockLevel: 2
+  unlockLevel: 0
   GoldBonus: 100

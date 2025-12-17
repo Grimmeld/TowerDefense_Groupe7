@@ -107,7 +107,6 @@ public class DreadNought_Buggy : MonoBehaviour
 
     void Death()
     {
-        WaveSpawner.Instance.OnEnemyDied();
         Debug.Log("Enemy Buggy Death");
 
         if (enemyDeath != null)
@@ -201,5 +200,9 @@ public class DreadNought_Buggy : MonoBehaviour
 
 
         agent.SetDestination(chosenWaypoint.position);
+    }
+    private void OnDestroy()
+    {
+        WaveSpawner.Instance.OnEnemyDied();
     }
 }

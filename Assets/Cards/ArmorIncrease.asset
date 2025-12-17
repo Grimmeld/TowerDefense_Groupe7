@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: ArmorIncrease
   m_EditorClassIdentifier: 
   cardImage: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
-  cardName: Armor Module
-  cardText: +30% Enemy Armor
-  cardGoldText: +75 Gold if wave completed
-  effectType: 1
-  effectValue: 30
+  cardName: Speed Module MK3
+  cardText: +100% EnemySpeed
+  cardGoldText: +200 Gold if wave completed
+  effectType: 0
+  effectValue: 100
   isUnique: 0
-  unlockLevel: 0
-  GoldBonus: 75
+  unlockLevel: 7
+  GoldBonus: 200

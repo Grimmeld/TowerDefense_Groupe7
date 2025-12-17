@@ -138,7 +138,6 @@ public class Enemy_DreadNought : MonoBehaviour
 
     void Death()
     {
-        WaveSpawner.Instance.OnEnemyDied();
         //Destroy(gameObject);
         
         // Determine when the enemy will die, if there is an animation or not
@@ -270,5 +269,9 @@ public class Enemy_DreadNought : MonoBehaviour
         waypointReached = false;
 
         agent.SetDestination(chosenWaypoint.position);
+    }
+    private void OnDestroy()
+    {
+        WaveSpawner.Instance.OnEnemyDied();
     }
 }

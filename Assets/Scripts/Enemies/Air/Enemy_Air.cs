@@ -91,7 +91,6 @@ public class Enemy_Air : MonoBehaviour
     }
     void Death()
     {
-        WaveSpawner.Instance.OnEnemyDied();
         //Destroy(gameObject);
 
         // Determine when the enemy will die, if there is an animation or not
@@ -157,5 +156,10 @@ public class Enemy_Air : MonoBehaviour
         }
 
 
+    }
+
+    private void OnDestroy()
+    {
+        WaveSpawner.Instance.OnEnemyDied();
     }
 }

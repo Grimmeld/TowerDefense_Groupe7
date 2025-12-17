@@ -132,7 +132,7 @@ public class Enemy_Buggy : MonoBehaviour
 
     void Death()
     {
-        WaveSpawner.Instance.OnEnemyDied();
+
         Debug.Log("Enemy Buggy Death");
         //Destroy(gameObject);
 
@@ -251,5 +251,10 @@ public class Enemy_Buggy : MonoBehaviour
         waypointReached = false;
 
         agent.SetDestination(chosenWaypoint.position);
+    }
+
+    private void OnDestroy()
+    {
+        WaveSpawner.Instance.OnEnemyDied();
     }
 }

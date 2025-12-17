@@ -134,7 +134,6 @@ public class Enemy_Sapper : MonoBehaviour
 
     void Death()
     {
-        WaveSpawner.Instance.OnEnemyDied();
         //Destroy(gameObject);
 
         // Determine when the enemy will die, if there is an animation or not
