@@ -5,9 +5,15 @@ public class VictoryManager : MonoBehaviour
 {
     public static VictoryManager instance;
 
+    [Header("Defeat")]
     [SerializeField] private GameObject defeatPanel;
-
     [SerializeField] private Animator defeatAnimator;
+
+    [Header("Victory")]
+    [SerializeField] private GameObject victoryPanel;
+
+    [Header("Sound")]
+    [SerializeField] private string clic;
 
     private void Start()
     {
@@ -30,11 +36,28 @@ public class VictoryManager : MonoBehaviour
         }
     }
 
+    public void Victory()
+    {
+        Time.timeScale = 0.0f;
+        if (victoryPanel != null)
+        {
+            victoryPanel.SetActive(true);
+        }
+    }
+
+    public void OnClic()
+    {
+        if (AudioManager.instance != null && clic != null)
+        {
+            AudioManager.instance.Play(clic);
+        }
+    }
+
     public void DebugTool(InputAction.CallbackContext context)
     {
         if (context.started)
         {
-            Defeat();
+            
         }
     }
 }
