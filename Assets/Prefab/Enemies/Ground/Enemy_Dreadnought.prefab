@@ -2567,7 +2567,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyHealth: 16
   EnemySpeed: 1
-  EnemyWorth: 20
+  EnemyWorth: 10
   EnemyResistance: 0
   EnemyRange: 3
   EnemyFireRate: 1
