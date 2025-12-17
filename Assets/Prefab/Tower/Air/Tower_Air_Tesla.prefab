@@ -1536,7 +1536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 696c2f27d2caa6c4b878323e8ea232bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootingRate: 2
+  shootingRate: 0.5
   Range: 6
   UraniumToGive: 0
   GoldToGive: 0

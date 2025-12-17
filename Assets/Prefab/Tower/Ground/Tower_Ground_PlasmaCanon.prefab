@@ -4057,12 +4057,12 @@ MonoBehaviour:
   ShootingPoint: {fileID: 4708168564312128858}
   enemyLayer:
     serializedVersion: 2
-    m_Bits: 0
-  Damage: 1
+    m_Bits: 256
+  Damage: 2
   damageRampPerSecond: 0.5
   maxDamageMultiplier: 9
   target: {fileID: 0}
-  enemyTag: EnemyAir
+  enemyTag: Enemy
 --- !u!114 &5129706454490840231
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4076,7 +4076,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shootingRate: 0.7
-  Range: 2
+  Range: 4
   UraniumToGive: 0
   GoldToGive: 0
 --- !u!114 &1333866808987870998
